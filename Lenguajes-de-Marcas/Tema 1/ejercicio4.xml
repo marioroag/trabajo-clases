@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Ejercicio 4: Crear un XML de recetas
+Crea un XML con 2 recetas de cocina.  
+Cada receta debe incluir: `nombre`, `ingredientes` (lista de varios, con su cantidad), y
+`tiempoPreparacion`.
+-->
+
+<recetario>
+    <receta>
+        <nombre>Solomillos de pollo en salsa roquefort</nombre>
+        <ingredientes>
+            <ingrediente>
+                <nombre>Nata para cocinar</nombre>
+                <cantidad>200 ml</cantidad>
+            </ingrediente>
+            <ingrediente>
+            <nombre>Queso roquefort</nombre>
+                <cantidad>100 g</cantidad>
+            </ingrediente>
+            <ingrediente>
+            <nombre>Pimienta negra molida</nombre>
+                <cantidad/>
+            </ingrediente>
+            <ingrediente>
+            <nombre>Aceite de oliva</nombre>
+                <cantidad>1 Cucharada</cantidad>
+            </ingrediente>
+            <ingrediente>
+            <nombre>Solomillos de pollo</nombre>
+                <cantidad>400 g</cantidad>
+            </ingrediente>
+            <ingrediente>
+            <nombre>Sal</nombre>
+                <cantidad/>
+            </ingrediente>
+        </ingredientes>
+        <tiempoPreparacion>20 minutos</tiempoPreparacion>
+    </receta>
+    <receta>
+        <nombre>Ensaladilla rusa casera</nombre>
+        <ingredientes>
+            <ingrediente>
+                <nombre>Patatas grandes para cocer</nombre>
+                <cantidad>700 g</cantidad>
+            </ingrediente>
+            <ingrediente>
+                <nombre>Zanahoria grande</nombre>
+                <cantidad>150 g</cantidad>
+            </ingrediente>
+            <ingrediente>
+                <nombre>Huevos</nombre>
+                <cantidad>2 pcs</cantidad>
+            </ingrediente>
+            <ingrediente>
+                <nombre>Lata pequeña de aceitunas verdes sin hueso</nombre>
+                <cantidad>50 g</cantidad>
+            </ingrediente>
+            <ingrediente>
+                <nombre>Media lata pequeña de guisantes en conserva</nombre>
+                <cantidad>60 g</cantidad>
+            </ingrediente>
+            <ingrediente>
+                <nombre>Mayonesa</nombre>
+                <cantidad>200 g</cantidad>
+            </ingrediente>
+        </ingredientes>
+        <tiempoPreparacion>55 minutos</tiempoPreparacion>
+    </receta>
+</recetario>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Ejercicio 2: Crear un XML de alumnos
+Escribe un documento XML que represente una lista de alumnos de un curso.  
+Cada alumno debe incluir: `nombre`, `apellido`, `edad`, `email`.  
+Agrupa a todos los alumnos dentro de una etiqueta raíz `<alumnos>`.-->
+
+<alumnos>
+    <alumno>
+        <nombre>Juan</nombre>
+        <apellido>Gonzalez</apellido>
+        <edad>39</edad>
+        <email>juan123@gmail.com</email>
+    </alumno>
+    <alumno>
+        <nombre>Jonay</nombre>
+        <apellido>Pérez</apellido>
+        <edad>23</edad>
+        <email>jonay.perez@gmail.com</email>
+    </alumno>
+</alumnos>

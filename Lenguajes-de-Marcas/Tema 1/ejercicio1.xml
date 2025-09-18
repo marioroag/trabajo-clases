@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Ejercicio 1: Crear un XML de libros
+Crea un documento XML que contenga una lista de **3 libros**.  
+Cada libro debe tener: `titulo`, `autor`, `anio`, `editorial`.-->
+
+<biblioteca>
+    <libro>
+        <titulo>El principito</titulo>
+        <autor>Antoine de Saint-Exupéry</autor>
+        <anio>1943</anio>
+        <editorial>Editorial Trillas</editorial>
+    </libro>
+    <libro>
+        <titulo>El hobbit</titulo>
+        <autor>J.R.R. Tolkien</autor>
+        <anio>1937</anio>
+        <editorial>Ediciones Minotauro</editorial>
+    </libro>
+    <libro>
+        <titulo>El alquimista </titulo>
+        <autor>Paulo Coelho</autor>
+        <anio>1988</anio>
+        <editorial>Editorial Planeta</editorial>
+    </libro>
+</biblioteca>

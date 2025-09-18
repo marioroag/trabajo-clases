@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Ejercicio 6: Crear un XML de un instituto
+Crea un XML que represente un instituto.  
+Debe tener varias `clases`, y cada clase varios `alumnos`.  
+Los alumnos deben tener al menos: `nombre`, `edad` y `notaMedia`.-->
