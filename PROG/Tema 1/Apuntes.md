@@ -1,7 +1,7 @@
 19/09/25
 
 # UD: 1 - Introducción a la Programacion en JS
-(Puntos 2 y 1 los saltamos)
+(Puntos 1 y 2 los saltamos)
 
 ## 3. Tipos de Datos y Variables en JavaScript
 
