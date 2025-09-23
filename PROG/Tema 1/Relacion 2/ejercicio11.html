@@ -1,5 +1,14 @@
 <script>
     // 11. **Conversión de segundos a horas, minutos y segundos**
-    // - Pide una cantidad de segundos y conviértela a horas, minutos y segundos.
+
+    // Solicita al usuario una cantidad de segundos
+    let inputSegundos = parseInt(prompt("Cantidad de segundos:"))
+
+    // Cálculos:
+    let horas = parseInt(inputSegundos / 3600)
+    let minutos = parseInt((inputSegundos % 3600) / 60)
+    let segundos = (((inputSegundos % 3600) % 60))
     
+    // Muestra el resultado en la consola
+    console.log('horas: ' + horas + ', minutos: ' + minutos + ', segundos: ' + segundos)
 </script>
