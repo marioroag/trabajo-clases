@@ -1,5 +1,14 @@
 <script>
     // 9. **Repartir caramelos entre niños**
-    // - Pide al usuario cuántos caramelos tiene y cuántos niños hay. Calcula cuántos caramelos recibe cada niño y cuántos sobran.
+    // - Pide al usuario cuántos caramelos tiene y cuántos niños hay.
+    let caramelos = Number(prompt('¿Cuantos caramelos tienes?'))
+    let niños = Number(prompt('¿Cuantos niños hay?'))
+
+    // Calcula cuántos caramelos recibe cada niño y cuántos sobran.
+    let caramelosNiño = parseInt(caramelos / niños)
+    let restoCaramelos = parseInt(caramelos % niños)
+
+    // Loggea en la consola
+    console.log('A cada niño le dan ' + caramelosNiño + ' y sobrarían ' + restoCaramelos + ' caramelos.')
     
 </script>

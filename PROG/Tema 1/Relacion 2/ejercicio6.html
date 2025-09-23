@@ -1,8 +1,10 @@
 <script>
     // 6. **Conversor de Edad en Segundos**
-    // Pide la edad del usuario y convierte esa edad a segundos.
+    // Pide la edad del usuario
     let edad = Number(prompt('Tu edad'))
-    let edadSegundos = edad*31536000
+
+    // Edad -> Segundos
+    let edadSegundos = edad * 31536000 // 31536000 es un año en segundos
     
     // Log en consola
     console.log('Si tienes ' + edad + ' años' + ', tienes ' + edadSegundos + ' segundos.')
