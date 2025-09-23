@@ -1,6 +1,9 @@
 <script>
     // 5. Calculadora de Peso en la Luna
-    // Pide el peso del usuario y calcula cuánto pesaría en la Luna (aproximadamente el 16.5% de su peso en la Tierra).
+    // Pide el peso del usuario
     let peso = Number(prompt('¿Cuánto pesas? (kg)'))
-    console.log('Si pesas ' + peso + 'kg' + ', pesarías ' + (peso/6) + 'kg en la Luna.')
+    let pesoLunar = peso*(16.5/100)
+
+    // Calcula cuánto pesaría en la Luna y lo loggea.
+    console.log('Si pesas ' + peso + 'kg, pesarías ' + pesoLunar + 'kg en la Luna.')
 </script>
