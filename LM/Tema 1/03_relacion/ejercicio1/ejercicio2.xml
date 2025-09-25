@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ## Ejercicio 2 — Equipo Pokémon (cardinalidades)
+**Objetivo:** Usar `+` y `*`.  
+
+📌 Instrucciones:  
+1. Crea un XML con DTD interna que represente un **equipo Pokémon**.  
+2. El elemento raíz será `<equipo>`.  
+3. Reglas de DTD:  
+   - `equipo` contiene **uno o más** `pokemon` 
+   - `pokemon` contiene: `nombre`, `tipo`, `nivel`.  
+   - `tipo` puede repetirse **una o más veces** (`tipo`) porque un Pokémon puede tener varios tipos (ej. Agua + Volador).  -->
+
+<!DOCTYPE equipo [
+    <!ELEMENT equipo (pokemon+)>
+    <!ELEMENT pokemon (nombre, tipo+, nivel)>
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT tipo (#PCDATA)>
+    <!ELEMENT nivel (#PCDATA)>
+]>
+
+<equipo>
+    <pokemon>
+        <nombre>Mimikyu</nombre>
+        <tipo>Fantasma</tipo>
+        <tipo>Hada</tipo>
+        <nivel>23</nivel>
+    </pokemon>
+    <pokemon>
+        <nombre>Duskull</nombre>
+        <tipo>Fantasma</tipo>
+        <nivel>19</nivel>
+    </pokemon>
+    <pokemon>
+        <nombre>Darumaka</nombre>
+        <tipo>Fuego</tipo>
+        <nivel>26</nivel>
+    </pokemon>
+</equipo>

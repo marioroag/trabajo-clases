@@ -1,0 +1,12 @@
+<!-- 3. Reglas de DTD:  
+   - El elemento raíz es `liga`.  
+   - `liga` contiene: `entrenador`.  
+   - `entrenador` contiene: `nombre`, `pokemon`.  
+   - `pokemon` contiene: `nombre`, `tipo`, `nivel`.  -->
+
+<!ELEMENT liga (entrenador+)>
+<!ELEMENT entrenador (nombre, pokemon+)>
+<!ELEMENT pokemon (nombre, tipo+, nivel)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT tipo (#PCDATA)>
+<!ELEMENT nivel (#PCDATA)>

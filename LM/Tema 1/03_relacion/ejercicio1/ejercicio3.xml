@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ## Ejercicio 3 — Liga Pokémon con DTD externa
+**Objetivo:** Separar en archivo externo y practicar estructuras más grandes.  
+
+📌 Instrucciones:  
+1. Crea un archivo `liga.xml` que represente una **Liga Pokémon**.  
+2. El XML debe usar una DTD externa llamada `liga.dtd`.  
+3. Reglas de DTD:  
+   - El elemento raíz es `liga`.  
+   - `liga` contiene: `entrenador`.  
+   - `entrenador` contiene: `nombre`, `pokemon`.  
+   - `pokemon` contiene: `nombre`, `tipo`, `nivel`.  
+
+📌 Tarea:  
+- Escribe `liga.xml` con al menos 2 entrenadores.  
+- Cada entrenador debe tener mínimo 2 Pokémon.  
+- Escribe también `liga.dtd` con las reglas.  
+-->
+
+<!DOCTYPE liga SYSTEM "ejercicio3.dtd">
+<liga>
+    <entrenador>
+        <nombre>Constanino</nombre>
+        <pokemon>
+            <nombre>Froslass</nombre>
+            <tipo>Hielo</tipo>
+            <tipo>Fantasma</tipo>
+            <nivel>91</nivel>
+        </pokemon>
+        <pokemon>
+            <nombre>Blastoise</nombre>
+            <tipo>Agua</tipo>
+            <nivel>81</nivel>
+        </pokemon>
+        <pokemon>
+            <nombre>Banette</nombre>
+            <tipo>Fantasma</tipo>
+            <nivel>88</nivel>
+        </pokemon>
+    </entrenador>
+    <entrenador>
+        <nombre>Angel</nombre>
+        <pokemon>
+            <nombre>Slaking</nombre>
+            <tipo>Normal</tipo>
+            <nivel>87</nivel>
+        </pokemon>
+        <pokemon>
+            <nombre>Hydreigon</nombre>
+            <tipo>Siniestro</tipo>
+            <tipo>Volador</tipo>
+            <nivel>83</nivel>
+        </pokemon>
+        <pokemon>
+            <nombre>Volcarona</nombre>
+            <tipo>Bicho</tipo>
+            <tipo>Fuego</tipo>
+            <nivel>86</nivel>
+        </pokemon>
+    </entrenador>
+</liga>

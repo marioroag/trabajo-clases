@@ -1,0 +1,18 @@
+<script>
+    // 6. Determinar si un año es bisiesto:
+    // Solicita un año y determina si es bisiesto.
+
+    let anio = parseInt(prompt('Año a comprobar si es bisiesto'))
+    let divisible4 = (anio % 4 == 0)
+    let divisible100 = (anio % 100 == 0)
+    let divisible400 = (anio % 400 == 0)
+    let esBisiesto = ((divisible4 && !divisible100) || divisible400)
+
+    // Comprueba si falso bisiesto
+    if (esBisiesto) {
+        console.log(anio + ' es un año bisiesto.')
+    } else {
+        console.log(anio + ' no es un año bisiesto.')
+    }
+
+</script>

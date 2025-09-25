@@ -1,0 +1,17 @@
+<script>
+    // 2. Comprobar si un número es par o impar:
+    // Pide un número al usuario y determina si es par o impar.
+
+    // Solicito al usuario un numero a comprobar
+    let numero = Number(prompt('Número a comprobar: '))
+
+    // Fórmula para comprobar el resto al dividir entre 0
+    let esPar = (numero%2 == 0)
+
+    // Si el resto es 0 -> número par, sino -> impar
+    if (esPar) {
+        console.log(numero + ' es un número par.')
+    } else {
+        console.log(numero + ' es un numero impar.')
+    }
+</script>

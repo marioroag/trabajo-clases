@@ -1,0 +1,29 @@
+<script>
+    // 7. Simular una calculadora simple:
+    // Pide dos números y una operación (+, -, *, /) e imprime el resultado correspondiente.
+
+    // Solicita dos numeros y un operando.
+    let numero1 = Number(prompt('Número 1:'))
+    let operando = prompt('Operador (+, -, *, /):')
+    let numero2 = Number(prompt('Número 2:'))
+    let resultadoOperacion = null
+
+    // Da valor a 'resultadoOperacion' si encuentra input válido.
+    if (operando == '+') {
+        resultadoOperacion = (numero1 + numero2)
+    } else if (operando == '-') {
+        let resultadoOperacion = (numero1 - numero2)
+    } else if (operando == '*') {
+        let resultadoOperacion = (numero1 * numero2)
+    } else if (operando == '/') {
+        let resultadoOperacion = (numero1 / numero2)
+    } 
+
+    // Comprueba si 'resultadoOperacion' tiene un valor asignado y lo muestra e la consola.
+    if (resultadoOperacion != null) {
+        console.log('Resultado: ' + resultadoOperacion)
+    } else {
+        console.log('Wrong input')
+    }
+    
+</script>
