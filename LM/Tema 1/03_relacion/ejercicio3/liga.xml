@@ -17,7 +17,7 @@
 - Escribe también `liga.dtd` con las reglas.  
 -->
 
-<!DOCTYPE liga SYSTEM "ejercicio3.dtd">
+<!DOCTYPE liga SYSTEM "liga.dtd">
 <liga>
     <entrenador>
         <nombre>Constanino</nombre>
