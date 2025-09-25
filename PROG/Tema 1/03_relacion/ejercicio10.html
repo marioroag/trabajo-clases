@@ -8,4 +8,29 @@
         D (60-69).
         F (0-59). */
 
+    // Pide la calificación
+    let calificacion = Number(prompt('Ingrese su calificación'))
+
+    // Define los rangos de letras (A, B, C, D, F)
+    let a = calificacion >= 90 && calificacion <= 100
+    let b = calificacion >= 80 && calificacion <= 89
+    let c = calificacion >= 70 && calificacion <= 79
+    let d = calificacion >= 60 && calificacion <= 69
+    let f = calificacion >= 0 && calificacion <= 59
+
+    // Responde con la letra segun la calificación
+    if (a) {
+        console.log('Has obtenido una A')
+    } else if (b) {
+        console.log('Has obtenido una B')
+    } else if (c) {
+        console.log('Has obtenido una C')
+    } else if (d) {
+        console.log('Has obtenido una D')
+    } else if (f) {
+        console.log('Has obtenido una F')
+    } else {
+        console.log ('Número ingresado no es válido, debe ser de 0 al 100')
+    }
+
 </script>
