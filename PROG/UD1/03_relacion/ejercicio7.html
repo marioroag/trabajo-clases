@@ -12,12 +12,19 @@
     if (operando == '+') {
         resultadoOperacion = (numero1 + numero2)
     } else if (operando == '-') {
-        let resultadoOperacion = (numero1 - numero2)
+        resultadoOperacion = (numero1 - numero2)
     } else if (operando == '*') {
-        let resultadoOperacion = (numero1 * numero2)
-    } else if (operando == '/') {
-        let resultadoOperacion = (numero1 / numero2)
-    } 
+        resultadoOperacion = (numero1 * numero2)
+    } else if (operando == '/' ) {
+        if (numero2 != 0) {
+            resultadoOperacion = (numero1 / numero2)
+        } else {
+            console.log('No es posible dividir entre 0') // Error division entre 0
+            resultadoOperacion = 'Error'
+        }
+    } else {
+        console.log('Wrong input')
+    }
 
     // Comprueba si 'resultadoOperacion' tiene un valor asignado y lo muestra e la consola.
     if (resultadoOperacion != null) {

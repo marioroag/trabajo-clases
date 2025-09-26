@@ -1,0 +1,31 @@
+<script>
+    /* 14. Estado del clima:
+
+Solicita la temperatura actual e imprime:
+    "Muy frío" si es menor a 0°C.
+    "Frío" si es entre 0°C y 15°C.
+    "Templado" si es entre 16°C y 25°C.
+    "Caliente" si es mayor a 25°C. */
+
+    // Solicita la temperatura
+    let temperatura = Number(prompt('Temperatura actual (°C)'))
+
+    // Definiciones:
+    let muyFrio = temperatura < 0
+    let frio = temperatura >= 0 && temperatura <= 15
+    let templado = temperatura > 15 && temperatura <= 25
+    let caliente = temperatura > 25
+
+    // Imprime resultado dependiendo de la temperatura
+    if (muyFrio) {
+        console.log('Muy frío')
+    } else if (frio) {
+        console.log('Frío')
+    } else if (templado) {
+        console.log('Templado')
+    } else if (caliente) {
+        console.log('Caliente')
+    } else {
+        console.log('Ha ocurrido un error')
+    }
+</script>

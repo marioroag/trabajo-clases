@@ -1,0 +1,28 @@
+<script>
+    /* 11. Día de la semana:
+
+    Solicita un número del 1 al 7 e imprime el día de la semana correspondiente (1 para lunes, 2 para martes, etc.). */
+
+    // Solicita un número del 1 al 7
+    let numero = parseInt(prompt('Ingresa un número para saber que dia de la semana le corresponde (1-7)'))
+
+    // Comprueba el número y imprime el resultado
+    if (numero >= 1 && numero <= 7) { // Rango aceptable de números
+        } else if (numero == 1) {
+            console.log('Lunes')
+        } else if (numero == 2) {
+            console.log('Martes')
+        } else if (numero == 3) {
+            console.log('Miercoles')
+        } else if (numero == 4) {
+            console.log('Jueves')
+        } else if (numero == 5) {
+            console.log('Viernes')
+        } else if (numero == 6) {
+            console.log('Sábado')
+        } else if (numero == 7) {
+            console.log('Domingo')
+    } else {
+        console.log('Porfavor ingrese un numero del 1 al 7')
+    }
+</script>

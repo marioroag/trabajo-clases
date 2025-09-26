@@ -13,10 +13,10 @@
     // Suma sus dígitos
     let resultado = (primerNumero + segundoNumero)
 
-    // Muestra el resultado
-    if (numero <= 99 || numero <= -99) {
+    // Muestra el resultado numero
+    if (numero >= 10 && numero <= 99 || numero >= -10 && numero <= -99) {
         console.log('La suma de sus dos digitos = ' + resultado)
     } else {
-        console.log('El número ingresado tiene más de dos cifras')
+        console.log('El número ingresado tiene más/menos de dos cifras')
     }
 </script>
