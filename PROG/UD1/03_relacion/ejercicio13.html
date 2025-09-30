@@ -4,6 +4,8 @@
 
     // Solicita una letra al usuario
     let letra = prompt('Ingrese una letra (minúscula)')
+    // Convierte entrada del usuario a minuscula para asegurarse de poder trabajar con su input
+    letra = letra.toLocaleLowerCase()
 
     // Definiciones:
     let vocal = (letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u')

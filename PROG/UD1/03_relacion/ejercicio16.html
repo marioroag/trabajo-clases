@@ -15,24 +15,27 @@
     let medios = salario >= 20000 && salario < 40000
     let altos = salario > 40000
 
-    let impuestos
+    let impuestos = 0
 
-    // Fórmula calcular impuestos: ((Cantidad \* Porcentaje) / 100)
-    //let pagara = salario - ((salario * impuestos) / 100)
-
+    // Comprueba si pagarás impuestos, si los pagas da un valor a la variable impuestos
     if (sinImpuestos) {
         console.log('Pagarás 0€ en impuestos')
-    } else if (bajos) {
-        impuestos = 10
-    } else if (medios) {
-        impuestos = 20
-    } else if (altos) {
-        impuestos = 30
     } else {
-        console.log ('Error')
+        if (bajos) {
+            impuestos = 10
+        } else if (medios) {
+            impuestos = 20
+        } else if (altos) {
+            impuestos = 30
+        } else {
+            console.log ('Error')
+        }
     }
 
+    // Utiliza nuestro salario y los impuestos que nos cobran para mostrar un resultado
+    if (impuestos > 0) {
     let impuestosPagar = (salario * impuestos) / 100
     let resultadoDinero = salario - ((salario * impuestos) / 100)
     console.log('Pagarás ' + impuestosPagar + '€ en impuestos, dejandote un salario anual de: ' + resultadoDinero)
+    }
 </script>
