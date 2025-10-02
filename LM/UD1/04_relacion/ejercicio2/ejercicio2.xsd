@@ -44,9 +44,14 @@
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:element>
-                                        <xs:element name="email"> <!-- TERMINAR -->
+                                        <xs:element name="email" maxOccurs="1">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:pattern value="[^@]+@[^@]+"></xs:pattern>
+                                                </xs:restriction>
+                                            </xs:simpleType>
                                         </xs:element>
-                                        <xs:element name="telefono">
+                                        <xs:element name="telefono" maxOccurs="1">
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:string">
                                                     <xs:pattern value="\d{3}-\d{3}-\d{3}"></xs:pattern>
@@ -62,14 +67,14 @@
                                         <xs:element name="producto" maxOccurs="unbounded">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                    <xs:element name="nombre"> <!-- TERMINAR -->
+                                                    <xs:element name="nombre" minOccurs="1" maxOccurs="1"> <!-- TERMINAR -->
                                                         <xs:simpleType>
                                                             <xs:restriction base="xs:string">
-                                                                <xs:pattern value="[A-Z].* [A-Z].*"></xs:pattern>
+                                                                <xs:pattern value="[A-Z].*"></xs:pattern>
                                                             </xs:restriction>
                                                         </xs:simpleType>
                                                     </xs:element>
-                                                    <xs:element name="precio"> <!-- TERMINAR -->
+                                                    <xs:element name="precio" minOccurs="1" maxOccurs="1"> <!-- TERMINAR? -->
                                                     </xs:element>
                                                     <xs:element name="cantidad"> <!-- TERMINAR -->
                                                     </xs:element>
@@ -79,7 +84,16 @@
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="estado"></xs:element> <!-- TERMINAR -->
+                            <xs:element name="estado" maxOccurs="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="Pendiente"/>
+                                        <xs:enumeration value="Enviado"/>
+                                        <xs:enumeration value="Entregado"/>
+                                        <xs:enumeration value="Cancelado"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
                         </xs:sequence>
                         <xs:attribute name="codigo" type="xs:string" use="required"/>
                     </xs:complexType>
