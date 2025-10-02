@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<calendario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ejercicio3.xsd">
+    <evento id="1">
+        <titulo>asdasdasd</titulo>
+        <fecha>2023-10-02</fecha>
+        <hora>20:00:00</hora>
+        <ubicacion>asdasdasd</ubicacion>
+        <codigoPostal>38300</codigoPostal>
+    </evento>
+</calendario>

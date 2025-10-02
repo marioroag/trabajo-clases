@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- Se te da el siguiente XML (no válido aún). Debes crear el XSD que valide su estructura:
+<!-- Se te da el siguiente XML (ejercicio2.xsl). Debes crear el XSD que valide su estructura:
 
 <pedidos>
   <pedido codigo="A101">
@@ -25,6 +25,15 @@
   </pedido>
 </pedidos>
 
+👉 Tu tarea:
+
+    Define un XSD que cumpla:
+        El atributo codigo del pedido sea obligatorio y siga el patrón A seguido de 3 dígitos (A\d{3} con regex).
+        El email debe seguir el formato correcto (regex).
+        El telefono debe tener el formato XXX-XXX-XXX (regex de 9 dígitos con guiones).
+        El precio sea decimal positivo.
+        El estado solo puede ser: Pendiente, Enviado, Entregado.
+
 -->
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -40,21 +49,21 @@
                                         <xs:element name="nombre">
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:string">
-                                                    <xs:pattern value="[A-Z].* [A-Z].*"></xs:pattern>
+                                                    <xs:pattern value="[A-Z].* [A-Z].*"/>
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:element>
-                                        <xs:element name="email" maxOccurs="1">
+                                        <xs:element name="email">
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:string">
-                                                    <xs:pattern value="[^@]+@[^@]+"></xs:pattern>
+                                                    <xs:pattern value="[^@]+@[^@]+"/>
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:element>
-                                        <xs:element name="telefono" maxOccurs="1">
+                                        <xs:element name="telefono">
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:string">
-                                                    <xs:pattern value="\d{3}-\d{3}-\d{3}"></xs:pattern>
+                                                    <xs:pattern value="\d{3}-\d{3}-\d{3}"/>
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:element>
@@ -67,16 +76,22 @@
                                         <xs:element name="producto" maxOccurs="unbounded">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                    <xs:element name="nombre" minOccurs="1" maxOccurs="1"> <!-- TERMINAR -->
+                                                    <xs:element name="nombre">
                                                         <xs:simpleType>
                                                             <xs:restriction base="xs:string">
-                                                                <xs:pattern value="[A-Z].*"></xs:pattern>
+                                                                <xs:pattern value="[A-Z].*"/>
                                                             </xs:restriction>
                                                         </xs:simpleType>
                                                     </xs:element>
-                                                    <xs:element name="precio" minOccurs="1" maxOccurs="1"> <!-- TERMINAR? -->
+                                                    <xs:element name="precio">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:decimal"/>
+                                                        </xs:simpleType>
                                                     </xs:element>
-                                                    <xs:element name="cantidad"> <!-- TERMINAR -->
+                                                    <xs:element name="cantidad">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:positiveInteger"/>
+                                                        </xs:simpleType>
                                                     </xs:element>
                                                 </xs:sequence>
                                             </xs:complexType>
@@ -84,7 +99,7 @@
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="estado" maxOccurs="1">
+                            <xs:element name="estado">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
                                         <xs:enumeration value="Pendiente"/>
@@ -95,7 +110,13 @@
                                 </xs:simpleType>
                             </xs:element>
                         </xs:sequence>
-                        <xs:attribute name="codigo" type="xs:string" use="required"/>
+                        <xs:attribute name="codigo" use="required">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="A\d{3}"></xs:pattern>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
