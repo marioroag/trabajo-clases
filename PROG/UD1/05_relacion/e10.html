@@ -1,0 +1,14 @@
+<script>
+//   Solicitar dos números enteros. Mostrar por pantalla todos los números desde el primer número introducido hasta el segundo número introducido.
+//   Comprueba que el primero es menor que el segundo.
+    let numero1 = Number(prompt('Introduzca un numero entero (1)'))
+    let numero2 = Number(prompt('Introduzca un numero entero (2)'))
+    
+    if (numero1 <= numero2) { // Compruebo que numero1 es mayor que numero2
+        for (i = numero1; i <= numero2; i++) {
+            console.log(i);
+        }
+    } else {
+        console.log('Números introducidos son incorrectos, el primer numero debe de ser mayor al segundo.')
+    }
+</script>

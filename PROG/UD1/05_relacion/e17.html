@@ -1,0 +1,11 @@
+<script>
+    // Solicitar un número entero. Mostrar el siguiente número múltiplo de 3 y 5 a partir del número
+    let numero = Number(prompt('Introduzca un numero entero'))
+    numero++ // Siguiente
+
+    while (numero % 15 != 0) { // 10 = MCM de 3 y 5
+        numero++
+    }
+
+    console.log(numero);
+</script>
