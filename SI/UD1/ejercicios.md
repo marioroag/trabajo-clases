@@ -123,6 +123,7 @@ find proyecto/ -mtime -1
 
 ```bash
 grep --include="*.log" -il "ERROR" -r
+grep -r "[0-9]" --include="*.log"
 ```
 
 ---
