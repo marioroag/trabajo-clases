@@ -1,0 +1,14 @@
+<script>
+    // Solicitar dos números enteros. Mostrar el siguiente número múltiplo del primer número introducido, a partir del segundo número introducido.
+    let numero1 = Number(prompt('Introduzca un numero entero (1)'))
+    let numero2 = Number(prompt('Introduzca un numero entero (2)'))
+    numero1++ // Siguiente
+
+    let numeroMcm = numero1 * numero2
+    while (numero2 % numero1 != 0) { // 10 = MCM de 2, 3 y 5
+        numero2++
+    }
+
+    console.log(numero2);
+
+</script>
