@@ -109,7 +109,7 @@ head -n 2 docs/manual.log
 ```bash
 find proyecto/ -name "*.txt"
 find proyecto/ -name "*backup*"
-find proyecto/ -mtime -24
+find proyecto/ -mtime -1
 ```
 
 ---
