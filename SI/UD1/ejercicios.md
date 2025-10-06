@@ -65,7 +65,7 @@ mkdir proyecto/backup_docs && cp proyecto/docs/{manual.txt,guia.txt} proyecto/ba
 *Responde con los comandos y verifica la estructura final con `ls` o `tree`.*
 
 ```bash
-mv proyecto/src/script1.sh proyecto/test/resultados && mv proyecto/src/script2.sh proyecto/src/script_final.sh && mv proyecto/logs/backup proyecto/test $$ tree proyecto
+mv proyecto/src/script1.sh proyecto/test/resultados && mv proyecto/src/script2.sh proyecto/src/script_final.sh && mv proyecto/logs/backup proyecto/test && tree proyecto
 ```
 
 ---
@@ -81,12 +81,19 @@ mv proyecto/src/script1.sh proyecto/test/resultados && mv proyecto/src/script2.s
 2. Guarda y cierra el archivo.
 3. Visualiza el contenido del archivo editado.
 4. Muestra las primeras 10 líneas del archivo.
-4. Muestra las primeras dos líneas del archivo.
+5. Muestra las primeras dos líneas del archivo.
 
 *Responde con los comandos utilizados*
 
 ```bash
-
+# -e indica que interprete caracteres especiales "\n" para linea nueva
+echo -e "Capítulo 1: Introducción\nCapítulo 2: Instalación\nCapítulo 3: Uso Básico" > docs/manual.log 
+echo -e \n Archivo entero:
+cat docs/manual.log
+echo -e \n Primeras 10 lineas:
+head docs/manual.log
+echo -e \n Primeras 2 lineas:
+head -n 2 docs/manual.log
 ```
 
 ---
@@ -115,7 +122,7 @@ find proyecto/ -mtime -24
 *Responde con los comandos utilizados*
 
 ```bash
-
+grep --include="*.log" -il "ERROR" -r
 ```
 
 ---
@@ -129,5 +136,7 @@ find proyecto/ -mtime -24
 *Responde con los comandos utilizados y verifica la estructura final con `ls` o `tree`.*
 
 ```bash
-
+rm proyecto/config/{app.cfg,db.cfg}
+rm -r proyecto/backup_docs/
+rm -r proyecto/src/modulos/
 ```
