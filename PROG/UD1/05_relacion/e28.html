@@ -1,0 +1,24 @@
+<script>
+    // Solicitar un número entero. Dibujar una pirámide con tantas filas como indique el número.
+    // Ejemplo:
+
+    //     1
+    //    21
+    //   321
+    //  4321
+    // 54321
+
+    let numero = Number(prompt('Introduzca un numero entero para las filas de la piramide'))
+    let numeroEra = String()
+    let mensaje = ''
+    let mensajeEra = ''
+    let mensajeFinal = ''
+
+    // Cada vez que ocurre el loop, guarda cual ha sido el resultado para en el siguiente añadirle el nuevo valor de "i"
+    for (i = 1; i <= numero; i++) {
+        mensaje = i + mensajeEra // Concadena la itineración con la anterior string
+        mensajeEra = mensaje // Guarda los numeros para usarlos en la siguiente itineración
+        mensajeFinal = ' '.repeat(numero - i) + mensaje // Añade los espacios antes de mostrarlo al usuario
+        console.log(mensajeFinal)
+    }
+</script>

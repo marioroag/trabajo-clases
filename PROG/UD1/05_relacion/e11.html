@@ -5,9 +5,12 @@
     let numero1 = Number(prompt('Introduzca un numero entero (1)'))
     let numero2 = Number(prompt('Introduzca un numero entero (2)'))
 
-    if (numero1 < numero2) {
+    if (numero1 <= numero2) {
         for (i = numero2; i >= numero1; i--) {
             console.log(i);
         }
+    } else {
+        console.log('El primer numero debe ser menor que el primero.');
+        
     }
 </script>

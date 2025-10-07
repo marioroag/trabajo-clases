@@ -1,0 +1,22 @@
+<script>
+    // 26.-
+
+    // Solicitar dos números enteros. Dibujar un cuadrado con tantas filas como indique el primer número introducido y tantas columnas como indique el segundo número.
+    // Ejemplo:
+
+    // *****
+    // *****
+    // *****
+    // *****
+    // *****
+
+    let numeroFil = Number(prompt('Introduzca un numero entero para las filas de la piramide'))
+    let numeroCol = Number(prompt('Introduzca un numero entero para las columnas de la piramide'))
+    let mensaje = ''
+
+    // Imprimir tantas veces como numeroFil, tantos asteriscos como numeroCol
+    for (i = 0; i <= numeroFil; i++) {
+        mensaje = '*'.repeat(numeroCol)
+        console.log(mensaje);
+    }
+</script>

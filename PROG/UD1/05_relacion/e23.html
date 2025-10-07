@@ -1,0 +1,19 @@
+<script>
+    // Solicitar un número entero. Dibujar una pirámide con tantas filas como indique el número.
+    // Ejemplo:
+
+    // *****
+    //  ****
+    //   ***
+    //    **
+    //     *
+
+    let numero = parseInt(prompt('Introduzca un numero entero para las filas de la piramide'))
+    let mensaje = ''
+
+    // Un bucle que añada 1 " " al principio de la linea de codigo hasta llegar a "numero" y se elimina un "*" simultaneamente
+    for (i = 0; numero > i; i++) {
+        mensaje = ' '.repeat(i) + '*'.repeat(numero - i)
+        console.log(mensaje);
+    }
+</script>
