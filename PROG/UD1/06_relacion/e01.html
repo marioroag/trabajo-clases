@@ -1,0 +1,52 @@
+<script>
+    // 1. Calificaciones de estudiantes
+
+    // Crea un programa que reciba las calificaciones de N estudiantes (se piden calificaciones hasta que el usuario introduzca un "-1") y calcule el promedio.
+    // Luego muestra cuántos estudiantes están aprobados (>=5) y cuántos suspensos.
+
+    // Ejemplo:
+
+    // Introduce la calificacion del alumno 1: 4
+    // Introduce la calificacion del alumno 2: 1
+    // Introduce la calificacion del alumno 3: 10
+    // Introduce la calificacion del alumno 4: 8
+    // Introduce la calificacion del alumno 5: -1
+
+    // Hay 2 alumnos aprobados y 2 alumnos suspensos.
+    // La calificación media es 5.75
+
+    let calificacion = Number(prompt('Introduzca calificacion del alumno 1 (-1 para terminar):'))
+    let sumaCalificaciones = 0
+    let nAlumnos = 1
+    let alumnosSuspendidos = 0
+    let alumnosAprobados = 0
+    let notaMedia = 0
+
+    // TODO: CUANDO INPUT = nAlumnos FALLA AL CALCULAR O AL PREGUNTAR INPUT
+
+    // Comprueba que el usuario no ha terminado
+    while (calificacion != -1) {
+        // Rango valido de valores y lleva la cuenta de suspensos y aprobados
+        if (calificacion >= 0 && calificacion <= 10){
+            nAlumnos++
+            sumaCalificaciones += calificacion
+
+            if (calificacion < 5) {
+                alumnosSuspendidos++
+            } else {
+                alumnosAprobados++
+            }
+
+        } else {
+            calificacion = Number(prompt('Introduzca calificacion valida del alumno ' + nAlumnos + ' (-1 para terminar):'))
+        }
+
+        calificacion = Number(prompt('Introduzca calificacion del alumno ' + nAlumnos + ' (-1 para terminar):'))
+    }
+    
+    console.log('Hay ' + alumnosAprobados + ' alumnos aprobados y ' + alumnosSuspendidos + ' alumnos suspensos.');
+
+    notaMedia = (sumaCalificaciones / nAlumnos)
+    console.log(sumaCalificaciones + ' / ' + nAlumnos + ' = ' + notaMedia);
+    console.log('La calificación media es ' + notaMedia);
+</script>
