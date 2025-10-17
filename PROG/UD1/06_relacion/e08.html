@@ -1,0 +1,76 @@
+<script>
+    // 8.-
+
+    // Crea tres Hobbits: Introduce, solicitándolo por pantalla, el nombre y la edad de tres hobbits.
+    //     Crea una variable booleana para cada hobbit en la que almacenes true o false dependiendo de si cada uno de nuestros Hobbits puedeRepetir o no.
+    // Menor de edad: ¿Sabéis que los hobbits cumplen la mayoría de edad a los 33 años? Si alguno de nuestros Hobbits tiene menos de 33 años, automáticamente puede repetir. ¡Están en edad de crecimiento!
+    // Segunda oportunidad: Suma la edad de los hobbits y decide quién puede repetir:
+    //     Si la suma de las edades es múltiplo de 2, el primer hobbit puede repetir.
+    //     Si la suma de las edades es múltiplo de 3, el segundo hobbit puede repetir.
+    //     Si la suma de las edades es múltiplo de 5, el tercer hobbit puede repetir.
+    //     Por ejemplo: Si la suma de las edades fuera 60 años, los tres pueden repetir porque 60 es múltiplo de 2, 3 y 5.
+    // ¿Qué ha pasado al final? Escribe por pantalla qué hobbits puede repetir y cuáles no.
+    // [EXTRA] Repartir: Solo nos quedan dos platos de comida extra, así que toca decidir:
+    //     Si los tres hobbits pueden repetir imprime "Toca repartir la comida"
+    //     Si ningún hobbit puede repetir imprime "Va a sobrar comida"
+    //     Si pueden uno o dos hobbits imprime "¡A comer!"
+
+    // Variables:
+    let hobbit1, hobbit2, hobbit3
+    let edad1, edad2, edad3
+    let puedeRepetir1 = false, puedeRepetir2 = false, puedeRepetir3 = false
+    let sumaEdades = (edad1 + edad2 + edad3)
+
+    const EDAD_LIMITE = 33
+
+    // Solicitud de datos:
+    hobbit1 = prompt('Nombre del primer hobbit')
+    edad1 = prompt('Edad del primer hobbit')
+
+    hobbit2 = prompt('Nombre del segundo hobbit')
+    edad2 = prompt('Edad  del segundo hobbit')
+
+    hobbit3 = prompt('Nombre del tercer hobbit')
+    edad3 = prompt('Edad del tercer hobbit')
+
+    // Lógica:
+    if ((edad1 < EDAD_LIMITE) || (sumaEdades % 2 == 0)) {
+        puedeRepetir1 = true
+    }
+
+    if ((edad2 < EDAD_LIMITE) || (sumaEdades % 3 == 0)) {
+        puedeRepetir2 = true
+    }
+
+    if ((edad3 < EDAD_LIMITE) || (sumaEdades % 5 == 0)) {
+        puedeRepetir3 = true
+    }
+
+    // Resultado:
+    if (puedeRepetir1) {
+        console.log(hobbit1 + ' puede comer otra vez');
+    } else {
+        console.log(hobbit1 + ' no puede comer otra vez');
+    }
+
+        if (puedeRepetir2) {
+        console.log(hobbit2 + ' puede comer otra vez');
+    } else {
+        console.log(hobbit2 + ' no puede comer otra vez');
+    }
+
+        if (puedeRepetir3) {
+        console.log(hobbit3 + ' puede comer otra vez');
+    } else {
+        console.log(hobbit3 + ' no puede comer otra vez');
+    }
+
+    // EXTRA: Reparto platos de comida
+    if(puedeRepetir1 && puedeRepetir2 && puedeRepetir3) {
+        console.log('Toca repartir la comida');
+    } else if (!puedeRepetir1 && !puedeRepetir2 && !puedeRepetir3) {
+        console.log('Va a sobrar comida');
+    } else {
+        console.log('¡A comer!');
+    }
+</script>
