@@ -7,12 +7,32 @@
     //    ***
     //   ****
     //  *****
+    // let numero = parseInt(prompt('Introduzca un numero entero para las filas de la piramide'))
+    // let mensaje = ''
+
+    // // Un bucle que añada 1 "*"" a la linea de codigo hasta llegar a "numero"
+    // for (i = 1; numero >= i; i++) {
+    //     mensaje = ' '.repeat(numero - i) + '*'.repeat(i) // Tantos espacios como el numero (se resta la itineracon cada vez) y tantos "*" como veces ha ocurrido el loop
+    //     console.log(mensaje);
+    // }
+
     let numero = parseInt(prompt('Introduzca un numero entero para las filas de la piramide'))
+    let espacios = ''
+    let asteriscos = ''
     let mensaje = ''
 
-    // Un bucle que añada 1 "*"" a la linea de codigo hasta llegar a "numero"
-    for (i = 1; numero >= i; i++) {
-        mensaje = ' '.repeat(numero - i) + '*'.repeat(i) // Tantos espacios como el numero (se resta la itineracon cada vez) y tantos "*" como veces ha ocurrido el loop
+    for (i = 0; i < numero; i++) {
+        let espacios = '';
+        let asteriscos = '';
+
+        for (j = 0; j <= numero - i; j++) {
+            espacios += ' '
+        }
+
+        for (k = 0; k <= i; k++) {
+            asteriscos += '*'
+        }
+        mensaje = (espacios + asteriscos)
         console.log(mensaje);
     }
 </script>

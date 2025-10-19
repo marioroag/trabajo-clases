@@ -9,11 +9,30 @@
     //     *
 
     let numero = parseInt(prompt('Introduzca un numero entero para las filas de la piramide'))
+    let espacios
+    let asteriscos
     let mensaje = ''
 
-    // Un bucle que añada 1 " " al principio de la linea de codigo hasta llegar a "numero" y se elimina un "*" simultaneamente
-    for (i = 0; numero > i; i++) {
-        mensaje = ' '.repeat(i) + '*'.repeat(numero - i)
-        console.log(mensaje);
+    for (i = 0; i < numero; i++) {
+        espacios = ''
+        asteriscos = ''
+
+        for (j = 0; j < numero - i; j++) {
+            // asteriscos
+            asteriscos += '*'
+        }
+        for (k = 0; k < i; k++) {
+            // espacios
+            espacios += ' '
+        }
+
+        mensaje = (espacios + asteriscos)
+        console.log(mensaje)
     }
+
+    // Un bucle que añada 1 " " al principio de la linea de codigo hasta llegar a "numero" y se elimina un "*" simultaneamente
+    // for (i = 0; numero > i; i++) {
+    //     mensaje = ' '.repeat(i) + '*'.repeat(numero - i)
+    //     console.log(mensaje);
+    // }
 </script>
