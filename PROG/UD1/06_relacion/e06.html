@@ -1,3 +1,82 @@
 <script>
-    
+    // 6.- Crea una calculadora básica de dos números. El programa pide dos números y luego una operación (+, -, *, /). El programa pide números hasta que el usuario indica "SALIR"
+
+    // Ejemplo:
+
+    // Introduce el primer número: 4
+    // Introduce el segundo número: 5
+    // Introduce la operación: +
+
+    // El resultado de 4 + 5 es 9
+
+    // Introduce el primer número: 3
+    // Introduce el segundo número: 4
+    // Introduce la operación: *
+
+    // 
+
+    // Introduce el primer número: SALIR
+
+    // Salir
+    let salir = false
+
+    // Declaraciones:
+    let resultado = 0
+    let primerNumero = 0
+    let segundoNumero = 0
+    let operador = 0
+
+    // Mientras input no sea salir se ejecuta el bucle:
+    while (!salir) {
+
+        // -=== COMPRUEBA SI EL USUARIO QUIERE SALIR DESPUES DE CADA INPUT, EN WHILE CUANDO SE DEJA DE CUMPLIR LA CONDICION EL BUCLE INTERRUMPE ===-
+        // -=== SI NO QUIERE SALIR CONVIERTE EL INPUT A NUMERO ===-
+
+        // 1) Primer número (texto para poder comprobar SALIR)
+
+        // = → 1 signo → “acción simple” (asignar)
+        // == → 2 signos → "comprueba el valor”
+        // === → 3 signos → “mirar con lupa” (valor + tipo)
+
+        let primerNumero = prompt('Introduce el primer número:');
+        if (primerNumero === 'SALIR') {
+            salir = true;
+        } else {
+            // convertir a número
+            primerNumero = Number(primerNumero);
+        }
+
+        // 2) Segundo número
+        if (salir === false) {
+            let segundoNumero = prompt('Introduce el segundo número:');
+            if (segundoNumero === 'SALIR') {
+                salir = true;
+            } else {
+                segundoNumero = Number(segundoNumero);
+            }
+        }
+
+        // 3) Operador
+        if (salir === false) {
+            let operador = prompt('Introduce la operación (+, -, *, /):');
+            if (operador === 'SALIR') {
+                salir = true;
+            }
+        }
+
+        // Ejecuta el programa si salir = false
+        if (salir === false) {
+            if (operador = '+') {
+                resultado = primerNumero + segundoNumero
+            } else if (operador = '-') {
+                resultado = primerNumero - segundoNumero
+            } else if (operador = '*') {
+                resultado = primerNumero * segundoNumero
+            } else if (operador = '/') {
+                resultado = primerNumero / segundoNumero
+            }
+            console.log('El resultado de ' + primerNumero + ' ' + operador + ' ' + segundoNumero + ' es ' + resultado);
+        }
+    }
+
 </script>

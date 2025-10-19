@@ -1,0 +1,112 @@
+<script>
+    // Instrucciones del programa:
+
+    //     Solicitar información inicial:
+
+    //     Pide al usuario el número de electrodomésticos que desea registrar.
+    //     Solicita el precio por kilovatio-hora (kWh) para calcular el coste del consumo eléctrico.
+    //     Solicita al usuario la potencia total contratada (en vatios W).
+
+    //     Registrar datos de cada electrodoméstico:
+    //         Para cada electrodoméstico, el programa debe solicitar:
+    //             La potencia del electrodoméstico en vatios (W).
+    //             El número de horas que se utiliza cada día.
+
+    //     Cálculos de consumo:
+
+    //     El programa debe calcular el consumo de cada electrodoméstico en kilovatios-hora (kWh) diarios y mensuales, utilizando la fórmula:
+
+    // Consumo diario en kWh = (Potencia en vatios / 1000) * Número de horas de uso diario
+    // Consumo mensual en kWh = Consumo diario en kWh * 30
+
+    //     También debe calcular el coste mensual en base al consumo mensual y el precio por kWh proporcionado por el usuario.
+    //     El programa debe verificar si el consumo del electrodoméstico supera la potencia contratada. Si esto ocurre, el programa se debe detener y mostrar un mensaje de alerta:
+
+    // ¡Alerta! Has superado la potencia de [potencia contratada] W.
+
+    //     Mostrar resultados: Al final del programa, muestra los siguientes resultados:
+
+    //     El consumo mensual total en kWh para todos los electrodomésticos.
+    //     El coste total mensual en euros.
+
+    // Ejemplo de ejecución correcta:
+
+    // Introduce el número de electrodomésticos a registrar: 2
+    // Introduce el precio por kilovatio-hora (kWh): 0.15
+    // Introduce la potencia total contratada (en vatios): 5000
+
+    // Introduce la potencia del electrodoméstico 1 ( en vatios): 1000
+    // Introduce el número de horas de uso diario: 4
+
+    // Introduce la potencia del electrodoméstico 2 (en vatios): 800
+    // Introduce el número de horas de uso diario: 6
+
+    // Consumo total mensual: 264 kWh
+    // Coste total mensual: 39.60 €
+
+    // Ejemplo de ejecución con superación de la potencia contratada:
+
+    // Introduce el número de electrodomésticos a registrar: 3
+    // Introduce el precio por kilovatio-hora (kWh): 0.15
+    // Introduce la potencia total contratada (en vatios): 3000
+
+    // Introduce la potencia del electrodoméstico 1 (en vatios): 1500
+    // Introduce el número de horas de uso diario: 3
+
+    // Introduce la potencia del electrodoméstico 2 (en vatios): 4000
+
+    // ¡Alerta! Has superado la potencia de 3000 W.
+
+    // Datos iniciales:
+    let numeroElectrodomesticos = Number(prompt('Introduce el número de electrodomésticos a registrar:'))
+    let precioKwhH = Number(prompt('Introduce el precio por kilovatio-hora (kWh):'))
+    let potenciaContratadaW = Number(prompt('Introduce la potencia total contratada (en vatios):'))
+
+    // Declaraciones:
+    let consumoMensualKwh = 0
+    let consumoMensualEuros = 0
+    let potenciaElectrodomestico = 0
+    let consumoDiarioKwh = 0
+    let horasUsoDiario = 0
+    let potenciaOcupada = 0
+
+    // Acumuladores:
+    let consumoTotalKwh = 0
+    let consumoTotalEuros = 0
+
+    // Bandera por si supera el límite de potencia:
+    let potenciaSuperada = false
+
+    // Lógica:
+    for (let i = 1; numeroElectrodomesticos >= i; i++) {
+
+        // Solicita
+        potenciaElectrodomestico = Number(prompt('Introduce la potencia del electrodoméstico ' + i + ' (en vatios):'))
+        horasUsoDiario = Number(prompt('Introduce el número de horas de uso diario:'))
+
+        // Formulas:
+        consumoDiarioKwh = (potenciaElectrodomestico / 1000) * horasUsoDiario
+        consumoMensualKwh = consumoDiarioKwh * 30
+        consumoMensualEuros = consumoMensualKwh * precioKwhH
+
+        // Acumula:
+        consumoTotalKwh += consumoMensualKwh
+        consumoTotalEuros += consumoMensualEuros
+        potenciaOcupada += potenciaElectrodomestico
+
+        // Si supera la potencia contratada cancela el bucle y activa bandera
+        if (potenciaContratadaW < potenciaOcupada) {
+            i = numeroElectrodomesticos
+            console.log('¡Alerta! Has superado la potencia de ' + potenciaContratadaW + ' W.');
+            potenciaSuperada = true
+        }
+    }
+
+    // D
+    if (!potenciaSuperada) {
+    console.log('Consumo total mensual: ' + consumoTotalKwh.toFixed(2) + ' kWh');
+    console.log('Coste total mensual: ' + consumoTotalEuros.toFixed(2) + ' €');
+
+    }
+
+</script>

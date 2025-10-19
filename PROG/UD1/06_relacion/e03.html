@@ -21,30 +21,38 @@
     // Precio por cabeza: 21€
 
     // Variables:
-    let producto, cuenta, propina, personas, totalCabeza
-    let numeroProductoUsuario = 1
+    let producto = 0
+    let numeroProducto = 1
+    let porcentajePropina = 0
+    let personas = 0
+    let propina = 0
+    let totalCuenta = 0
+    let totalCabeza = 0
+    let totalConPropina
 
-    let precioValido
+    let precioValido = true
 
-    // Solicitud de datos:
-    producto = Number(prompt('Precio del producto ' + numeroProductoUsuario + ':'))
+    producto = Number(prompt('Precio del producto 1:'))
 
-    // Logica:
-    while (producto != 0) { // Usuario no quiere salir
-        precioValido = producto > 0
-
-        if (!precioValido) { // No introduce número negativo
-            numeroProductoUsuario++
-            producto = Number(prompt('Precio del producto ' + numeroProductoUsuario + ':'))
-        }
-
-        // if (precioValido) {
-        //     numeroProductoUsuario++
-        //     producto = Number(prompt('Precio del producto ' + numeroProductoUsuario + ':'))
-        //     console.log(numeroProductoUsuario);
-        // }
+    // Bucle que suma productos hasta que introduzca 0:
+    while (producto != 0 & precioValido) {
+        totalCuenta += producto
+        numeroProducto++
+        producto = Number(prompt('Precio del producto ' + numeroProducto + ':'))
     }
 
-    console.log('Programa terminado');
-    
+    // Solicitud de datos para las formulas
+    porcentajePropina = Number(prompt('¿Cuánta propina quieres dejar?:'))
+    personas = Number(prompt('¿Cúantas personas sois?:'))
+
+    // Calculo:
+    propina = (totalCuenta * porcentajePropina) / 100
+    totalConPropina = totalCuenta + propina
+
+    totalCabeza = totalConPropina / personas
+
+    // Resultado en consola:
+    console.log('Total sin propina: ' + totalCuenta.toFixed(2) + '€');
+    console.log('Total con propina del ' + porcentajePropina.toFixed(2) + '%: ' + totalConPropina + '€');
+    console.log('Precio por cabeza: ' + totalCabeza.toFixed(2) + '€');
 </script>

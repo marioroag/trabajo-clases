@@ -21,4 +21,36 @@
     // Introduce los kilómetros del viaje 3: 1000
     // ¡Combustible insuficiente!
 
+    // Datos iniciales:
+    let combustibleRestante = Number(prompt('Introduce el combustible inicial:'))
+    let precioLitro = Number(prompt('Precio del litro de combustible:'))
+    let consumoMedio = Number(prompt('Consumo cada 100km:'))
+
+    // Declaraciones:
+    let numeroViaje = 1
+    let kilometrosViaje = 0
+    let consumoViaje = 0
+    let precioViaje = 0
+
+    // Calculos:
+    let consumoKilometro = consumoMedio / 100
+    let precioKilometro = consumoKilometro * precioLitro
+
+    // Hacer bucle mientras haya combustible
+    while (combustibleRestante > 0) {
+        kilometrosViaje = (Number(prompt('Introduce los kilómetros del viaje ' + numeroViaje + ':')))
+        numeroViaje++
+
+        // Formulas:
+        precioViaje = precioKilometro * kilometrosViaje
+        combustibleRestante -= kilometrosViaje * consumoKilometro
+
+        // Solo muestra resultado si hay combustible, si falta combustible muestra alerta
+        if (combustibleRestante > 0) {
+            console.log('Precio del viaje: ' + precioViaje.toFixed(2) + '€');
+            console.log('Combustible restante: ' + combustibleRestante.toFixed(2) + ' litros');
+        } else {
+            console.log('¡Combustible insuficiente!');
+        }
+    }
 </script>
