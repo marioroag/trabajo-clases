@@ -211,3 +211,38 @@ grep -l "error" *.log              # Mostrar solo los nombres de archivos que co
 | `?` | Un solo carácter | `ls archivo?.txt` | `archivo1.txt`, `archivo2.txt`, etc. |
 | `[ ]` | Rango de caracteres | `ls archivo[1-3].txt` | `archivo1.txt`, `archivo2.txt`, `archivo3.txt` |
 | `{ }` | Lista de opciones | `mv archivo{1,2,3}.txt /destino` | Mueve tres archivos |
+
+# 📝 Chuleta Rápida de Batch / CMD (Windows)
+
+## 🔹 Redirección de entrada/salida
+
+| Comando | Significado | Ejemplo |
+|--------|-------------|---------|
+| `>`    | Redirige la salida y **sobrescribe** el archivo | `echo hola > archivo.txt` |
+| `>>`   | Redirige la salida y **añade** al archivo | `echo otra línea >> archivo.txt` |
+| `<`    | Toma la **entrada desde un archivo** | `sort < archivo.txt` |
+
+---
+
+## 🔹 Pipes (tuberías)
+
+| Comando | Significado | Ejemplo |
+|--------|-------------|---------|
+| `|`    | Envía la salida de un comando como entrada del siguiente | `dir | find "txt"` |
+
+---
+
+## 🔹 Operadores lógicos
+
+| Comando | Significado | Ejemplo |
+|--------|-------------|---------|
+| `&&`   | Ejecuta el segundo comando **si el primero tuvo éxito** | `mkdir nueva && cd nueva` |
+| `||`   | Ejecuta el segundo comando **si el primero falló** | `cd carpeta || echo No existe` |
+
+---
+
+## 🔹 Variables
+
+```bat
+set nombre=Juan
+echo %nombre%
