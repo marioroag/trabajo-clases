@@ -1,0 +1,139 @@
+<script>
+    // Info de los platos:
+    const PRECIO_MAKI = 8
+    const PRECIO_NIGIRI = 10
+    const PRECIO_SASHIMI = 12
+
+    const ARROZ_MAKI = 120
+    const ARROZ_NIGIRI = 50
+    const ARROZ_SASHIMI = 0
+
+    const AGUA_MAKI = 0.10
+    const AGUA_NIGIRI = 0.05
+    const AGUA_SASHIMI = 0.02
+
+    // Solicito datos iniciales (Asegurandome de mayores a 0 y/o enteros):
+    let numeroPedidos = (parseInt(prompt('Numero de pedidos:')))
+    while (numeroPedidos <= 0) {
+        numeroPedidos = parseInt(prompt('Numero de pedidos:'))
+    }
+    let stockArroz = (parseInt(prompt('Stock de arroz (g):')))
+    while (stockArroz <= 0) {
+        stockArroz = (parseInt(prompt('Stock de arroz (g):')))
+    }
+    let stockAgua = (Number(prompt('Stock de agua (L):')))
+    while (stockAgua <= 0) {
+        stockAgua = (Number(prompt('Stock de agua (L):')))
+    }
+
+    // Acumulativos:
+    let consumoArrozTotal = 0
+    let consumoAguaTotal = 0
+    let precioPedidoTotal = 0
+
+    let maki = 0
+    let nigiri = 0
+    let sashimi = 0
+
+    // Declaraciones:
+    let tipoPlato = ''
+    let unidadesPlato = 0
+    let consumoArroz = 0
+    let consumoAgua = 0
+    let precioPlato = 0
+
+    let contador = 0
+
+    // Booleano para controlar si se supera el stock
+    let faltaStock = false
+
+    // Bucle que se repite hasta alcanzar n de pedidos: (for)
+    for (let i = 0; numeroPedidos > i && faltaStock === false; i++) {
+        // Reseteo consumo
+        consumoArroz = 0
+        consumoAgua = 0
+        
+        // Pregunto por el pedido:
+        tipoPlato = prompt('Tipo de plato:')
+        // No sale del bucle hasta que tenga un input valido
+        while (tipoPlato !== 'maki' && tipoPlato !== 'nigiri' && tipoPlato !== 'sashimi') {
+            tipoPlato = prompt('Tipo de plato:')
+        }
+
+        unidadesPlato = parseInt(prompt('Unidades:'))
+        // Me aseguro de que el número sea positivo
+        while (unidadesPlato < 0) {
+            unidadesPlato = parseInt(prompt('Unidades:'))
+        }
+
+        // Obtengo el consumo:
+        if (tipoPlato === 'maki') {
+            consumoArroz = ARROZ_MAKI * unidadesPlato
+            consumoAgua = AGUA_MAKI * unidadesPlato
+            precioPlato = PRECIO_MAKI * unidadesPlato
+        } else if (tipoPlato === 'nigiri') {
+            consumoArroz = ARROZ_NIGIRI * unidadesPlato
+            consumoAgua = AGUA_NIGIRI * unidadesPlato
+            precioPlato = PRECIO_NIGIRI * unidadesPlato
+        } else if (tipoPlato === 'sashimi') {
+            consumoArroz = ARROZ_SASHIMI * unidadesPlato
+            consumoAgua = AGUA_SASHIMI * unidadesPlato
+            precioPlato = PRECIO_SASHIMI * unidadesPlato
+        }
+
+        // Si falta stock salta al resumen final sin contar con el nuevo pedido
+        if (consumoArroz > stockArroz || consumoAgua > stockAgua) {
+            faltaStock = true
+
+            // Dependiendo del stock que falte enseña un mensaje u otro
+            if (consumoArroz > stockArroz) {
+                alert('¡Alerta! Has superado el stock de Arroz')
+            } else if (consumoAgua > stockAgua) {
+                alert('¡Alerta! Has superado el stock de Agua')
+            }
+
+        } else {
+            contador++
+
+            // Restar consumo al stock:
+            stockArroz -= consumoArroz
+            stockAgua -= consumoAgua
+
+            // Solo suma unidades si el pedido es exitoso
+            if (tipoPlato === 'maki') {
+                maki += unidadesPlato
+            } else if (tipoPlato === 'nigiri') {
+                nigiri += unidadesPlato
+            } else if (tipoPlato === 'sashimi') {
+                sashimi += unidadesPlato
+            }
+            // Acumulativo:
+            consumoArrozTotal += consumoArroz
+            consumoAguaTotal += consumoAgua
+            precioPedidoTotal += precioPlato
+
+            // Muestro resultado del pedido:
+            console.log(' ');
+            console.log('--- Pedido ' + contador + ' ---');
+            console.log('Plato: ' + tipoPlato + ' | Unidades: ' + unidadesPlato + ' | Importe cobrado: ' + precioPlato + ' €');
+            console.log('Arroz gastado: ' + consumoArroz + ' g | Acumulado: ' + consumoArrozTotal + ' g');
+            console.log('Agua gastada: ' + consumoAgua + ' L | Acumulado: ' + consumoAguaTotal + ' L');
+        }
+    }
+
+    // Resumen pedido:
+    console.log(' ');
+    console.log('=== RESUMEN FINAL ===');
+    console.log('Pedidos registrados ' + contador + ' de ' + numeroPedidos);
+    console.log('Unidades -> Maki: ' + maki + ' | Nigiri: ' + nigiri + ' | Sashimi: ' + sashimi);
+    console.log('Consumo total -> Arroz: ' + consumoArrozTotal + ' g | Agua: ' + consumoAguaTotal + ' L');
+    console.log('Stock restante -> Arroz: ' + stockArroz + ' g | Agua: ' + stockAgua + ' L');
+    console.log('Caja del dia: ' + precioPedidoTotal + ' €');
+
+    if (faltaStock) {
+        console.log('Mensaje final: Registro interrumpido por superación de stock');
+    } else {
+        console.log('Registro completado con éxito.');
+        
+    }
+</script>
