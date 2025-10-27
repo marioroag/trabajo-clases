@@ -1,0 +1,6 @@
+CLIENTE (idCliente, nombre, direccion, telefono)
+PROMOCION (codigoPromocion, nombre, descripcion, porcentajeDescuento)
+PAGO (idPago, monto, fechaPago, metodoPago, idCliente)
+RESERVA (codigoReserva, fecha, hora, duracion, idPago)
+PISTA (numeroPista, capacidadMaxima, estado)
+EMPLEADO (idEmpleado, nombre, puesto, fechaContratacion)            
