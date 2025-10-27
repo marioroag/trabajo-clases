@@ -43,6 +43,15 @@ sudo groupadd  analisis
 sudo useradd -g direccion -G desarrollo -G analisis -m -s /bin/bash propietario
 sudo useradd -g desarrollo -m -s /bin/bash desarrollador1
 sudo useradd -g analisis -m -s /bin/bash analista1
+
+sudo sudo usermod -aG desarrollo propietario
+
+sudo passwd propietario
+12345
+sudo passwd desarrollador1
+123
+sudo passwd analista1
+123
 ```
 
 
@@ -82,6 +91,5 @@ cd proyTicketsAlhambra
 sudo chmod 777 g=rwx
 sudo chmod 775 analisis
 sudo chmod 775 software
-sudo chmod 700 software
 
 ```
