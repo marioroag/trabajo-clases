@@ -5,11 +5,14 @@
     // Invierte el array utilizando alguno (o varios) de las siguientes funciones: push(), pop(), shift() y unshift().
     // Imprime el array invertido.
 
-    let letras = ['a', 'b', 'c', 'd']
-    let temp = 0
+    // Resultado esperado:
+    // "d", "c", "b", "a"
 
-    let long = letras.length
-    console.log(letras);
+    let letras = ['a', 'b', 'c', 'd']
+    let invertido = []
+    let tempVar = 0
+
+    console.log('Array normal: ' + letras);
 
     // let primero = letras.shift()
     // let segundo = letras.shift()
@@ -19,10 +22,10 @@
 
     // console.log(letras);
 
-    for (let i = 0; i < long; i++) {
-        temp = letras[0]
-        letras.shift()
-        letras.push(temp)
-        console.log(letras);
+    while (letras.length > 0) {
+        tempVar = letras.pop()
+        invertido.push(tempVar)
     }
+
+    console.log('Array invertido: ' + invertido)
 </script>
