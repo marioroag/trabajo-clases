@@ -1,0 +1,70 @@
+<script>
+    // 1. Registro de Temperatura Diaria
+
+    // Escribe un programa que permita al usuario ingresar las temperaturas registradas durante una semana (7 días).
+    // Una vez ingresadas las temperaturas, el programa debe mostrar al usuario un menú con las siguientes opciones:
+
+    //     Mostrar la temperatura más alta registrada.
+    //     Mostrar la temperatura más baja registrada.
+    //     Calcular la temperatura promedio de la semana.
+    //     Salir del programa.
+
+    // El programa debe ejecutarse hasta que el usuario elija la opción de salir.
+
+    // Declaraciones:
+    const DIAS_SEMANA = 7
+
+    let temperaturas = []
+    let temperaturaSolicitada = 0
+
+    let opcion = 0
+
+    let temperaturaMaxima = 0
+    let temperaturaMinima = 0
+    let temperaturaMedia = 0
+
+    let salirBucle = false
+
+    // Solicito temperaturas validas para todos los días de la semana
+    for (let i = 0; i < DIAS_SEMANA; i++) {
+        temperaturaSolicitada = Number(prompt('Introduzca la temperatura del dia nº ' + (i + 1)))
+
+        // Control de errores:
+        while (temperaturaSolicitada < -270 || temperaturaSolicitada > 100) {
+            temperaturaSolicitada = Number(prompt('Introduzca la temperatura del dia nº ' + (i + 1)))
+        }
+
+        // Temperatura correcta asi que la introduce al array
+        temperaturas[i] = temperaturaSolicitada
+    }
+
+    // Menu para el usuario:
+    opcion = prompt('1. Mostrar la temperatura más alta registrada.\n2. Mostrar la temperatura más baja registrada.\n3. Calcular la temperatura promedio de la semana.\n4. Salir del programa.')
+    
+    while (salirBucle == false) {
+        if (opcion == '1') {
+            // Recorre el array, compara las temperaturas empezando a 0, sobreescribe la variable temperaturaMaxima
+            for (let i = 0; i < temperaturas.length; i++) {
+                if (temperaturas[i] > temperaturaMaxima) {
+                    temperaturaMaxima = temperaturas[i]
+                }
+            }
+            console.log('La temperatura máxima fue de: ' + temperaturaMaxima + 'º');
+            salirBucle = true
+
+        } else if (opcion == '2') {
+            // Recorre el array, compara las temperaturas empezando a 0, sobreescribe la variable temperaturaMinima
+            for (let i = 0; i < temperaturas.length; i++) {
+                if (temperaturas[i] < temperaturaMinima) {
+                    temperaturaMinima = temperaturas[i]
+                }
+            }
+            console.log('La temperatura minima fue de: ' + temperaturaMinima + 'º');
+            salirBucle = true
+        } else if (opcion == '3') {
+            // Suma todas las temperaturas y las divide entre 7 para calcular la media
+            
+        } else (opcion == '4')
+
+    }
+</script>
