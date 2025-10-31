@@ -1,4 +1,58 @@
 <script>
-    // 
-    
+    // 3. Sistema de Compras en Almacén
+
+    // Desarrolla un programa que gestione las compras en un almacén. Para esto:
+
+    // 1. Crea un array que contenga los nombres de 10 productos disponibles en el almacén.
+    // 2. Crea otro array que contenga los precios correspondientes a esos 10 productos.
+    // 3. El programa debe permitir al usuario realizar una compra solicitando el nombre del producto y la cantidad deseada.
+    // 4. El programa debe buscar el precio del producto seleccionado, multiplicarlo por la cantidad y añadirlo al total de la compra.
+    // 5. Si el usuario escribe "FIN", el programa debe finalizar la compra, mostrando un resumen con todos los productos adquiridos, sus cantidades, y el costo total a pagar.
+
+    let nombreProductos = ["QUESO", "MAZORCA", "PAN", "ARROZ", "POLLO", "MARTINI", "CERVEZA 00", "VODZKA 00", "WHISKY 00", "PIZZA"]
+    let precioProductos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    let productosAdquiridos = [], cantidadProductosAdquiridos = []
+
+    let productoComprado = prompt("Introduce el nombre del producto").toUpperCase()
+    let unidadesProducto = ""
+    let totalCompra = 0
+
+    //Supongo al principio que el producto no está disponible, en caso de que
+    //esté disponible, pondré la bandera productoDisponible a true
+    let productoDisponible = false
+    while (productoComprado != "FIN") {
+        //Para cada producto que introduzca el usuario, vuelvo a suponer que el 
+        //producto no está disponible
+        productoDisponible = false
+
+        unidadesProducto = prompt("Introduce cuantas unidades quieres")
+        while (unidadesProducto <= 0) {
+            unidadesProducto = prompt("Introduce cuantas unidades quieres")
+        }
+
+        for (let i = 0; i < nombreProductos.length; i++) {
+            //Si el productoComprado está en una de las posiciones de mi array nomnbreProductos
+            if (productoComprado == nombreProductos[i]) {
+                //Sumo el importe de esa compra y digo que el producto está disponible
+                totalCompra += unidadesProducto * precioProductos[i]
+                productoDisponible = true
+            }
+        }
+        //Solo tengo en cuenta la compra si el producto está disponible
+        if (productoDisponible) {
+            productosAdquiridos.push(productoComprado)
+            cantidadProductosAdquiridos.push(unidadesProducto)
+        } else {
+            alert("PRODUCTO NO DISPONIBLE, COMPRA NO REGISTRADA")
+        }
+        productoComprado = prompt("Introduce el nombre del producto").toUpperCase()
+
+    }
+    console.log(`El total de la compra es ${totalCompra} €`);
+
+    for (let i = 0; i < productosAdquiridos.length; i++) {
+        console.log(`${productosAdquiridos[i]} - ${cantidadProductosAdquiridos[i]} Uds `);
+    }
+
+
 </script>
