@@ -40,7 +40,7 @@
 
     // Menu para el usuario:
     opcion = prompt('1. Mostrar la temperatura más alta registrada.\n2. Mostrar la temperatura más baja registrada.\n3. Calcular la temperatura promedio de la semana.\n4. Salir del programa.')
-    
+
     while (salirBucle == false) {
         if (opcion == '1') {
             // Recorre el array, compara las temperaturas empezando a 0, sobreescribe la variable temperaturaMaxima
@@ -62,9 +62,21 @@
             console.log('La temperatura minima fue de: ' + temperaturaMinima + 'º');
             salirBucle = true
         } else if (opcion == '3') {
-            // Suma todas las temperaturas y las divide entre 7 para calcular la media
-            
-        } else (opcion == '4')
+            // Suma todas las temperaturas y las guarda en sumatorioTemperaturas
+            sumatorioTemperaturas = 0
 
-    }
+            for (let i = 0; i < temperaturas.length; i++) {
+                sumatorioTemperaturas += temperaturas[i]
+            }
+            // La media es la suma de las temperaturas entre el número de temperaturas registradas
+            temperaturaMedia = sumatorioTemperaturas / temperaturas.length
+
+            alert("La temperatura media es de " + temperaturaMedia.toFixed(2) + " ºC")
+            } else if (opcion == '4') {
+                salirBucle = true
+                console.log('Has salido del programa.');
+                
+            }
+
+        }
 </script>
