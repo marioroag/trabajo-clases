@@ -13,6 +13,7 @@
     // Declaraciones:
     let listaEstudiantes = []
     let notasEstudiantes = []
+    let estudiante = ''
     let nota = 0
 
     let opcion = 0
@@ -45,7 +46,7 @@
 
         if (opcion == 1) {
             // Añade un estudiante y su calificacion
-            listaEstudiantes.push(prompt('Añade estudiante:'))
+            estudiante = (prompt('Añade estudiante:'))
             // Asigno la nota nueva a un valor antes de añadirlo al array para que no se haga push a un valor potencialmente incorrecto antes de verificarlo
             nota = (Number(prompt('Añade calificación:')))
             // Entro a un bucle si nota != (0-10)
@@ -53,6 +54,7 @@
                 nota = (Number(prompt('Añade calificación valida (0-10):')))
             }
             // Una vez salgo del bucle ya puedo pushear el valor correcto y sumar al contador
+            listaEstudiantes.push(estudiante)
             notasEstudiantes.push(nota)
         } else if (opcion == 2) {
             // Muestra la calificacion promedio de la clase
@@ -65,15 +67,14 @@
         } else if (opcion == 3) {
             // Mostrar la calificación más alta y el nombre del estudiante correspondiente
             for (let i = 0; i < notasEstudiantes.length; i++) {
-                if (i == 0) {mayorNota = notasEstudiantes[i]} // Establece el primer valor del array como nota con la que comparar inicialmente
+                if (i == 0) {mayorNota = notasEstudiantes[i]; estudianteMayorNota = listaEstudiantes[i]} // Establece el primer valor del array como nota con la que comparar inicialmente
                 if (mayorNota < notasEstudiantes[i]) { mayorNota = notasEstudiantes[i]; estudianteMayorNota = listaEstudiantes[i] } // Comparo todas las notas una a una y solo la guardo si es mayor que la anterior
-                console.log(mayorNota);
             }
             console.log('El estudiante con mayor nota es ' + estudianteMayorNota + ' con una calificación de: ' + mayorNota);
         } else if (opcion == 4) {
             // Mostrar la calificación más baja y el nombre del estudiante correspondiente
             for (let i = 0; i < notasEstudiantes.length; i++) {
-                if (i == 0) {mayorNota = notasEstudiantes[i]} // Establece el primer valor del array como nota con la que comparar inicialmente
+                if (i == 0) {menorNota = notasEstudiantes[i]; estudianteMenorNota = listaEstudiantes[i]} // Establece el primer valor del array como nota con la que comparar inicialmente
                 if (menorNota > notasEstudiantes[i]) { menorNota = notasEstudiantes[i]; estudianteMenorNota = listaEstudiantes[i] } // Comparo todas las notas una a una y solo la guardo si es menor que la anterior
             }
             console.log('El estudiante con menor nota es ' + estudianteMenorNota + ' con una calificación de: ' + menorNota);
