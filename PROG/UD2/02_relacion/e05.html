@@ -24,7 +24,7 @@
     let mayorNota = 0
 
     let estudianteMenorNota = ''
-    let menorNota = 1000 // Nota absurdamente grande para comparar con notas menores
+    let menorNota = 0
 
     // Se mantiene en el bucle hasta que el usuario decide salir
     while (opcion !== 5) {
@@ -65,13 +65,16 @@
         } else if (opcion == 3) {
             // Mostrar la calificación más alta y el nombre del estudiante correspondiente
             for (let i = 0; i < notasEstudiantes.length; i++) {
-                if (mayorNota < notasEstudiantes[i]) { mayorNota = notasEstudiantes[i]; estudianteMayorNota = listaEstudiantes[i] } // Comparo todas las notas (inicialmente con 0) y solo la guardo si es mayor que la anterior
+                if (i == 0) {mayorNota = notasEstudiantes[i]} // Establece el primer valor del array como nota con la que comparar inicialmente
+                if (mayorNota < notasEstudiantes[i]) { mayorNota = notasEstudiantes[i]; estudianteMayorNota = listaEstudiantes[i] } // Comparo todas las notas una a una y solo la guardo si es mayor que la anterior
+                console.log(mayorNota);
             }
             console.log('El estudiante con mayor nota es ' + estudianteMayorNota + ' con una calificación de: ' + mayorNota);
         } else if (opcion == 4) {
             // Mostrar la calificación más baja y el nombre del estudiante correspondiente
             for (let i = 0; i < notasEstudiantes.length; i++) {
-                if (menorNota > notasEstudiantes[i]) { menorNota = notasEstudiantes[i]; estudianteMenorNota = listaEstudiantes[i] } // Comparo todas las notas (inicialmente con 1000) y solo la guardo si es menor que la anterior
+                if (i == 0) {mayorNota = notasEstudiantes[i]} // Establece el primer valor del array como nota con la que comparar inicialmente
+                if (menorNota > notasEstudiantes[i]) { menorNota = notasEstudiantes[i]; estudianteMenorNota = listaEstudiantes[i] } // Comparo todas las notas una a una y solo la guardo si es menor que la anterior
             }
             console.log('El estudiante con menor nota es ' + estudianteMenorNota + ' con una calificación de: ' + menorNota);
         }
