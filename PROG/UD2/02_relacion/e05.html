@@ -46,7 +46,7 @@
         if (opcion == 1) {
             // Añade un estudiante y su calificacion
             listaEstudiantes.push(prompt('Añade estudiante:'))
-            // Asigno la nota nueva a un valor antes del array para que no se haga push a un valor potencialmente incorrecto antes de verificarlo
+            // Asigno la nota nueva a un valor antes de añadirlo al array para que no se haga push a un valor potencialmente incorrecto antes de verificarlo
             nota = (Number(prompt('Añade calificación:')))
             // Entro a un bucle si nota != (0-10)
             while (nota < 0 || nota > 10) {
