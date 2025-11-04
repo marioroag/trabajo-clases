@@ -1,7 +1,4 @@
-ESTUDIANTES(idEstudiante, nombre, direccion, fecha_nacimiento)
-
-INSCRIPCIONES(idEstudiante, fecha_inicio, idCurso, idEstudiante)
-
-CURSOS(idCurso, nombre, duracion, descripcion)
-
-PROFESORES(idProfesor, nombre, especialidad, telefono, idCurso)
+ESTUDIANTES(**idEstudiante**, nombre, direccion, fecha_nacimiento)
+CURSOS(**idCurso**, nombre, duracion, descripcion)
+INSCRIPCIONES(**idEstudiante**, fecha_inicio, **FK: idCurso, FK: idEstudiante**)
+PROFESORES(**idProfesor**, nombre, especialidad, telefono, **FK: idCurso**)

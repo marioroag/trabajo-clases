@@ -1,7 +1,7 @@
 ### Modelo racional:
 
-SOCIOS (PK: idSocio, nombre, direccion, telefono)
-LIBROS (PK: idLibro, titulo, autor, anio_publicacion)
-CATEGORIAS (PK: idCategoria, nombre)
-LIBRO_TIENE_CATEGORIA (idLibro, idCategoria)
-PRESTAMOS (PK: idPrestamo, idSocio, fecha_inicio, fecha_devolucion)
+SOCIOS (**idSocio**, nombre, direccion, telefono)
+LIBROS (**idLibro**, titulo, autor, anio_publicacion)
+CATEGORIAS (**idCategoria**, nombre)
+LIBRO_TIENE_CATEGORIA (**idLibro**, **FK: idCategoria**)
+PRESTAMOS (**idPrestamo**, fecha_inicio, fecha_devolucion, **FK: idSocio**)
