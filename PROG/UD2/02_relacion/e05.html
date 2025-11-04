@@ -1,12 +1,83 @@
 <script>
     // ### 5. **Sistema de Registro de Calificaciones**
 
-    // Desarrolla un programa que permita registrar y gestionar las calificaciones de los estudiantes en una clase. Usa dos arrays: uno para los nombres de los estudiantes y otro para sus calificaciones. El programa debe ofrecer al usuario un menú con las siguientes opciones:
+    // Desarrolla un programa que permita registrar y gestionar las calificaciones de los estudiantes en una clase.
+    // Usa dos arrays: uno para los nombres de los estudiantes y otro para sus calificaciones. El programa debe ofrecer al usuario un menú con las siguientes opciones:
 
     // 1. Añadir un estudiante y su calificación.
     // 2. Mostrar la calificación promedio de la clase.
     // 3. Mostrar la calificación más alta y el nombre del estudiante correspondiente.
     // 4. Mostrar la calificación más baja y el nombre del estudiante correspondiente.
     // 5. Salir del programa.
-    
+
+    // Declaraciones:
+    let listaEstudiantes = []
+    let notasEstudiantes = []
+    let nota = 0
+
+    let opcion = 0
+
+    let totalNotas = 0
+    let mediaNotas = 0
+
+    let estudianteMayorNota = ''
+    let mayorNota = 0
+
+    let estudianteMenorNota = ''
+    let menorNota = 1000 // Nota absurdamente grande para comparar con notas menores
+
+    // Se mantiene en el bucle hasta que el usuario decide salir
+    while (opcion !== 5) {
+        // Muestra un menu con varias opciones
+        // No hace falta control de errores en opcion porque si no es ninguno de los valores validos no hace nada y vuelve a imprimir menu
+        opcion = Number(prompt('1. Añadir un estudiante y su calificación. \n' +
+            '2. Mostrar la calificación promedio de la clase. \n' +
+            '3. Mostrar la calificación más alta y el nombre del estudiante correspondiente. \n' +
+            '4. Mostrar la calificación más baja y el nombre del estudiante correspondiente. \n' +
+            '5. Salir del programa.'))
+
+        // Si quieres hacer una accion sin antes agregar un estudiante muestra una alerta y te devuelve al menu, si eligues salir continua tambien
+        if (opcion != 1 && listaEstudiantes.length < 1 && opcion !== 5) {
+            alert('¡ATENCION! No se puede hacer esto sin registrar un estudiante antes.')
+            // Interviene antes de continuar para no hacer la accion
+            opcion = 0
+        }
+
+        if (opcion == 1) {
+            // Añade un estudiante y su calificacion
+            listaEstudiantes.push(prompt('Añade estudiante:'))
+            // Asigno la nota nueva a un valor antes del array para que no se haga push a un valor potencialmente incorrecto antes de verificarlo
+            nota = (Number(prompt('Añade calificación:')))
+            // Entro a un bucle si nota != (0-10)
+            while (nota < 0 || nota > 10) {
+                nota = (Number(prompt('Añade calificación valida (0-10):')))
+            }
+            // Una vez salgo del bucle ya puedo pushear el valor correcto y sumar al contador
+            notasEstudiantes.push(nota)
+        } else if (opcion == 2) {
+            // Muestra la calificacion promedio de la clase
+            for (let i = 0; i < notasEstudiantes.length; i++) {
+                totalNotas += notasEstudiantes[i] // Suma las notas de los estudiantes
+            }
+            mediaNotas = totalNotas / (notasEstudiantes.length)
+            console.log('La media de las notas es de: ' + mediaNotas.toFixed(1));
+            totalNotas = 0 // Una vez calculado promedio reseteo el total de las notas para poder sumarlo de nuevo la proxima vez y que no acumule
+        } else if (opcion == 3) {
+            // Mostrar la calificación más alta y el nombre del estudiante correspondiente
+            for (let i = 0; i < notasEstudiantes.length; i++) {
+                if (mayorNota < notasEstudiantes[i]) { mayorNota = notasEstudiantes[i]; estudianteMayorNota = listaEstudiantes[i] } // Comparo todas las notas (inicialmente con 0) y solo la guardo si es mayor que la anterior
+            }
+            console.log('El estudiante con mayor nota es ' + estudianteMayorNota + ' con una calificación de: ' + mayorNota);
+        } else if (opcion == 4) {
+            // Mostrar la calificación más baja y el nombre del estudiante correspondiente
+            for (let i = 0; i < notasEstudiantes.length; i++) {
+                if (menorNota > notasEstudiantes[i]) { menorNota = notasEstudiantes[i]; estudianteMenorNota = listaEstudiantes[i] } // Comparo todas las notas (inicialmente con 1000) y solo la guardo si es menor que la anterior
+            }
+            console.log('El estudiante con menor nota es ' + estudianteMenorNota + ' con una calificación de: ' + menorNota);
+        }
+    }
+    console.log('Programa terminado.');
+
+
+
 </script>
