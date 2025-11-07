@@ -3,17 +3,13 @@
     // Crea una función llamada mayor que reciba dos números y devuelva el mayor de los dos
 
 function mayor(num1, num2) {
-    let resultado = false
+    let maximo = num1
 
-    if (num1 > num2) {
-        resultado = num1
-    } else if (num2 > num1) {
-        resultado = num2
-    } else {
-        resultado = 'Los números introducidos son iguales'
+    if (num2 > num1) {
+        maximo = num2
     }
 
-    return resultado
+    return maximo
 }
 
     //////////////
