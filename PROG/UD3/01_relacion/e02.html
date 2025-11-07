@@ -1,33 +1,18 @@
 <script>
-    // 2. Crea un programa que reciba un número y devuelva un array con los primos menores que ese número
+    // 2. Suma de dos números
+    // Crea una función llamada sumar que reciba dos números y devuelva su suma.
 
-    function esPrimo(numero) {
-        // Suponemos que el numero es primo
-        let esPrimoNumero = true
-        
-        // Un numero es primo si solo es divisible entre 1 y si mismo
-        for (let i = 2; i < numero && esPrimoNumero; i++) {
-            // En cuanto el numero es divisible por otro, ya no es primo
-            if (numero % i == 0 ) esPrimoNumero = false
-        }
-        return esPrimoNumero
+    function sumar(sumando1, sumando2) {
+        return sumando1 + sumando2
     }
+
+    //////////////
+    // MAIN //////
+    //////////////
+
+    let sumando1 = Number(prompt('Primer numero a sumar'))
+    let sumando2 = Number(prompt('Segundo numero a sumar'))
+
+    console.log(sumar(sumando1, sumando2));
     
-    function primosMenoresQue(numero) {
-        // Le doy variable para simplificar
-        let primosMenoresQue = []
-
-        for (let i = 1; i < numero; i++) {
-            if (esPrimo(i)) {
-                primosMenoresQue.push(i)
-            }
-        }
-        return primosMenoresQue
-    }
-
-    // -------------- MAIN --------------
-
-    let numeroUsuario = Number(prompt('Numeros primos menores a:'))
-    console.log(primosMenoresQue(numeroUsuario));
-
 </script>

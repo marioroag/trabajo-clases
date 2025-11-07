@@ -1,0 +1,19 @@
+<script>
+    // Hecho en clase como ejemplo:
+
+    function paresMenoresCotaSuperior(cotaSuperior) {
+
+        let paresMenoresCota = []
+        for (let i = 1; i < cotaSuperior; i++) {
+            if (i % 2 == 0) {
+                paresMenoresCota.push(i)
+            }
+        }
+        return paresMenoresCota
+    }
+
+    //----------------------------------MAIN------------
+
+    let cotaUsuario = Number(prompt("Introduce la cota superior para calcular los pares menores"))
+    console.log(paresMenoresCotaSuperior(cotaUsuario))
+</script>
