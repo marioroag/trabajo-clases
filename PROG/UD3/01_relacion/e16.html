@@ -3,8 +3,16 @@
     Crea una función llamada verificarNumeroEnArray que reciba un número y un array
     y devuelva true si el número está presente en el array o false si no lo está. */
 
-    function name(array) {
+    function verificarNumeroEnArray(numero, array) {
+        let estaPresente = false
 
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] == numero) {
+                estaPresente = true
+            }
+        }
+
+        return estaPresente
     }
 
     //////////////
@@ -12,6 +20,7 @@
     //////////////
 
     let array = [5, 10, 15, 20, 25]
+    let numero = Math.floor(Math.random() * 25)
     console.log(array);
-    console.log(sumarArray(array));
+    console.log(`¿Está el numero ${numero} presente en el array? ${verificarNumeroEnArray(numero, array)}`);
 </script>

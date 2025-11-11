@@ -2,8 +2,14 @@
     /* 12. Obtener números impares de un array
     Crea una función llamada obtenerImpares que reciba un array y devuelva un nuevo array con los números impares. */
 
-    function name(array) {
-
+    function obtenerImpares(array) {
+        let impares = []
+        for (let i = 0; i < array.length; i++) {
+            if ((array[i] % 2) !== 0) {
+                impares.push(array[i]) 
+            }
+        }
+        return impares
     }
 
     //////////////
@@ -12,5 +18,5 @@
 
     let array = [5, 10, 15, 20, 25]
     console.log(array);
-    console.log(sumarArray(array));
+    console.log(obtenerImpares(array));
 </script>

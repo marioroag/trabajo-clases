@@ -3,8 +3,16 @@
     Crea una función llamada filtrarNumerosMayores que reciba un array de números y un valor
     y devuelva un nuevo array con los números mayores que el valor dado. */
 
-    function name(array) {
+    function filtrarNumerosMayores(array) {
+        let arrayFiltrado = []
 
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] > valor) {
+                arrayFiltrado.push(array[i])
+            }
+        }
+
+        return arrayFiltrado
     }
 
     //////////////
@@ -12,6 +20,7 @@
     //////////////
 
     let array = [5, 10, 15, 20, 25]
+    let valor = Math.floor(Math.random() * 25)
     console.log(array);
-    console.log(sumarArray(array));
+    console.log(`Los numeros mayores a ${valor} en el array anterior son: ${filtrarNumerosMayores(array, valor)}`);
 </script>
