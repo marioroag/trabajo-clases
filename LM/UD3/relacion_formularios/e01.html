@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--Ejercicio 1 – Formulario de Registro de Cliente
+
+Crea un formulario para registrar un nuevo cliente en la tienda “Critical Roll”. El formulario debe incluir:
+
+    Nombre y apellidos (texto, requerido, mínimo 2 caracteres).
+    Email (tipo email, requerido).
+    Teléfono (solo números, máximo 9 dígitos, requerido).
+    Fecha de nacimiento (type="date", obligatorio).
+    Selección de país mediante un <select> (mínimo 3 países).
+    Casilla <checkbox> para aceptar términos y condiciones (requerido).
+    Botón para enviar el formulario.-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e01</title>
+</head>
+<body>
+    <form method="POST">
+    <!-- Nombre y apellidos -->
+        <label for="nombre">Nombre y apellidos</label>
+        <input type="text" id="nombre" name="nombre" minlength="2" placeholder="Tu nombre" required>
+
+    <!-- Email -->
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Tu email" required>
+
+    <!-- Teléfono -->
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" name="telefono" maxlength="9" placeholder="Tu número de teléfono" required>
+
+    <!-- Fecha de nacimiento -->
+        <label for="fechaNacimiento">Fecha de nacimiento</label>
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+
+    <!-- Selección de país -->
+        <label for="pais">Selección de país</label>
+        <select name="pais" id="pais">
+            <option value="nan">-- Seleccione una opción --</option>
+            <option value="mx">México</option>
+            <option value="es">España</option>
+            <option value="ar">Argentina</option>
+        </select>
+
+    <!-- Casilla para aceptar términos y condiciones -->
+        <label for="terminos">Acepto los términos y condiciones</label>
+            <input type="checkbox" name="terminos" id="terminos" required>
+
+    <!-- Botón para enviar el formulario -->
+        <button type="submit">Enviar</button>
+
+    </form>
+</body>
+</html>
