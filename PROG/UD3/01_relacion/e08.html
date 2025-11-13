@@ -1,23 +1,13 @@
 <script>
-    // 8. Encontrar el número mayor
-    // Crea una función llamada mayor que reciba dos números y devuelva el mayor de los dos
+    // ### 8. Seleccionar un Elemento Aleatorio de una Lista
+    // Crea una función `elementoAleatorio` que reciba un array como parámetro y devuelva un elemento aleatorio de ese array. 
+    // Por ejemplo, si el array es `['a', 'b', 'c']`, la función podría devolver `b` o cualquier otro elemento del array.
 
-function mayor(num1, num2) {
-    let maximo = num1
-
-    if (num2 > num1) {
-        maximo = num2
+    function elementoAleatorio(array) {
+        return array[Math.floor(Math.random() * array.length)]
     }
 
-    return maximo
-}
-
-    //////////////
-    // MAIN //////
-    //////////////
-
-    let numUser1 = Number(prompt('Primer numero'))
-    let numUser2 = Number(prompt('Segundo numero'))
-
-    console.log(mayor(numUser1, numUser2));
+    array = ['a', 'b', 'c']
+    console.log(elementoAleatorio(array));
+    
 </script>

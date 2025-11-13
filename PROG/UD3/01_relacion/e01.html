@@ -1,15 +1,11 @@
 <script>
-    // 1. Imprimir un mensaje de saludo
-    // Crea una función llamada saludar que reciba un nombre como parámetro y devuelva un mensaje de saludo personalizado.
-
-    function saludar (nombre) {
-        return '¡Hola ' + nombre + '!'
+    // 1. Simular el Lanzamiento de un Dado
+    // Escribe una función llamada lanzarDado que devuelva un número entero aleatorio entre 1 y 6, como si estuvieras lanzando un dado. El número debe ser entre 1 y 6, incluyendo ambos
+    
+    function lanzarDado() {
+        let resulDado = Math.floor(Math.random() * 6) + 1
+        return resulDado
     }
 
-    //////////////
-    // MAIN //////
-    //////////////
-
-    let nombreSaludo = prompt('Cómo te llamas?')
-    console.log(saludar(nombreSaludo));
+    alert(`Tirada: ${lanzarDado()}`)
 </script>

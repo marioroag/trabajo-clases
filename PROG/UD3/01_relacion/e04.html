@@ -1,15 +1,22 @@
 <script>
-    // 4. ¿Es par?
-    // Crea una función llamada esPar que reciba un número y devuelva true si es par o false si es impar.
+    //     4. Generar un Array de Números Enteros Aleatorios en un Rango
+    // Escribe una función arrayAleatorioEnRango que reciba tres parámetros: cantidad (cuántos números generar), min y max (el rango de cada número). 
+    // Esta función debe devolver un array que contenga cantidad de números aleatorios entre min y max. 
+    // Por ejemplo, si cantidad es 4, min es 10 y max es 30, el array podría ser [15, 22, 11, 29].
 
-    function esPar(numero) {
-        return (numero % 2 == 0)
+    function arrayAleatorio(cantidad, min, max) {
+        let arrayResultado = []
+        for (let i = 0; i < cantidad; i++) {
+            arrayResultado.push(Math.floor(Math.random() * max + 1) + min)
+        }
+        return arrayResultado
     }
 
-    //////////////
-    // MAIN //////
-    //////////////
-
-    let numUser = Number(prompt('Numero para saber si es par:'))
-    console.log(esPar(numUser));
+    // -------MAIN---------
+    
+    let cantidadNum = Number(prompt('Cuantos números quieres en el array'))
+    let maximo = Number(prompt('Cual sera el máximo para tu array:'))
+    let minimo = Number(prompt('Cual sera el mínimo para tu array:'))
+    
+    alert(`Array es: ${arrayAleatorio(cantidadNum, minimo, maximo)}`)
 </script>

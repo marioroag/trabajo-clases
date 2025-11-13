@@ -1,0 +1,23 @@
+<script>
+    // 8. Encontrar el número mayor
+    // Crea una función llamada mayor que reciba dos números y devuelva el mayor de los dos
+
+function mayor(num1, num2) {
+    let maximo = num1
+
+    if (num2 > num1) {
+        maximo = num2
+    }
+
+    return maximo
+}
+
+    //////////////
+    // MAIN //////
+    //////////////
+
+    let numUser1 = Number(prompt('Primer numero'))
+    let numUser2 = Number(prompt('Segundo numero'))
+
+    console.log(mayor(numUser1, numUser2));
+</script>

@@ -1,21 +1,28 @@
 <script>
-    // 5. Calcular el factorial de un número
-    // Haz una función llamada factorial que reciba un número y devuelva su factorial calculado de forma iterativa.
+    // ### 5. Generar una Lista de 10 Caras o Cruces Aleatorios  
+    // Escribe una función llamada `caraOCruz` que devuelva "Cara" o "Cruz" al azar. 
+    // Luego, crea otra función llamada `listaCarasOCruces` que use `caraOCruz` 10 veces para generar una lista de 10 resultados de "Cara" o "Cruz".
 
-function factorial(numero) {
-    let calculoFactorial = 1
-
-    for (let i = 1; i <= numero; i++) {
-        calculoFactorial *=  i
+    function caraOCruz() {
+        let arrayResultado = []
+        let tirada = Math.floor(Math.random() * 2)
+        if (tirada == 0) {
+            arrayResultado.push('Cara')
+        } else {
+            arrayResultado.push('Cruz')
+        }
+        return arrayResultado
     }
 
-    return calculoFactorial
-}
+    function listaCarasOCruces() {
+        let diezResultados = []
+        for (let i = 0; i < 10; i++) {
+            diezResultados.push(caraOCruz())
+        }
+        return diezResultados
+    }
 
-    //////////////
-    // MAIN //////
-    //////////////
-
-    let numUser = Number(prompt('Calcula la factorial de:'))
-    console.log(factorial(numUser));
+    // --------- MAIN -----------
+    
+    alert(`Lista de resultados:\n\n${listaCarasOCruces().join('\n')}`)
 </script>

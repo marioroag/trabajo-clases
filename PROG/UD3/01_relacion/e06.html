@@ -1,21 +1,13 @@
 <script>
-    // 6. Decir si un número es positivo o negativo
-    // Crea una función llamada esPositivo que reciba un número y devuelva true o false dependiendo de su valor.    
+    // ### 6. Simular el Lanzamiento de un Dado con un Número de Caras Definido por el Usuario  
+    // Escribe una función `lanzarDadoPersonalizado` que reciba un número `caras` y devuelva un número aleatorio entre 1 y `caras`. 
+    // Esto debe funcionar para dados con diferente número de caras, por ejemplo, un dado de 20 caras.
 
-function esPositivo(numero) {
-    let positivo = false
+    function lanzarDadoPersonalizado(numeroCarasDado) {
+        let resulDado = Math.floor(Math.random() * numeroCarasDado) + 1
 
-    if (numero >= 0) {
-        positivo = true
-    } 
+        return resulDado
+    }
 
-    return positivo
-}
-
-    //////////////
-    // MAIN //////
-    //////////////
-
-    let numUser = Number(prompt('Es positivo?'))
-    console.log(esPositivo(numUser));
+    alert(lanzarDadoPersonalizado(20))
 </script>

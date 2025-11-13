@@ -1,15 +1,21 @@
 <script>
-    // 3. Número al cuadrado
-    // Haz una función llamada alCuadrado que reciba un número y devuelva su cuadrado.
+    //     3. Generar un Array de Números Enteros Aleatorios  
+    // Crea una función llamada `arrayAleatorio` que reciba dos parámetros: `cantidad` (que indica cuántos números generar) y `max` (que es el valor máximo de cada número). 
+    // Esta función debe devolver un array que contenga `cantidad` de números enteros aleatorios entre 0 y `max`. 
+    // Por ejemplo, si `cantidad` es 5 y `max` es 20, podría devolver `[5, 12, 19, 8, 3]`.
 
-    function alCuadrado(numero) {
-        return numero * numero
+    function arrayAleatorio(cantidad, max) {
+        let arrayResultado = []
+        for (let i = 0; i < cantidad; i++) {
+            arrayResultado.push(Math.floor(Math.random() * max + 1))
+        }
+        return arrayResultado
     }
 
-    //////////////
-    // MAIN //////
-    //////////////
+    // -------MAIN---------
+    
+    let cantidadNum = Number(prompt('Cuantos números quieres en el array'))
+    let maximo = Number(prompt('Cual sera el máximo para tu array:'))
 
-    let numUser = Number(prompt('Numero para obtener el cuadrado:'))
-    console.log(alCuadrado(numUser));
+    alert(`Array es: ${arrayAleatorio(cantidadNum, maximo)}`)
 </script>

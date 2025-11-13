@@ -1,26 +1,9 @@
 <script>
-    // 9. Obtener el menor de tres números
-    // Crea una función llamada menorDeTres que reciba tres números y devuelva el menor de los tres
+    // ### 9. Generar una Contraseña Aleatoria de Longitud Fija  
+    // Escribe una función `generarContraseña` que reciba un número `longitud` y devuelva una cadena de caracteres aleatorios (formada por letras y números) de esa longitud. 
+    // Por ejemplo, si `longitud` es 8, podría devolver algo como `a7b3f2d8`. Puedes usar un array de letras y números para ir eligiendo de forma aleatoria.
 
-function menorDeTres(num1, num2, num3) {
-    let numeros = [num1, num2, num3]
-    let actualMenor = 0
-
-    for (let i = 0; i < numeros.length; i++) {
-        if (i == 0 ) actualMenor = numeros[i]
-        if (numeros[i] < actualMenor) actualMenor = numeros[i]
+    function generarContraseña(longitud) {
+        let contraseña = ''
     }
-
-    return actualMenor
-}
-
-    //////////////
-    // MAIN //////
-    //////////////
-
-    let numUser1 = Number(prompt('Primer numero'))
-    let numUser2 = Number(prompt('Segundo numero'))
-    let numUser3 = Number(prompt('Tercer numero'))
-
-    console.log(menorDeTres(numUser1, numUser2, numUser3));
 </script>
