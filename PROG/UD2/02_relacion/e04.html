@@ -1,7 +1,8 @@
 <script>
     // 4. Gestión de Inventario de una Librería
 
-    // Escribe un programa que permita al usuario gestionar el inventario de una librería. El programa debe usar dos arrays: uno para almacenar los títulos de los libros y otro para almacenar las cantidades disponibles de cada libro. El usuario debe poder realizar las siguientes acciones a través de un menú:
+    // Escribe un programa que permita al usuario gestionar el inventario de una librería. 
+    // El programa debe usar dos arrays: uno para almacenar los títulos de los libros y otro para almacenar las cantidades disponibles de cada libro. El usuario debe poder realizar las siguientes acciones a través de un menú:
 
     //     Añadir un nuevo libro al inventario (con su título y cantidad).
     //     Actualizar la cantidad de un libro existente.
@@ -10,4 +11,59 @@
 
     // El programa debe actualizar el inventario según las acciones del usuario y seguir ejecutándose hasta que se elija la opción de salir.
     
+    // Declaraciones:
+    // Arrays:
+    let titulosLibros = ['alquimista', 'perfume']
+    let cantidadesLibros = [4, 2]
+
+    let libroQueBusco = ''
+    let nuevaCantidad = 0
+
+    let inventario = ''
+
+    let antesDeCantidad = 0
+
+    let opciones = 0
+
+    // En el bucle hasta que seleccione "4"
+    while (opciones !== 4) {
+        // Menu:
+        opciones = Number(prompt(
+            '1. Añadir un nuevo libro al inventario \n' +
+            '2. Actualizar la cantidad de un libro existente. \n' +
+            '3. Ver el inventario completo \n' +
+            '4. Salir del programa.'
+        ))
+
+        if (opciones == 1) {
+            // Añadir un nuevo libro al inventario (con su título y cantidad).
+            titulosLibros.push(prompt('Titulo del nuevo libro:'))
+            antesDeCantidad = Number(prompt('Cantidad:'))
+            
+            // Valida cantidad valida antes de pushear
+            if (antesDeCantidad < 0) {
+                alert('¡ALERTA! La cantidad debe ser mayor a 0')
+                antesDeCantidad = Number(prompt('Cantidad:'))
+            }
+            cantidadesLibros.push(antesDeCantidad)
+        } else if (opciones == 2) {
+            // 2. Actualizar la cantidad de un libro existente
+            libroQueBusco = prompt('¿La cantidad de que libro deseas actualizar?')
+            nuevaCantidad = Number(prompt('Cantidad actualizada:'))
+            for (let i = 0; i < titulosLibros.length; i++) {
+                // Recorro el array y cuando la posicion del array es la misma que libroQueBusco cambio la cantidad
+                if (titulosLibros[i].toLowerCase == libroQueBusco.toLowerCase) { // toLowerCase para que busqueda no sea case sensitive.
+                    cantidadesLibros[i] = nuevaCantidad
+                }
+            }
+        } else if (opciones == 3) {
+            // Ver el inventario completo (título y cantidad de cada libro).
+            inventario = 'Inventario actual:\n'
+            for (let i = 0; i < titulosLibros.length; i++) {
+                inventario += `${titulosLibros[i]} - ${cantidadesLibros[i]} unidades.\n`
+            }
+            console.log(inventario);
+        }
+    }
+    console.log('Programa terminado.');
 </script>
