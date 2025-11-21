@@ -1,0 +1,37 @@
+<script>
+    //SOL 1
+    function generarUsuario(nombre, apellido) {
+
+        let nombreUsuario = ""
+        const longitudNumerosGenerados = 3
+        const cantidadPrimerasLetras = 3
+
+        nombreUsuario += obtenerNPrimerasLetras(nombre, cantidadPrimerasLetras)
+        nombreUsuario += obtenerNPrimerasLetras(apellido, cantidadPrimerasLetras)
+
+        for (let i = 0; i < longitudNumerosGenerados; i++) {
+            nombreUsuario += Math.floor(Math.random() * 10)
+        }
+
+        nombreUsuario = nombreUsuario.toLowerCase()
+
+        return nombreUsuario
+    }
+
+    function obtenerNPrimerasLetras(palabra, numeroLetras) {
+        let palabraRecortada = ""
+
+        for (let i = 0; i < numeroLetras && i < palabra.length; i++) {
+            palabraRecortada += palabra[i]
+        }
+
+        return palabraRecortada
+    }
+
+
+    // ============================= MAIN ============================= //
+
+    let miNombreUsuario = generarUsuario("Pedro", "Torres")
+
+    console.log(miNombreUsuario)
+</script>
