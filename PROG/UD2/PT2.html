@@ -1,0 +1,117 @@
+<script>
+    // Arrays:
+    let tableroInterno = []
+    let tableroVisible = []
+
+    // Genero el tablero principal sin bombas
+    for (let i = 0; i < 10; i++) {
+        tableroInterno.push(0)
+    }
+
+    let generacionAprobada = false
+
+    // Declaraciones:
+    const SINDESCUBRIR = '🟩'
+    const TOPOBOMBA = '💣'
+    const SINBOMBA = '⚪'
+
+    let eleccionJugador1 = 0
+    let eleccionJugador2 = 0
+
+    let numeroBombas = 0
+    let proximaBomba = 0
+
+    let tuberiasDescubiertas = 0
+
+    let gameOver = false
+
+    // ------- Creación del array interno con bombas aleatorias -------
+    for (let i = 0; i < Math.floor(Math.random() * 5) + 1; i++) {
+        // Localizacion para la proxima bomba
+        proximaBombaEn = Math.floor(Math.random() * (9 + 1))
+
+        // Solo incluyo la bomba si no hay ya una en el array
+        if (tableroInterno[proximaBombaEn] != 1) {
+            tableroInterno[proximaBombaEn] = 1
+            numeroBombas++
+        } else {
+            // Corrección para que no afecte al porcentaje de bombas (disminuyendolo) si encuentra muchas veces bombas donde las iba a poner
+            i--
+        }
+    }
+
+    // Tablero visible para los jugadores
+    for (let i = 0; i < tableroInterno.length; i++) {
+        tableroVisible.push(SINDESCUBRIR)
+    }
+
+    /////////////////////
+    // Bucle principal //
+    /////////////////////
+
+    while (!gameOver) {
+        // ----- Turno de Mario -----
+        eleccionJugador1 = Number(prompt((tableroVisible.join(' ') + '\n\nMario, es tu turno:')))
+
+        // Control de errores por rango
+        while (eleccionJugador1 <= 0 || eleccionJugador1 > 10 || tableroVisible[eleccionJugador1 - 1] === SINBOMBA) {
+            eleccionJugador1 = Number(prompt((tableroVisible.join(' ') + '\n\nMario, es tu turno:\nPorfavor, selecciona un número entre 1-10\ny/o una posicion sin descubrir')))
+        }
+
+        if (tableroInterno[eleccionJugador1 - 1] === 1) {
+            alert('💣 ¡Topo-bomba! Mario pierde.');
+
+            // Actualiza tablero visible
+            tableroVisible[eleccionJugador1 - 1] = TOPOBOMBA
+
+            // Fin de juego
+            gameOver = true
+        } else {
+            // Actualiza tablero visible
+            tableroVisible[eleccionJugador1 - 1] = SINBOMBA
+
+            // Contador de tuberias
+            tuberiasDescubiertas++
+
+            // Termina el juego si se han descubierto todas
+            if (tuberiasDescubiertas === 10) {
+                gameOver = true
+                alert('No había ninguna bomba! Mario y Luigi han ganado')
+            }
+        }
+
+        // ----- Turno de Luigi -----
+        // Solo checkeo si Mario ha perdido antes de preguntar a Luigi ya que con Mario no hace falta
+        if (!gameOver) {
+            eleccionJugador2 = Number(prompt((tableroVisible.join(' ') + '\n\nLuigi, es tu turno:')))
+        }
+
+        // Control de errores por rango
+        while (eleccionJugador2 <= 0 || eleccionJugador2 > 10 || tableroVisible[eleccionJugador2 - 1] === SINBOMBA) {
+            eleccionJugador2 = Number(prompt((tableroVisible.join(' ') + '\n\nLuigi, es tu turno:\nPorfavor, selecciona un número entre 1-10\ny/o una posicion sin descubrir')))
+        }
+
+        if (tableroInterno[eleccionJugador2 - 1] === 1) {
+            alert('💣 ¡Topo-bomba! Luigi pierde.');
+
+            // Actualiza tablero visible
+            tableroVisible[eleccionJugador2 - 1] = TOPOBOMBA
+
+            // Fin de juego
+            gameOver = true
+        } else {
+            // Actualiza tablero visible
+            tableroVisible[eleccionJugador2 - 1] = SINBOMBA
+
+            // Contador de tuberias
+            tuberiasDescubiertas++
+
+            // Termina el juego si se han descubierto todas
+            if (tuberiasDescubiertas === 10) {
+                gameOver = true
+                alert('No había ninguna bomba! Mario y Luigi han ganado')
+            }
+        }
+    }
+
+</script>
