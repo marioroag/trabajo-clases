@@ -2,27 +2,44 @@
     // Escribe una función que reciba una lista de candidatos y simule una votación aleatoria.
     // Devuelve una matriz con los nombres de los candidatos y el porcentaje de votos obtenido. La suma de los porcentajes debe ser 100%.
 
-    function simularVotaciones(candidatosVotacion) {
-        let resultadoVotacion = []
-        let votosCandidatos = []
+    function simularVotaciones(arrayCandidatos) {
+        // >>>>>>>>>>>>> V1 <<<<<<<<<<<<<
+        // let resultadoVotacion = []
+        // let votosCandidatos = []
 
-        let votosCandidato1 = Math.floor(Math.random() * (101))
-        let votosCandidato2 = Math.floor(Math.random() * (101 - votosCandidato1))
-        let votosCandidato3 = 100 - (votosCandidato1 + votosCandidato2)
-        
-        votosCandidatos.push(votosCandidato1)
-        votosCandidatos.push(votosCandidato2)
-        votosCandidatos.push(votosCandidato3)
-        
-        for (let i = 0; i < candidatosVotacion.length; i++) {
-            resultadoVotacion.push([candidatosVotacion[i], votosCandidatos[i] + '%'])
+        // let votosCandidato1 = Math.floor(Math.random() * (101))
+        // let votosCandidato2 = Math.floor(Math.random() * (101 - votosCandidato1))
+        // let votosCandidato3 = 100 - (votosCandidato1 + votosCandidato2)
+
+        // votosCandidatos.push(votosCandidato1)
+        // votosCandidatos.push(votosCandidato2)
+        // votosCandidatos.push(votosCandidato3)
+
+        // for (let i = 0; i < arrayCandidatos.length; i++) {
+        //     resultadoVotacion.push([arrayCandidatos[i], votosCandidatos[i] + '%'])
+        // }
+
+        // console.log(resultadoVotacion);
+
+        // >>>>>>>>>>>>> V2 <<<<<<<<<<<<<
+        let resultados = [];
+        let nombreCandidato = "";
+        let maximoVotos = 100;
+        let votoCandidato = 0;
+
+        for (let i = 0; i < arrayCandidatos.length - 1; i++) {
+            votoCandidato = Math.floor(Math.random() * (maximoVotos + 1));
+            maximoVotos -= votoCandidato;
+
+            resultados.push(arrayCandidatos[i], votoCandidato);
         }
 
-        console.log(resultadoVotacion);
-        
+        resultados.push(arrayCandidatos[(arrayCandidatos.length-1)], maximoVotos);
+        return resultados;
     }
 
     // ============================= MAIN ============================= //
     const candidatos = ["Juan", "Sofía", "Carlos"];
-    simularVotaciones(candidatos);
+    let votaciones = simularVotaciones(candidatos);
+    alert(votaciones);
 </script>

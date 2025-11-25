@@ -3,12 +3,11 @@
 
     function mayoresDeEdad(datosPersonas) {
         let personasMayores = []
+        
         for (let i = 0; i < datosPersonas.length; i++) {
-            
             if (datosPersonas[i][1] >= 18) {
                 personasMayores.push(datosPersonas[i][0])
             }
-            
         }
         return personasMayores
     }
