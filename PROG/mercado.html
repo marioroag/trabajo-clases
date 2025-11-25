@@ -22,13 +22,21 @@
                         ['Sistema de Riego 💧', 400],
                         ['Herramientas de Limpieza 🧹', 100],
                         ['Luz Solar Artificial 💡', 350],
-                        ['Cercado Mejorado 🚧'], 600]
+                        ['Cercado Mejorado 🚧', 600]]
 
     function selectorDeArticulosDisponibles(arrayObjetos, numeroObjetos) {
+        let objetosDisponibles = []
         let numeroFilas = numeroObjetos
 
-        for (let i = 0; i < arrayObjetos.length; i++) {
-            
+        while (objetosDisponibles.length < 4) {
+            posibleProximoObjeto = Math.floor(Math.random() * arrayObjetos.length)
+
+            if (objetosDisponibles.includes(arrayObjetos[posibleProximoObjeto])) {
+                console.log('Repetido');
+            } else {
+                objetosDisponibles.push(arrayObjetos[posibleProximoObjeto])
+                console.log(objetosDisponibles);
+            }
             
         }
     }
