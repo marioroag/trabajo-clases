@@ -1,11 +1,17 @@
 <script>
     function citasSolapadas(hora1, hora2, hora3, hora4) {
-        
+        let mensaje = 'No se solapan'
+
+        if (hora1 < hora3 && hora2 < hora4) {
+            mensaje = 'Se solapan'
+        }
+
+        return mensaje
     }
 
     // ============================= MAIN ============================= //
 
-let seSolapan = citasSolapadas("14:00", "15:30", "11:00", "14:30");
+let seSolapan = citasSolapadas("14:00", "15:30", "14:30", "14:30");
 
 console.log(seSolapan)
 </script>
