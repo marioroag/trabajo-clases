@@ -1,0 +1,31 @@
+<script>
+    // Escribe una función que reciba un texto y una lista de palabras clave.
+    // Devuelve cuántas palabras clave están presentes en el texto. Investiga el uso de split() y convierte todo a minúsculas con toLowerCase().
+
+    // Salida:
+    // 2 Hay dos palabras clave que aparecen en el texto (python y java)
+
+    function detectarPalabrasClave(contenido, claves) {
+        let palabrasSeparadas = contenido.toLowerCase().split(' ')
+        let palabrasEncontradas = 0
+
+        for (let i = 0; i < palabrasSeparadas.length; i++) {
+            for (let j = 0; j < palabrasSeparadas.length; j++) {
+                if (palabrasSeparadas[j] == claves[i]) {
+                    palabrasEncontradas++
+                }
+            }
+        }
+        
+        return palabrasEncontradas
+    }
+
+        // ============================= MAIN ============================= //
+
+        const texto = "Me gusta programar en Python y Java"
+        const palabrasClave = ["python", "java", "c++"]
+
+        let recuentoPalabrasClave = detectarPalabrasClave(texto, palabrasClave)
+
+        console.log("Las palabras clave aparecen " + recuentoPalabrasClave + " veces.")
+</script>

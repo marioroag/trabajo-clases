@@ -1,0 +1,63 @@
+<script>
+    // Nueva Acción: Mercado:
+
+    // El mercado te permite comprar productos para la granja. En cada visita a la tienda, se
+    // mostrarán solo 4 de los 8 productos disponibles. Cada cinco iteraciones temporales, los
+    // productos en el mercado cambian, ofreciendo una nueva selección de objetos.
+
+    // Productos y Precios Base:
+    // ● Bebedero de Agua 🚰 - 200G
+    // ● Refugio para Animales 🏚 - 500G
+    // ● Juguetes para Animales 🧸 - 150G
+    // ● Malla de Sombra 🏖 - 300G
+    // ● Sistema de Riego 💧 - 400G
+    // ● Herramientas de Limpieza 🧹 - 100G
+    // ● Luz Solar Artificial 💡 - 350G
+    // ● Cercado Mejorado 🚧 - 600G
+
+    const OBJETOSJUEGO = [
+        ["Bebedero de Agua 🚰", 200],
+        ["Refugio para Animales 🏚", 500],
+        ["Juguetes para Animales 🧸", 150],
+        ["Malla de Sombra 🏖", 300],
+        ["Sistema de Riego 💧", 400],
+        ["Herramientas de Limpieza 🧹", 100],
+        ["Luz Solar Artificial 💡", 350],
+        ["Cercado Mejorado 🚧", 600],
+    ];
+
+    function selectorDeArticulosDisponibles(arrayObjetos, numeroObjetos) {
+        let objetosDisponibles = [];
+
+        while (objetosDisponibles.length < numeroObjetos) {
+            posibleProximoObjeto = Math.floor(Math.random() * arrayObjetos.length);
+
+            if (objetosDisponibles.includes(arrayObjetos[posibleProximoObjeto])) {
+                // Objeto repetido no se añade
+            } else {
+                objetosDisponibles.push(arrayObjetos[posibleProximoObjeto]);
+            }
+        }
+        return objetosDisponibles;
+    }
+
+    function mostrarMercado(arrayObjetosDisponibles) {
+        let menuDeCompra = "";
+        for (let i = 0; i < arrayObjetosDisponibles.length; i++) {
+            menuDeCompra += `${i + 1}. ${arrayObjetosDisponibles[i].join(" - Precio: ")} G\n`;
+        }
+        menuDeCompra += "\n";
+
+        return menuDeCompra;
+    }
+
+    // ---------------------- MAIN ----------------------
+
+    objetosDisponiblesParaCompra = selectorDeArticulosDisponibles(OBJETOSJUEGO,4);
+
+    console.log(mostrarMercado(objetosDisponiblesParaCompra));
+    
+    
+    jugadorQuiereComprar = Number(prompt(mostrarMercado(objetosDisponiblesParaCompra)));
+
+</script>
