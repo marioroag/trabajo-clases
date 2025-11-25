@@ -19,4 +19,43 @@
     // const jugadores = ["Jugador1", "Jugador2", "Jugador3", "Jugador4", "Jugador5"]
     // const puntuaciones = [120, 200, 150, 180, 220]
     
+    // Declaraciones:
+    let opcion = 0
+    let jugadorNuevo = ''
+    let jugadorNuevoPuntuacion = 0
+
+    // Arrays iniciales:
+    let jugadores = ["Jugador1", "Jugador2", "Jugador3", "Jugador4", "Jugador5"]
+    let puntuaciones = [120, 200, 150, 180, 220]
+
+    while (opcion != 3) {
+        opcion = Number(prompt('1. Añadir un nuevo jugador\n' + 
+                                '2. Mostrar los jugadores\n' +
+                                '3. Salir del programa\n\n' +
+                                'Introduce tu opcion aqui:'
+        ))
+
+        if (opcion === 1) {
+            jugadorNuevo = prompt('Nombre del nuevo jugador:')
+            jugadorNuevoPuntuacion = Number(prompt('Puntuación de ' + jugadorNuevo))
+            while (jugadorNuevoPuntuacion < 0) {
+                jugadorNuevoPuntuacion = Number(prompt('Puntuación de ' + jugadorNuevo + '\n\n' +
+                                                        '* Debe ser un numero mayor a 0'
+                ))
+            }
+            jugadores.push(jugadorNuevo)
+            puntuaciones.push(jugadorNuevoPuntuacion)
+            console.log(jugadorNuevo + 'ha sido añadido con exito.');
+        } else if (opcion === 2) {
+            for (let i = 0; i < jugadores.length; i++) {
+                console.log('\nJugador número: ' + (i + 1));
+                
+                console.log('Nombre: ' + jugadores[i]);
+                console.log('Puntuacion: ' + puntuaciones[i]);
+            }
+        } else if (opcion === 3) {
+            console.log('Has salido del programa.');
+        }
+    }
+
 </script>
