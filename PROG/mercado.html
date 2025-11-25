@@ -38,7 +38,6 @@
                 objetosDisponibles.push(arrayObjetos[posibleProximoObjeto]);
             }
         }
-
         return objetosDisponibles;
     }
 
@@ -52,9 +51,12 @@
         return menuDeCompra;
     }
 
+    // ---------------------- MAIN ----------------------
 
     objetosDisponiblesParaCompra = selectorDeArticulosDisponibles(OBJETOSJUEGO,4);
 
+    console.log(mostrarMercado(objetosDisponiblesParaCompra));
+    
     
     jugadorQuiereComprar = Number(prompt(mostrarMercado(objetosDisponiblesParaCompra)));
 
