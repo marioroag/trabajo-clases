@@ -9,4 +9,75 @@
     // 4. Ver la lista de tareas completadas.
     // 5. Salir del programa.
     
+    // Arrays:
+    let tareasPendientes = []
+    let tareasCompletadas = []
+
+    // Declaraciones:
+    let opcion = 0
+
+    let mostrarTareas = 'Cual de las siguientes tareas quieres marcar como completadas:\n\n'
+
+    let nombreTarea = ''
+    let tareaACompletar = 0
+
+    let menu =  '1. Añadir una nueva tarea.\n' +
+                '2. Marcar una tarea como completada.\n' +
+                '3. Ver la lista de tareas pendientes.\n' +
+                '4. Ver la lista de tareas completadas.\n' +
+                '5. Salir del programa.\n\n' +
+                'Tu elección:'
+
+    // Bucle del programa:
+
+    while (opcion != 5) {
+        opcion = Number(prompt(menu))
+
+        if (opcion === 1) {
+            // Añadir una nueva tarea
+            nombreTarea = prompt('Tarea a añadir a la lista:\n')
+            tareasPendientes.push(nombreTarea)
+            console.log('Tarea añadida: ' + nombreTarea);
+        } else if (opcion === 2) {
+            // Marcar una tarea como completada
+            // Crea el menu que muestra las tareas para completar
+            for (let i = 0; i < tareasPendientes.length; i++) {
+                mostrarTareas += (i + 1) + '. ' + tareasPendientes[i] + '\n'
+            }
+
+            // Input del usuario:
+            tareaACompletar = Number(prompt(mostrarTareas))
+
+            // Preparo la variable para el control de errores
+            mostrarTareas += 'Porfavor introduce un número de la lista'
+
+            // Control de errores
+            while (tareaACompletar <= 0) {
+                tareaACompletar = Number(prompt(mostrarTareas))
+            }
+
+            // Reseteo para la proxima vez que usemos la variable
+            mostrarTareas = 'Cual de las siguientes tareas quieres marcar como completadas:\n\n'
+            
+            // ----- Elimina la tarea de pendientes y la añade a completadas ------
+
+            // Pasarla a completadas (Arrays empiezan en 0)
+            tareasCompletadas.push(tareasPendientes[tareaACompletar - 1]);
+
+            // Eliminarla de pendientes
+            // Nueva función splice: elimina desde x tarea, x cantidad de tareas
+            tareasPendientes.splice(tareaACompletar - 1, 1);
+
+        } else if (opcion === 3) {
+            // Ver la lista de tareas pendientes
+            console.log('Tareas pendientes:\n' + tareasPendientes.join(', '));
+        } else if (opcion === 4) {
+            // Ver la lista de tareas completadas
+            console.log('Tareas completadas:\n' + tareasCompletadas.join(', '));
+        } else if (opcion === 5) {
+            // Salir del programa
+            console.log('Programa terminado.');
+        }
+
+    }
 </script>
