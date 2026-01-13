@@ -8,10 +8,10 @@ public class PT1_java {
 
         // Info del usuario
         System.out.print("Número de pedidos:");
-        int numeroPedidos = scanner.nextInt();
+        int numeroPedidos = Integer.parseInt(scanner.nextLine());
         while (numeroPedidos <= 0) {
             System.out.print("Número de pedidos:");
-            numeroPedidos = scanner.nextInt();
+            numeroPedidos = Integer.parseInt(scanner.nextLine());
         }
 
         System.out.print("Stock de arroz (g):");
@@ -27,6 +27,7 @@ public class PT1_java {
             System.out.print("Stock de agua (L):");
             stockAgua = scanner.nextInt();
         }
+        scanner.nextLine(); // limpio el buffer
 
         // Declaraciones
         double arrozGastadoAcumulado = 0, aguaGastadaAcumulada = 0;
@@ -43,6 +44,8 @@ public class PT1_java {
         boolean stockSuperado = false;
 
         for (int i = 1; i <= numeroPedidos && !stockSuperado; i++) {
+            System.out.print("Tipo de plato (maki/nigiri/sashimi):");
+            tipoPlato = scanner.nextLine();
             System.out.println("--- Pedido " + i + " ---");
             while (!tipoPlato.equalsIgnoreCase("maki") && !tipoPlato.equalsIgnoreCase("nigiri")
                     && !tipoPlato.equalsIgnoreCase("sashimi")) {
@@ -56,14 +59,15 @@ public class PT1_java {
                 System.err.print("Unidades (≥ 0):");
                 unidades = scanner.nextInt();
             }
+            scanner.nextLine(); // limpio el buffer
 
-            if (tipoPlato == "maki") {
+            if (tipoPlato.equals("maki")) {
 
                 arrozGastadoPedido = ARROZMAKI * unidades;
                 aguaGastadoPedido = AGUAMAKI * unidades;
                 importe = PRECIOMAKI * unidades;
 
-            } else if (tipoPlato == "nigiri") {
+            } else if (tipoPlato.equals("nigiri")) {
 
                 arrozGastadoPedido = ARROZNIGIRI * unidades;
                 aguaGastadoPedido = AGUANIGIRI * unidades;
@@ -93,9 +97,9 @@ public class PT1_java {
                 aguaGastadaAcumulada += aguaGastadoPedido;
                 importeCajaTotal += importe;
 
-                if (tipoPlato == "maki")
+                if (tipoPlato.equals("maki"))
                     totalPiezasMaki += unidades;
-                else if (tipoPlato == "nigiri")
+                else if (tipoPlato.equals("nigiri"))
                     totalPiezasNigiri += unidades;
                 else
                     totalPiezasSashimi += unidades;
