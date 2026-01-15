@@ -113,6 +113,8 @@ public class PT1_java {
             }
 
         }
+
+        scanner.close();
         arrozRestante = stockArroz - arrozGastadoAcumulado;
         aguaRestante = stockAgua - aguaGastadaAcumulada;
 
