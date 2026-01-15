@@ -1,9 +1,0 @@
-Comándos útiles:
-    - equalsIgnoreCase(string) // Ignora si un string está en mayúsculas o minusculas a la hora de compararlo
-    Ej:
-        opcion = SaLiR
-        if (opcion = equalsIgnoreCase(salir)) {
-            salir = true
-        }
-
-        * salir es true
