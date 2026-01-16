@@ -16,4 +16,9 @@ h2 {
     color: #333;
 }
 
-/* Ejercicio 1 */
+.flex-container {
+    display: flex;
+    justify-content: flex-start;
+    justify-content: center;
+    justify-content: space-between;
+}

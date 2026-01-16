@@ -16,4 +16,50 @@ h2 {
     color: #333;
 }
 
-/* Ejercicio1 */
+.caja {
+    width: 250px;
+    height: 150px;
+    border: 2px solid red;
+    margin: 20px;
+}
+
+.caja-1 {
+    background-color: lightblue;
+    padding: 30px;
+}
+
+.caja-2 {
+    background-color: lightgreen;
+    margin: 30px;
+}
+
+.borde-personalizado {
+    border-top: 10px solid blue;
+    border-right: 5px dashed red;
+    border-bottom: 8px dotted green;
+    border-left: 3px double black;
+    padding: 20px;
+}
+
+.caja-em-rem {
+    font-size: 20px;
+    padding: 2em;
+}
+
+.caja-em-rem > h1 {
+    font-size: 2rem;
+}
+
+.caja-em-rem > p {
+    font-size: 1.5rem;
+}
+
+.caja-fluid {
+    width: 50vw;
+    height: 30vh;
+    background-color: lightcoral;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

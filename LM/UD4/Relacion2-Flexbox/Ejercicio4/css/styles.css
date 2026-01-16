@@ -16,4 +16,22 @@ h2 {
     color: #333;
 }
 
-/* Ejercicio 4 */
+.flex-container {
+    display: flex;
+}
+
+.flex-1 {
+    flex: 1 1 auto;
+}
+
+.flex-2 {
+    flex: 2 1 150px;
+}
+
+.flex-3 {
+    flex: 1 0 100px;
+}
+
+.flex-4 {
+    flex: 0 1 200px;
+}

@@ -16,4 +16,18 @@ h2 {
     color: #333;
 }
 
-/* Ejercicio 3 */
+.flex-container {
+    display: flex;
+}
+
+.item1 {
+    flex-grow: 1;
+}
+
+.item2 {
+    flex-grow: 4;
+}
+
+.item3 {
+    flex-grow: 1;
+}

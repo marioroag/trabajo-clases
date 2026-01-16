@@ -16,4 +16,21 @@ h2 {
     color: #333;
 }
 
-/* Ejercicio 2 */
+.flex-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
