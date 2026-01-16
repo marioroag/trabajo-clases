@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class PT1_java {
+public class PT1tojava {
     public static void main(String[] args) {
 
         // Crear objeto Scanner
