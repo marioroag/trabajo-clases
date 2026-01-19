@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+public class e10tojava {
 
     public static double areaTriangulo(double base, double altura) {
         return base * altura / 2;
@@ -28,7 +29,7 @@ import java.util.Scanner;
                 System.out.print("Introduce la altura: ");
                 altura = Double.parseDouble(scanner.nextLine());
             } catch (Exception e) {
-                //Para ver la excepción, si hiciera falta => e.printStackTrace();
+                // Para ver la excepción, si hiciera falta => e.printStackTrace();
                 altura = -1;
                 System.out.println("ERROR al leer numero");
             }
