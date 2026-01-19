@@ -150,3 +150,5 @@ select id_equipo_local, sum(goles_local) as total_goles from partidos group by i
 select id_equipo_local, count(*) as partidos_local from partidos group by id_equipo_local order by partidos_local desc; -- NO SE SI ESTA BIEN
 
 -- 16. Calcular la cantidad de partidos en los que el equipo local ganó, usando alias "victorias_local", ordenados por cantidad de victorias y goles locales promedio en orden descendente.
+select count(*) as victorias_local from partidos where (goles
+_local > goles_visitante);
