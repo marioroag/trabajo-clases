@@ -74,20 +74,20 @@ select trim(nombre) from Ministerio;
 
 -- Ejercicios de Funciones NuEXTRACTméricas
 -- 6. Redondear el presupuesto de las actividades a millones.
-select round(presupuesto, 0) from Ministerio;
+select round(presupuesto_asignado/1000000, 0) from Actividad;
 
 -- 7. Calcular la diferencia entre los ingresos anuales de cada ciudadano y el promedio de ingresos.
-select nombre, (select avg(ingresos_anuales) from Ciudadano) - ingresos_anuales as diferencia_promedio from Ciudadano;
+select nombre, ingresos_anuales - (select avg(ingresos_anuales) from Ciudadano) as diferencia_al_promedio from Ciudadano order by ingresos_anuales desc;
 
 -- 8. Obtener el entero más cercano hacia abajo y hacia arriba de los presupuestos de los ministerios.
-
+select floor(presupuesto) as redondeo_abajo, ceil(presupuesto) as redondeo_arriba from Ministerio;
 
 -- 9. Generar un número aleatorio para asignar un identificador único temporal a cada actividad.
-
+select round(rand() * 99 + 1) as id_aleatorio, id, descripcion from Actividad;
 
 -- Ejercicios de Funciones de Fecha y Hora
 -- 10. Calcular la antigüedad de cada ministerio en años.
-
+select floor(datediff(now(), fecha_creacion)/365) as antiguedad from Ministerio;
 
 -- Para mi esta es la mejor:
 

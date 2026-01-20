@@ -80,10 +80,10 @@ select count(id) as numero_empleados from empleado;
 select avg(salario) as salario_promedio, ciudad from empleado group by ciudad having avg(salario) > 4000;
 
 -- 3. Encuentra el total de ventas por cada cliente.
-select cliente, sum(importe) as total_ventas from venta GROUP BY cliente;
+select cliente, count(*) as total_ventas from venta GROUP BY cliente;
 
 -- 4. Muestra los departamentos con más de 3 empleados.
-select departamento from empleado GROUP BY departamento having count(departamento) > 2;
+select departamento from empleado GROUP BY departamento having count(departamento) > 3;
 
 -- 5. Calcula el promedio de edad de los empleados por ciudad.
 select ciudad, avg(edad) as edad_promedio from empleado GROUP BY ciudad;
@@ -92,7 +92,7 @@ select ciudad, avg(edad) as edad_promedio from empleado GROUP BY ciudad;
 select ciudad from empleado GROUP BY ciudad having count(id) > 0;
 
 -- 7. Muestra el número total de ventas y la suma total de importes.
-select sum(id) as total_ventas, sum(importe) as total_importe from venta;
+select count(id) as total_ventas, sum(importe) as total_importes from venta;
 
 -- 8. Encuentra el/los cliente/clientes con la venta más baja.
 select cliente, importe from venta where importe = (select min(importe) from venta);

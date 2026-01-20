@@ -51,3 +51,9 @@ La fracción del ancho de banda que se llena con cabeceras es (tomando únicamen
 ### Ejercicio extra:
 
 **7.** ¿Cuál es el tiempo necesario en enviar un paquete de 1000 Bytes, incluidos 50 Bytes de cabecera, por un enlace de 100 Mbps y 10Km? ¿cuál es el tiempo mínimo desde que se envía hasta que se recibe confirmación? ¿qué relación hay entre este tiempo y los temporizadores en, por ejemplo, las capas de enlace y transporte?
+(Tiempo transmisión)            Tx      = Tamaño del paquete (bytes x bits)/ Velocidad del paquete (bits/s)
+(Tiempo propagacion)            Tprop   = Distancia (m) / Velocidad (velocidad del medio en m/s, ej: cable = 200.000 km/s)
+(Tiempo de envio confirmacion)  Tt      = Tx + Tprop
+(Tiempo total)                  T       = Tx + 2Tprop + Tt
+
+Resultado Ejercicio = 150 nanosegundos (multiplicar por dos para preveer imprevistos)
