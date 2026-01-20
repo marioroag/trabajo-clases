@@ -1,3 +1,4 @@
+package random;
 public class e18tojava {
     public static int contarVocalesEnCadena(String cadenaTexto) {
         cadenaTexto = cadenaTexto.toUpperCase();
