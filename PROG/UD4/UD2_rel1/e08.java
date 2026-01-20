@@ -6,6 +6,7 @@ import java.util.Arrays;
 public class e08 {
     public static void main(String[] args) {
         ArrayList<Integer> numeros = new ArrayList<>(Arrays.asList(100, 200, 300));
+        // No hacia falta que la variable temporal fuera un array
         ArrayList<Integer> primerNum = new ArrayList<>();
 
         primerNum.add(numeros.getFirst());
