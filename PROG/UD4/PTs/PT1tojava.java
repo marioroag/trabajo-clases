@@ -1,3 +1,4 @@
+package PTs;
 import java.util.Scanner;
 
 public class PT1tojava {
