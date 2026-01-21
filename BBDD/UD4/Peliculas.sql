@@ -134,7 +134,7 @@ select titulo, anio from pelicula ORDER BY anio desc;
 select round(AVG(duracion), 2) as promedio_duracion from pelicula;
 
 -- 15. Mostrar los actores que no nacieron en EE.UU.
-select nombre from actor where pais_origen = "EE.UU.";
+select nombre from actor where not pais_origen = "EE.UU.";
 
 -- 17. Mostrar el id de las películas que tienen más de un actor en su reparto.
 select id_pelicula from reparto GROUP BY id_pelicula having count(id_actor) > 1;
