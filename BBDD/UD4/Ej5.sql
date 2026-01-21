@@ -92,18 +92,18 @@ select floor(datediff(now(), fecha_creacion)/365) as antiguedad from Ministerio;
 -- Para mi esta es la mejor:
 
 -- 11. Formatear las fechas de inicio y fin de las actividades en formato "DD-MM-YYYY".
-
+select DATE_FORMAT(fecha_inicio, "%d-%m-%y") as fecha_inicio, DATE_FORMAT(fecha_fin, "%d-%m-%y") as fecha_fin from Actividad;
 
 -- 12. Calcular cuántos días faltan para que termine cada actividad.
-
+select datediff(fecha_fin, now()) as dias_para_terminar from Actividad;
 
 -- 13. Extraer el mes y el año de las fechas de nacimiento de los ciudadanos.
-
+select EXTRACT(MONTH FROM fecha_nacimiento) AS mes, EXTRACT(year FROM fecha_nacimiento) as año from Ciudadano;
 
 -- Para mi la mejor es:
 
 -- 14. Filtrar ciudadanos nacidos después del año 1990.
-
+select nombre from Ciudadano where EXTRACT(year from fecha_nacimiento) > 1990;
 
 -- 15. Calcular el tiempo total en días que dura cada actividad gubernamental.
-
+select datediff(fecha_fin, fecha_inicio) as dias_para_terminar from Actividad;
