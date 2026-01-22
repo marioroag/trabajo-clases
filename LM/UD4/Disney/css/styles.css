@@ -1,0 +1,107 @@
+.global {
+    background: #181818;
+    color: aliceblue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+
+
+    padding-inline: 2rem;
+    background: #1d75af;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    list-style-type: none;
+}
+
+.nav-menu a {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.nav-menu a:hover {
+    color: rgb(241, 149, 11);
+}
+
+.nav-menu a:active {
+    font: 500;
+}
+
+/* Bienvenida */
+.bienvenida {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 12px;
+    padding-block: 5rem;
+    margin-bottom: 4rem;
+    background-image: url("https://i.pinimg.com/originals/83/63/ce/8363cecaf91a4f174868064335126cef.jpg");
+}
+
+.bienvenida button {
+    margin-top: 1rem;
+    padding-block: 0.5rem;
+    padding-inline: 1.25rem;
+    background: #1d75af;
+    border: none;
+    color: aliceblue;
+}
+
+/* Peliculas */
+.peliculas {
+    display: flex;
+    margin-inline: 2rem;
+    justify-content: space-between;
+}
+
+.peliculas h1 {
+    display: flex;
+    align-items: normal;
+}
+
+.peliculas-card {
+    align-items: center;
+    justify-content: center;
+
+    line-height: 10px;
+}
+
+.peliculas-card button {
+    margin-top: 0.75rem;
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+    background: #1d75af;
+    border: none;
+    color: aliceblue;
+}
+
+.peliculas-card img {
+    border-radius: 15px;
+}
+
+.personajes {
+    display: flex;
+    margin-block: 2.5rem;
+}
+
+.personajes div {
+    display: flex;
+    margin-block: 2.5rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-inline: 2rem;
+}
+
+.personajes img {
+    display: flex;
+    justify-content: flex-start;
+}
