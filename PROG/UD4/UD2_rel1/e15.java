@@ -7,7 +7,7 @@ public class e15 {
     public static void main(String[] args) {
         ArrayList<Integer> numeros = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
 
-        while (numeros.size() > 0) {
+        while (!numeros.isEmpty()) {
             System.out.println(numeros);
             numeros.removeLast();
         }

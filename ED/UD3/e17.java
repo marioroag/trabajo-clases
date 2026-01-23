@@ -3,7 +3,10 @@ package UD3_rel0;
 public class e17 {
     /**
      * 
-     * <p>HOLA</p>
+     * <p>
+     * HOLA
+     * </p>
+     * 
      * @param cadenaTexto String original a revertir
      * @return cadena de texto invertida
      */

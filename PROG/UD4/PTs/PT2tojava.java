@@ -1,4 +1,5 @@
 package PTs;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -23,15 +24,11 @@ public class PT2tojava {
         ArrayList<Integer> tableroInterno = new ArrayList<Integer>();
         ArrayList<String> tableroVisible = new ArrayList<String>();
 
-        // Scanner
-        Scanner scanner = new Scanner(System.in);
-
         // Creación del tablero vacío
         for (int i = 0; i < NUMDIENTES; i++) {
             tableroInterno.add(0);
         }
 
-        // Introduzco los dientes picados
         while (dientesPicdadosIntroducidos < DIENTESPICADOS) {
             posicionDienteIntroducir = (int) Math.floor(Math.random() * NUMDIENTES);
             if (tableroInterno.get(posicionDienteIntroducir) == 0) {
@@ -46,6 +43,10 @@ public class PT2tojava {
         for (int i = 0; i < NUMDIENTES; i++) {
             tableroVisible.add(DIENTE);
         }
+        // Introduzco los dientes picados
+
+        // Scanner
+        Scanner scanner = new Scanner(System.in);
 
         for (int i = 0; i < DIENTESNOPICADOS && !juegoPerdido; i++) {
 

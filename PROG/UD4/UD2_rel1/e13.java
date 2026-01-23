@@ -7,11 +7,8 @@ public class e13 {
     public static void main(String[] args) {
         ArrayList<Character> letras = new ArrayList<>(Arrays.asList('a', 'b', 'c', 'd'));
         ArrayList<Character> arrayInvertido = new ArrayList<>();
-        Character recordarLetra = 'x';
-
-        while (letras.size() > 0) {
-            recordarLetra = letras.removeLast();
-            arrayInvertido.add(recordarLetra);
+        for (Character letra : letras) {
+            arrayInvertido.addFirst(letra);
         }
 
         System.out.println(arrayInvertido);
