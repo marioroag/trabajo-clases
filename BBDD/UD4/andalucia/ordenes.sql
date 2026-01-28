@@ -49,6 +49,15 @@ select nombre, floor(year(now()) - year(fecha_nacimiento)) as edad from personas
 -- Dime la provincia con la máxima edad media.
 select provincia from personas GROUP BY provincia having floor(avg(year(now()) - year(fecha_nacimiento))) = (select max(edad_media) from (select floor(avg(year(now()) - year(fecha_nacimiento))) as edad_media from personas group by provincia) p);
 
+-- Provincias
+select provincia from personas GROUP BY provincia;
+
+-- Edad media
+select provincia, floor(avg(year(now()) - year(fecha_nacimiento))) as edad_media from personas group by provincia;
+
+-- Max
+(select max(edad_media) from (select floor(avg(year(now()) - year(fecha_nacimiento))) as edad_media from personas group by provincia) p);
+
 -- Dime los hijos del ciudadano con id 1190
 select nombre, num_hijos, id from personas where padre = 1190;
 
@@ -65,12 +74,20 @@ select round(avg(num_hijos), 2) from personas where sexo = "H";
 select round(avg(num_hijos), 2) as media_hijos from personas where floor(year(now()) - year(fecha_nacimiento)) > 30;
 
 -- Muestra el valor de numero de hijos que más se repite entre las mujeres.
--- Idea: contar las veces que se da cada valor de número de hijos y quedarme con el max
+select (select max(num_hijos) from personas WHERE sexo = "M") as max_hijos_mujer, count(*) as repiticiones_max_hijos from personas where num_hijos = (select max(num_hijos) from personas) and sexo = "M";
 
 -- Dime la media de edad de las mujeres sin hijos de Sevilla provincia
+select provincia, round(avg(floor(year(now()) - year(fecha_nacimiento))), 0) as media_edad_mujeres from personas where sexo = "M" and provincia = "Sevilla";
+
 -- Dime la media de las modas del campo edad.
+select round(avg(edad), 2) as media_modas_edad from (select floor(year(now()) - year(fecha_nacimiento)) as edad, count(floor(year(now()) - year(fecha_nacimiento))) as frecuencia from personas group by edad having frecuencia = (select max(frecuencia) from (select floor(year(now()) - year(fecha_nacimiento)) as edad, count(floor(year(now()) - year(fecha_nacimiento))) as frecuencia from personas group by edad) p) ) m;
+
 -- Dime la provincia con menor edad media de las personas estudiantes.
+SELECT provincia from personas where ocupacion = "Estudiante" group by provincia having avg(floor(year(now()) - year(fecha_nacimiento))) = (select min(media_edad) as min_media_edad from (select provincia, avg(floor(year(now()) - year(fecha_nacimiento))) as media_edad from personas where ocupacion = "Estudiante" group by provincia) p);
+
 -- Órdename los municipios por numero total de hijos en cada uno.
+
+
 -- ordena las provincias por mayor número medio de hijos por mujer (tasa de natalidad)
 -- Dime los municipios que no superan la tasa de reemplazo (más de 2 hijos por mujer) pero tienen un salario medio mayor a 3000 euros al mes
 -- Dime la provincia con la moda de edad más alta.
