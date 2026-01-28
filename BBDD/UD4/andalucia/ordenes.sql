@@ -85,11 +85,29 @@ select round(avg(edad), 2) as media_modas_edad from (select floor(year(now()) - 
 -- Dime la provincia con menor edad media de las personas estudiantes.
 SELECT provincia from personas where ocupacion = "Estudiante" group by provincia having avg(floor(year(now()) - year(fecha_nacimiento))) = (select min(media_edad) as min_media_edad from (select provincia, avg(floor(year(now()) - year(fecha_nacimiento))) as media_edad from personas where ocupacion = "Estudiante" group by provincia) p);
 
--- Órdename los municipios por numero total de hijos en cada uno.
+-- Ordena los municipios por numero total de hijos en cada uno.
+select municipio, sum(num_hijos) as suma_hijos from personas group by municipio order by suma_hijos desc;
+
+-- Ordena las provincias por mayor número medio de hijos por mujer (tasa de natalidad)
+select provincia, round(avg(num_hijos), 2) as media_hijos from personas where sexo = "M" group by provincia order by media_hijos desc;
 
 
--- ordena las provincias por mayor número medio de hijos por mujer (tasa de natalidad)
--- Dime los municipios que no superan la tasa de reemplazo (más de 2 hijos por mujer) pero tienen un salario medio mayor a 3000 euros al mes
+
+-- Dime los municipios que no superan la tasa de reemplazo (más de 2 hijos por mujer) pero tienen un salario medio mayor a 3000 euros al mes.
+
+
+-- media_hijos mayor que 2
+select municipio, avg(num_hijos) as media_hijos from personas group by municipio having avg(num_hijos) <= 2;
+
+-- municipio, media_salario, num personas
+select municipio, avg(ingresos_anuales / 12) as media_salario, count(*) as num_personas from personas group by municipio having media_salario > 2000;
+
+
+
 -- Dime la provincia con la moda de edad más alta.
+select provincia, avg(floor(year(now()) - year(fecha_nacimiento))) as media_edad from personas group by provincia order by media_edad desc limit 1;
+
 -- Dime los 5 sevillanos (municipio) de más edad ordenados por la longitud de su apellido.
--- Dime el municicpio con menos tasa de natalidad (num_hijos por mujer) de entre los municipios de Huelva con salario medio menor de 20000 euros anuales .
+select nombre, floor(year(now()) - year(fecha_nacimiento)) as edad from personas where municipio = "Sevilla" order by edad desc limit 5;
+
+-- Dime el municicpio con menos tasa de natalidad (num_hijos por mujer) de entre los municipios de Huelva con salario medio menor de 20000 euros anuales.
