@@ -137,6 +137,7 @@ header {
 }
 
 .lista-eventos li {
+    align-items: center;
     padding: 20px;
     margin: 10px;
     border: 2px solid #1d75af;
@@ -190,4 +191,6 @@ footer a:hover {
     scale();
 }
 
-.hover-effect:hover
+.hover-effect:hover {
+
+}
