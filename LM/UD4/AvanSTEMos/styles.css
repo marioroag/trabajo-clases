@@ -53,7 +53,6 @@
 .usuario img {
     width: 100px;
     border-radius: 50%;
-    
 }
 
 .usuario h2 {
@@ -65,9 +64,84 @@
     background-color: antiquewhite;
 }
 
-.publicaciones article {
-    display: flex;
+.publicaciones {
+    display: inline-flex;
     flex-direction: column;
+}
+
+.publicaciones article {
+    margin: 10px;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 20px;
+}
+
+#pub1 {
+    background-color:goldenrod;
+    border-style: dashed;
+}
+
+#pub2 {
+    background-color: burlywood;
+    border-style: groove;
+}
+
+#pub3 {
+    background-color: cadetblue;
+    border-style: dotted;
+}
+
+#pub1:hover,
+#pub2:hover,
+#pub3:hover {
+    background-color:cornsilk;
+}
+
+.publicaciones button {
+    background-color: blue; 
+    color: white; 
+    border-radius: 5px;
+
+    transition: transform 0.25s;
+}
+
+.publicaciones button:hover {
+    transform: scale(1.1);
+}
+/*
+    Usa Flexbox para alinear los usuarios en fila.
+    Aplica un fondo diferente a cada usuario con un borde personalizado.
+    Usa hover para que la imagen del usuario aumente de tamaño ligeramente.
+*/
+.usuarios {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-block: 20px;
+}
+
+.usuarios article {
+    padding: 10px;
+
+    transition: transform 0.25s;
+
+}
+
+#user1 {
+    background-color: cadetblue;
+    border-style: dotted;
+}
+
+#user2 {
+    background-color: burlywood;
+    border-style: groove;
+}
+
+#user1:hover,
+#user2:hover {
+    transform: scale(1.1)
+}
+
+footer {
+    margin-top: 40px;
+    margin-bottom: 10px;
 }
