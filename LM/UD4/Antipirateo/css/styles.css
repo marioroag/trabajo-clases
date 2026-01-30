@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:'Courier New', Courier, monospace;
+}
+
+body {
+    background-color:rgb(89, 140, 182);
+    
+    background-image: url(../media/background.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+h3, h2, h1 {
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    background-color: saddlebrown;
+    align-items: center;
+    padding: 25px 20px;
+    margin-bottom: 50px;
+    border: ridge 10px gray;
+}
+
+.nav-menu ul {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: black;
+}
+
+.nav-menu a:hover {
+    color: gray;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
