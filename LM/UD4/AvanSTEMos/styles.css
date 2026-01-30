@@ -107,11 +107,7 @@
 .publicaciones button:hover {
     transform: scale(1.1);
 }
-/*
-    Usa Flexbox para alinear los usuarios en fila.
-    Aplica un fondo diferente a cada usuario con un borde personalizado.
-    Usa hover para que la imagen del usuario aumente de tamaño ligeramente.
-*/
+
 .usuarios {
     display: flex;
     flex-direction: row;
@@ -121,7 +117,6 @@
 
 .usuarios article {
     padding: 10px;
-
     transition: transform 0.25s;
 
 }

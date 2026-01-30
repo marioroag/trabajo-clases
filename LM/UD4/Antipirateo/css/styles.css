@@ -6,29 +6,45 @@
 }
 
 body {
-    background-color:rgb(89, 140, 182);
-    
-    background-image: url(../media/background.jpg);
-    background-size: cover;
-    background-position: center;
+    color: aliceblue;
+    background-color:rgb(31, 30, 30);
 }
 
 h3, h2, h1 {
 }
 
-.nav-menu {
+section {
+    margin-inline: 20px;
+}
+
+h1 {
+    text-shadow: 1px 1px 5px #000000;
+}
+
+.cabeza {
     display: flex;
     justify-content: space-between;
-    background-color: saddlebrown;
     align-items: center;
+
     padding: 25px 20px;
-    margin-bottom: 50px;
+    margin-bottom: 35px;
     border: ridge 10px gray;
+
+    color: black;
+
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background-size: 10px 10px;
+    background-image: repeating-linear-gradient(45deg, #444cf7 0, #444cf7 1px, #e5e5f7 0, #e5e5f7 50%);
 }
 
 .nav-menu ul {
     display: flex;
+    margin-left: 50px;
     gap: 30px;
+    width: 550px;
+
+    list-style-type: none;
 }
 
 .nav-menu a {
@@ -37,8 +53,71 @@ h3, h2, h1 {
 }
 
 .nav-menu a:hover {
-    color: gray;
-    font-weight: bold;
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
     text-decoration: underline;
+
 }
 
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    line-height: 30px;
+    padding: 30px;
+    max-width: 800px;
+    margin: 50px auto;
+
+    text-shadow: 1px 1px 1px #000000;
+    color: rgb(0, 0, 0);
+    border: 5px ridge gray;
+
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background-image:  linear-gradient(#444cf7 3.2px, transparent 3.2px), linear-gradient(90deg, #444cf7 3.2px, transparent 3.2px), linear-gradient(#444cf7 1.6px, transparent 1.6px), linear-gradient(90deg, #444cf7 1.6px, #e5e5f7 1.6px);
+    background-size: 80px 80px, 80px 80px, 16px 16px, 16px 16px;
+    background-position: -3.2px -3.2px, -3.2px -3.2px, -1.6px -1.6px, -1.6px -1.6px;
+}
+
+.hero h2 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 14px;
+}
+
+.hero button {
+    background-color: #7c82ec;
+    padding: 10px 100px;
+    border-radius: 8px;
+    margin-top: 20px;
+
+    font-weight: 400;
+
+    transition: 
+    transform 0.25s,
+    background-color 0.25s;
+}
+
+.hero button:hover {
+    background-color: #444cf7;
+
+    transform: scale(1.1);
+    font-weight: 600;
+}
+
+.casos h1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.casos div {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 250px;
+}
