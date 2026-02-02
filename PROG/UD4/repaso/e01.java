@@ -69,6 +69,18 @@ public class e01 {
         int opcionMenu = -1;
         String menu;
 
+        // Tractores de prueba (placeholder)
+        marca.add("John Deere");
+        cvPotencia.add("120");
+        trabajoAsignado.add("arado");
+
+        marca.add("Kubota");
+        cvPotencia.add("85");
+        trabajoAsignado.add("transporte");
+
+        marca.add("Massey Ferguson");
+        cvPotencia.add("70");
+        trabajoAsignado.add("siembra");
         while (opcionMenu != 0) {
             menu = """
                     \n1. Añadir tractor.
@@ -87,6 +99,10 @@ public class e01 {
                 trabajoAsignado.add(scanner.nextLine());
 
             } else if (opcionMenu == 2) {
+                for (int i = 0; i < marca.size(); i++) {
+                    System.err.println((i + 1) + ". " + marca.get(i) + " | CV: " + cvPotencia.get(i) + " | Trabajo: "
+                            + trabajoAsignado.get(i));
+                }
 
             } else if (opcionMenu == 3) {
 
