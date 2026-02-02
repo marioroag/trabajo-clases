@@ -9,7 +9,15 @@ public class ej4 {
      */
 
     public static void main(String[] args) {
-        Auto coche1 = new Auto();
+        Auto coche1 = new Auto("Porsche", "911 Targa", 100);
+
+        System.out.println("Velocidad actual: " + coche1.velocidadActual + "km/h");
+        System.out.println("Acelerando 20kmh/h...");
+        coche1.acelerar(20);
+        System.out.println(coche1.velocidadActual + "km/h");
+        System.out.println("Frenando 40kmh/h...");
+        coche1.frenar(40);
+        System.out.println(coche1.velocidadActual + "km/h");
     }
 }
 
@@ -20,10 +28,11 @@ class Auto {
     int velocidadActual;
 
     // Constructor
-
-    // Constructor
-
-    // Constructor
+    Auto(String marca, String modelo, int velocidadActual) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.velocidadActual = velocidadActual;
+    }
 
     // Metodos
     void acelerar(int cantidad) {
@@ -33,5 +42,4 @@ class Auto {
     void frenar(int cantidad) {
         velocidadActual -= cantidad;
     }
-
 }
