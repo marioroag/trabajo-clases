@@ -5,7 +5,7 @@ public class ej4 {
      * Ejercicio 4: Clase Auto
      * Crea una clase Auto con atributos marca, modelo y velocidadActual. Agrega
      * métodos acelerar(cantidad) y frenar(cantidad) que aumenten o reduzcan la
-     * velocidad actual.
+     * velocidad actual
      */
 
     public static void main(String[] args) {
