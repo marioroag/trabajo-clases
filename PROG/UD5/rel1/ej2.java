@@ -34,7 +34,7 @@ class CuentaBancaria {
 
     void retirar(int cantidad) {
         if ((this.saldo -= cantidad) < 0) {
-            System.err.println("No puedes retirar y quedarte en negativo");
+            System.err.println("No puedes retirar más dinero del que tienes");
         } else {
             this.saldo -= cantidad;
         }
