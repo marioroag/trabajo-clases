@@ -6,19 +6,17 @@
 
 Queremos enviar un archivo de 2000 bytes usando paquetes de 1000 bytes por un enlace de 120 Mbps entre dos torres situadas a 15 Km de distancia. Teniendo en cuenta que las cabeceras ocupan 50 bytes también por tanto los paquetes de confirmación, ¿Cuánto tiempo tardaremos en enviar el primer paquete? ¿Cúanto tiempo tardaremos (desde que comienza el primer envío, si no hay errores) en recibir la confirmación del correcto envío de todos los paquetes?
 
-Nº Paquetes = 3 (1000, 1000, 100)
+Nº Paquetes = 3 (1000, 1000, 150)
 
-TT1 = (1000B * 8b) / 120Mbps * 10^6
-TT2 = (1000B * 8b/B) / 120Mbps * 10^6
-TT3 = (100B * 8b/B) / 120Mbps * 10^6
-Tp = (15km) / 2*10^8km/s = x * 10^6ns/1s =
-TACK =  (50B * 8b/B) / 120Mbps
+TT1 = (1000B * 8b) / (120Mb/s * 10^6)
+TT2 = (1000B * 8b/B) / (120Mb/s * 10^6)
+TT3 = (150B * 8b/B) / (120Mb/s * 10^6)
+Tp = (15000m) / 2*10^8m/s =
+TACK =  (50B * 8b/B) / 120Mbps = 3,33 microsegundos
 
 A) TT1
 
 B) T = TT1 + TT2 + TT3 + 2TP + TACK
-
-
 
 ### Ejercicio IP.
 
