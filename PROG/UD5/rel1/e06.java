@@ -12,10 +12,13 @@ public class e06 {
      * restarSegundos(segundos)
      */
 
+    // TODO: Control de errores en los inputs del usuario.
+
     public static void main(String[] args) {
         Reloj reloj1 = new Reloj(9, 45, 00);
         Scanner scanner = new Scanner(System.in);
 
+        int cantidad = -1;
         int opcion = -1;
 
         do {
@@ -25,13 +28,21 @@ public class e06 {
             opcion = Integer.parseInt(scanner.nextLine());
 
             if (opcion == 1) {
-
+                System.out.print("Minutos a sumar: ");
+                cantidad = Integer.parseInt(scanner.nextLine());
+                reloj1.sumarMinutos(cantidad);
             } else if (opcion == 2) {
-
+                System.out.print("Minutos a restar: ");
+                cantidad = Integer.parseInt(scanner.nextLine());
+                reloj1.restarMinutos(cantidad);
             } else if (opcion == 3) {
-
+                System.out.print("Segundos a sumar: ");
+                cantidad = Integer.parseInt(scanner.nextLine());
+                reloj1.sumarSegundos(cantidad);
             } else if (opcion == 4) {
-
+                System.out.print("Segundos a restar: ");
+                cantidad = Integer.parseInt(scanner.nextLine());
+                reloj1.restarSegundos(cantidad);
             } else {
                 System.out.println("Introduce un número válido");
             }
@@ -57,20 +68,57 @@ class Reloj {
         this.segundo = segundo;
     }
 
-    int sumarMinutos(int cantidad) {
-        return 0;
+    void sumarMinutos(int cantidad) {
+        this.minuto += cantidad;
+
+        // Elimina excedente de minutos y suma a las horas
+        if (this.minuto >= 60) {
+            do {
+                this.minuto -= 60;
+                this.hora++;
+
+                // Si ha completado un dia lo resetea
+                if (this.hora >= 24) {
+                    this.hora -= 24;
+                }
+            } while (this.minuto > 60);
+        }
+
     }
 
-    int restarMinutos(int cantidad) {
-        return 0;
+    void restarMinutos(int cantidad) {
+        this.minuto -= cantidad;
+        if (this.minuto < 0) {
+            do {
+                this.hora--;
+                this.minuto += 60;
+
+                // Arregla horas si baja de 0
+                if (this.hora < 0) {
+                    this.hora += 24;
+                }
+            } while (this.minuto < 0);
+        }
     }
 
-    int sumarSegundos(int cantidad) {
-        return 0;
+    void sumarSegundos(int cantidad) {
+        this.segundo += cantidad;
+        if (this.segundo >= 60) {
+            do {
+                this.segundo -= 60;
+                sumarMinutos(1);
+            } while (this.segundo >= 60);
+        }
     }
 
-    int restarSegundos(int cantidad) {
-        return 0;
+    void restarSegundos(int cantidad) {
+        this.segundo -= cantidad;
+        if (this.segundo < 0) {
+            do {
+                sumarMinutos(1);
+                this.segundo += 60;
+            } while (this.segundo < 0);
+        }
     }
 
     @Override
