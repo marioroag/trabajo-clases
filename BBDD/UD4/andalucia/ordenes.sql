@@ -91,18 +91,13 @@ select municipio, sum(num_hijos) as suma_hijos from personas group by municipio 
 -- Ordena las provincias por mayor número medio de hijos por mujer (tasa de natalidad)
 select provincia, round(avg(num_hijos), 2) as media_hijos from personas where sexo = "M" group by provincia order by media_hijos desc;
 
-
-
 -- Dime los municipios que no superan la tasa de reemplazo (más de 2 hijos por mujer) pero tienen un salario medio mayor a 3000 euros al mes.
-
 
 -- media_hijos mayor que 2
 select municipio, avg(num_hijos) as media_hijos from personas group by municipio having avg(num_hijos) <= 2;
 
 -- municipio, media_salario, num personas
 select municipio, avg(ingresos_anuales / 12) as media_salario, count(*) as num_personas from personas group by municipio having media_salario > 2000;
-
-
 
 -- Dime la provincia con la moda de edad más alta.
 select provincia, avg(floor(year(now()) - year(fecha_nacimiento))) as media_edad from personas group by provincia order by media_edad desc limit 1;
