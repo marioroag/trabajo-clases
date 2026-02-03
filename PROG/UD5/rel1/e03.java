@@ -1,6 +1,6 @@
 package PROG.UD5.rel1;
 
-public class ej3 {
+public class e03 {
     /*
      * Ejercicio 3: Clase Alumno
      * Crea una clase Alumno con atributos nombre, materia y calificacion. Agrega un
@@ -34,12 +34,6 @@ class Alumno {
     }
 
     boolean aprobo() {
-        boolean resultado = false;
-
-        if (this.calificacion >= 6) {
-            resultado = true;
-        }
-
-        return resultado;
+        return (this.calificacion >= 6);
     }
 }

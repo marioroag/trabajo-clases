@@ -1,6 +1,6 @@
 package PROG.UD5.rel1;
 
-public class ej4 {
+public class e04 {
     /*
      * Ejercicio 4: Clase Auto
      * Crea una clase Auto con atributos marca, modelo y velocidadActual. Agrega
@@ -14,9 +14,11 @@ public class ej4 {
         System.out.println("Velocidad actual: " + coche1.velocidadActual + "km/h");
         System.out.println("Acelerando 20kmh/h...");
         coche1.acelerar(20);
+
         System.out.println(coche1.velocidadActual + "km/h");
         System.out.println("Frenando 40kmh/h...");
         coche1.frenar(40);
+
         System.out.println(coche1.velocidadActual + "km/h");
     }
 }
@@ -41,5 +43,10 @@ class Auto {
 
     void frenar(int cantidad) {
         velocidadActual -= cantidad;
+    }
+
+    @Override
+    public String toString() {
+        return "Coche: " + marca + " | Modelo: " +  modelo;
     }
 }

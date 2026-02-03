@@ -1,6 +1,6 @@
 package PROG.UD5.rel1;
 
-public class ej1 {
+public class e01 {
     /*
      * Ejercicio 1: Clase Círculo
      * Crea una clase Círculo con el atributo radio.
