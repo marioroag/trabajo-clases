@@ -84,6 +84,7 @@ public class e02 {
                 imprimirMensaje("Opción fuera de rango");
             }
         } while (!validarOpcion(opcion, menu.size() - 1));
+
         return opcion;
     }
 
@@ -106,20 +107,23 @@ public class e02 {
         return opcion;
     }
 
-    public static void eliminarPorIndice(
-            Scanner scanner,
-            int cantidadElementos,
-            String mensaje,
+    public static void eliminarPorIndice(Scanner scanner, int cantidadElementos, String mensaje,
             ArrayList<?>... listas) {
+        int indice = elegirIndice(scanner, cantidadElementos, mensaje);
+
+        for (ArrayList<?> lista : listas) {
+            lista.remove(indice);
+        }
+    }
+
+    public static int elegirIndice(Scanner scanner, int cantidadElementos, String mensaje) {
         int indice;
 
         do {
             indice = leerInt(scanner, mensaje) - 1;
         } while (!validarOpcion(indice, cantidadElementos - 1));
 
-        for (ArrayList<?> lista : listas) {
-            lista.remove(indice);
-        }
+        return indice;
     }
 
     public static void main(String[] args) {
@@ -129,6 +133,7 @@ public class e02 {
 
         // Variables
         String stringTemp = "";
+        int revisionSeleccionada = -1;
         int cantidadRevisiones = 3;
         double costoEstaRevision = 0;
 
@@ -212,6 +217,10 @@ public class e02 {
 
             } else if (opcionMenu == 3) {
                 // Mostrar coste
+                revisionSeleccionada = elegirIndice(scanner, cantidadRevisiones,
+                        "Elige sobre que indice quieres ver el coste: ");
+
+                imprimirMensaje(String.valueOf(costeFinal.get(revisionSeleccionada)));
 
             } else if (opcionMenu == 4) {
                 // codigo

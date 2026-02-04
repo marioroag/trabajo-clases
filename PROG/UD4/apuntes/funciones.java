@@ -106,27 +106,30 @@ public class funciones {
         imprimirMensaje(mensaje);
     }
 
-    public static void eliminarPorIndice(
-            Scanner scanner,
-            int cantidadElementos,
-            String mensaje,
-            ArrayList<?>... listas) {
+    public static int elegirIndice(Scanner scanner, int cantidadElementos, String mensaje) {
         int indice;
 
         do {
             indice = leerInt(scanner, mensaje) - 1;
         } while (!validarOpcion(indice, cantidadElementos - 1));
 
+        return indice;
+    }
+
+    public static void eliminarPorIndice(Scanner scanner, int cantidadElementos, String mensaje,
+            ArrayList<?>... listas) {
+        int indice = elegirIndice(scanner, cantidadElementos, mensaje);
+
         for (ArrayList<?> lista : listas) {
             lista.remove(indice);
         }
     }
-
-    public static boolean validarOpcion(int opcion, int max) {
-        return opcion >= 0 && opcion <= max;
+    
+    // -- FUNCIONES PARA MENU --
+    public static boolean validarOpcion(int opcionValor, int max) {
+        return opcionValor >= 0 && opcionValor <= max;
     }
 
-    // -- FUNCIONES PARA MENU --
     public static void imprimirMensaje(String mensaje) {
         System.out.println(mensaje);
     }
@@ -150,10 +153,6 @@ public class funciones {
         return num;
     }
 
-    public static boolean rangoOpcionVálido(int opcion, int max) {
-        return opcion >= 0 && opcion <= max;
-    }
-
     public static void mostrarMenu(ArrayList<String> opciones) {
         imprimirMensaje("\n--- MENÚ ---");
         for (int i = 0; i < opciones.size(); i++) {
@@ -166,10 +165,10 @@ public class funciones {
         do {
             mostrarMenu(menu);
             opcion = leerInt(scanner, "Opción: ");
-            if (!rangoOpcionVálido(opcion, menu.size() - 1)) {
+            if (!validarOpcion(opcion, menu.size() - 1)) {
                 imprimirMensaje("Opción fuera de rango");
             }
-        } while (!rangoOpcionVálido(opcion, menu.size() - 1));
+        } while (!validarOpcion(opcion, menu.size() - 1));
 
         return opcion;
     }
