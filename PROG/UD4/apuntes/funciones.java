@@ -22,7 +22,7 @@ public class funciones {
         double num = -1;
 
         do {
-            imprimirMensaje(mensaje);
+            imprimirPrompt(mensaje);
             if (scanner.hasNextDouble()) {
                 num = scanner.nextDouble();
                 scanner.nextLine(); // limpiar buffer
@@ -51,7 +51,7 @@ public class funciones {
     public static String leerTexto(Scanner scanner, String mensaje) {
         String texto;
         do {
-            imprimirMensaje(mensaje);
+            imprimirPrompt(mensaje);
             texto = scanner.nextLine();
             if (texto.isEmpty()) {
                 imprimirMensaje("No puede estar vacío");
@@ -106,6 +106,30 @@ public class funciones {
         imprimirMensaje(mensaje);
     }
 
+    // Habría que adaptarla dependiendo de los tipos de dato
+    public static void aniadirDatos(
+            Scanner scanner,
+            ArrayList<String> lista1, String mensaje1,
+            ArrayList<String> lista2, ArrayList<String> opcionesLista2, String mensaje2,
+            ArrayList<Integer> lista3, String mensaje3) {
+
+        // String
+        lista1.add(leerTexto(scanner, mensaje1));
+
+        //
+        String opcion;
+        do {
+            opcion = leerTexto(scanner, mensaje2);
+            if (!opcionesLista2.contains(opcion)) {
+                imprimirMensaje("Esa opción no está en la lista.");
+            }
+        } while (!opcionesLista2.contains(opcion));
+
+        lista2.add(opcion);
+
+        lista3.add(leerInt(scanner, mensaje3));
+    }
+
     public static int elegirIndice(Scanner scanner, int cantidadElementos, String mensaje) {
         int indice;
 
@@ -124,7 +148,7 @@ public class funciones {
             lista.remove(indice);
         }
     }
-    
+
     // -- FUNCIONES PARA MENU --
     public static boolean validarOpcion(int opcionValor, int max) {
         return opcionValor >= 0 && opcionValor <= max;
@@ -134,12 +158,16 @@ public class funciones {
         System.out.println(mensaje);
     }
 
+    static void imprimirPrompt(String mensaje) {
+        System.out.print(mensaje);
+    }
+
     public static int leerInt(Scanner scanner, String mensaje) {
         int num = -1;
         boolean intValido = false;
 
         do {
-            imprimirMensaje(mensaje);
+            imprimirPrompt(mensaje);
             if (scanner.hasNextInt()) {
                 num = scanner.nextInt();
                 scanner.nextLine(); // limpiar buffer

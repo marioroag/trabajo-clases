@@ -132,7 +132,7 @@ public class e02 {
         // cada una.
 
         // Variables
-        String stringTemp = "";
+        String stringTemp = "", matriculaActual;
         int revisionSeleccionada = -1;
         int cantidadRevisiones = 3;
         double costoEstaRevision = 0;
@@ -148,6 +148,7 @@ public class e02 {
         ArrayList<String> revision = new ArrayList<>();
         ArrayList<Integer> extras = new ArrayList<>();
         ArrayList<Double> costeFinal = new ArrayList<>();
+        ArrayList<Boolean> descuentoAplicado = new ArrayList<>();
 
         // Placeholder:
         matriculas.add("1234ABC");
@@ -182,24 +183,34 @@ public class e02 {
             } else if (opcionMenu == 1) {
                 // Añadir revisiones
                 matriculas.add(leerTexto(scanner, "Introduce la matrícula:"));
-
                 stringTemp = opcionEnLista(
                         scanner,
                         tiposRevision,
                         "Introduzca un tipo de revisión (basica o completa):");
-
                 revision.add(stringTemp);
-
                 extras.add(leerInt(scanner, "Introduce cantidad de extras:"));
 
                 // Calculos coste final
-                if (revision.getLast() == "basica") {
+                if (revision.getLast().equals("basica")) {
                     costoEstaRevision += costoBasica;
                 } else {
                     costoEstaRevision += costoCompleta;
                 }
 
                 costoEstaRevision += precioPorExtra * extras.getLast();
+
+                // DESCUENTO POR MATRÍCULA PAR
+                matriculaActual = matriculas.getLast();
+                char ultimoCaracter = matriculaActual.charAt(matriculaActual.length() - 1);
+
+                if (Character.isDigit(ultimoCaracter) && (ultimoCaracter - '0') % 2 == 0) {
+                    costoEstaRevision *= 0.9; // 10% de descuento
+                    imprimirMensaje("Descuento del 10% aplicado por matrícula par.");
+                    descuentoAplicado.add(true);
+                } else {
+                    imprimirMensaje("La matrícula no termina en número par. No hay descuento.");
+                    descuentoAplicado.add(false);
+                }
 
                 costeFinal.add(costoEstaRevision);
 
