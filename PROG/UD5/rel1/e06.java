@@ -12,8 +12,7 @@ public class e06 {
      * restarSegundos(segundos)
      */
 
-    public static int controlEntero() {
-        Scanner scanner = new Scanner(System.in);
+    public static int controlEntero(Scanner scanner) {
         int numero = -1;
 
         do {
@@ -47,27 +46,26 @@ public class e06 {
             imprimirMensaje(
                     "\n0. Salir\n1. Sumar minutos\n2. Restar minutos\n3. Sumar segundos\n4. Restar segundos\nSelecciona la opción: ");
 
-            // opcion = Integer.parseInt(scanner.nextLine());
-            opcion = controlEntero();
+            opcion = controlEntero(scanner);
 
             if (opcion == 1) {
                 imprimirMensaje("Minutos a sumar: ");
-                cantidad = controlEntero();
+                cantidad = controlEntero(scanner);
                 reloj1.sumarMinutos(cantidad);
 
             } else if (opcion == 2) {
                 imprimirMensaje("Minutos a restar: ");
-                cantidad = controlEntero();
+                cantidad = controlEntero(scanner);
                 reloj1.restarMinutos(cantidad);
 
             } else if (opcion == 3) {
                 imprimirMensaje("Segundos a sumar: ");
-                cantidad = controlEntero();
+                cantidad = controlEntero(scanner);
                 reloj1.sumarSegundos(cantidad);
 
             } else if (opcion == 4) {
                 imprimirMensaje("Segundos a restar: ");
-                cantidad = controlEntero();
+                cantidad = controlEntero(scanner);
                 reloj1.restarSegundos(cantidad);
 
             } else if (opcion == 0) {
