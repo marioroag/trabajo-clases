@@ -71,6 +71,7 @@ public class apuntes {
 
         /* ============== MENÚ DE OPCIONES ============== */
 
+        System.out.println(arrayVacio);
         scanner.close();
     }
 }
