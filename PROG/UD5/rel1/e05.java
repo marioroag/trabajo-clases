@@ -28,6 +28,6 @@ class Termometro {
 
     @Override
     public String toString() {
-        return "Tiene la temperatura: " + this.temperatura;
+        return "Tiene la temperatura: " + this.temperatura + " ºC";
     }
 }

@@ -28,6 +28,11 @@ class Lampara {
         this.estado = estado;
     }
 
+    // Si no nos dan estado al crear la lampara el default es false
+    Lampara() {
+        this.estado = false;
+    }
+
     void encender() {
         this.estado = true;
     }

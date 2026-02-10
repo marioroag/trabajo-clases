@@ -91,67 +91,78 @@ class Reloj {
     }
 
     void sumarMinutos(int cantidad) {
-        this.minuto += cantidad;
+        int minutosFinal = this.minuto + cantidad;
 
         // Elimina excedente de minutos y suma a las horas
-        if (this.minuto >= 60) {
-            do {
-                this.minuto -= 60;
-                this.hora++;
+        while (minutosFinal >= 60) {
+            minutosFinal -= 60;
+            this.hora++;
 
-                // Si ha completado un dia lo resetea
-                if (this.hora >= 24) {
-                    this.hora -= 24;
-                }
-            } while (this.minuto > 60);
+            // Si ha completado un dia lo resetea
+            if (this.hora >= 24) {
+                this.hora -= 24;
+            }
         }
+
+        this.minuto = minutosFinal;
     }
 
     void restarMinutos(int cantidad) {
-        this.minuto -= cantidad;
-        if (this.minuto < 0) {
-            do {
-                this.hora--;
-                this.minuto += 60;
+        int minutosFinal = this.minuto - cantidad;
 
-                // Arregla horas si baja de 0
-                if (this.hora < 0) {
-                    this.hora += 24;
-                }
-            } while (this.minuto < 0);
+        while (minutosFinal < 0) {
+            this.hora--;
+            minutosFinal += 60;
+
+            // Arregla horas si baja de 0
+            if (this.hora < 0) {
+                this.hora += 24;
+            }
         }
+
+        this.minuto = minutosFinal;
     }
 
     void sumarSegundos(int cantidad) {
-        this.segundo += cantidad;
-        if (this.segundo >= 60) {
-            do {
-                this.segundo -= 60;
-                sumarMinutos(1);
-            } while (this.segundo >= 60);
+        int segundosFinal = this.segundo + cantidad;
+
+        while (segundosFinal >= 60) {
+            segundosFinal -= 60;
+            sumarMinutos(1);
         }
+
+        this.segundo = segundosFinal;
     }
 
     void restarSegundos(int cantidad) {
-        this.segundo -= cantidad;
-        if (this.segundo < 0) {
-            do {
-                sumarMinutos(1);
-                this.segundo += 60;
-            } while (this.segundo < 0);
+        int segundosFinal = this.segundo - cantidad;
+
+        while (segundosFinal < 0) {
+            sumarMinutos(1);
+            segundosFinal += 60;
         }
+
+        this.segundo = segundosFinal;
     }
 
     @Override
     public String toString() {
-        String minutoMostrar = String.valueOf(minuto), segundoMostrar = String.valueOf(segundo);
+        String horaMostrar = String.valueOf(hora), minutoMostrar = String.valueOf(minuto),
+                segundoMostrar = String.valueOf(segundo);
 
-        // Corrigo mostrar minutos y segundos con un solo dígito
-        if (minutoMostrar.length() == 1) {
-            minutoMostrar += "0";
-        } else if (segundoMostrar.length() == 1) {
-            segundoMostrar += "0";
+        // Corrije mostrar minutos y segundos con un solo dígito
+        if (horaMostrar.length() == 1) {
+            horaMostrar = "0" + this.hora;
         }
-        return hora + ":" + minutoMostrar + ":" + segundoMostrar;
+
+        if (minutoMostrar.length() == 1) {
+            minutoMostrar = "0" + this.minuto;
+        }
+
+        if (segundoMostrar.length() == 1) {
+            segundoMostrar = "0" + this.segundo;
+        }
+
+        return horaMostrar + ":" + minutoMostrar + ":" + segundoMostrar;
     }
 }
