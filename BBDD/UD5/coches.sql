@@ -179,17 +179,49 @@ where floor(year(now()) - year(fecha_nacimiento)) > 30;
 -- Nivel 3: JOINS con Agregaciones
 
 -- 11. Número de coches por persona
-select count(c.*) as num_coches, count(p.*) as num_pers
+select p.id, count(*)
 from personas p
-cross join coches c;
-
--- 12. Marca más común entre personas de cada provincia
-
+inner join coches c
+on p.id = c.id_dueño
+group by p.id;
 
 -- 13. Promedio de edad de dueños por marca de coche
-
+select avg(floor(year(now()) - year(p.fecha_nacimiento))) as edad, c.marca
+from personas p
+inner join coches c
+on p.id = c.id_dueño
+group by c.marca;
 
 -- 14. Total de ingresos de dueños por color de coche
-
+select sum(ingresos_anuales) as total_ingresos, c.color
+from personas p
+inner join coches c
+on p.id = c.id_dueño
+group by c.color;
 
 -- 15. Municipios con más coches
+select p.municipio, count(*)
+from personas p
+inner join coches c
+on p.id = c.id_dueño
+group by p.municipio;
+
+-- Nivel 2: LEFT JOIN
+
+-- 6. Todas las personas y sus coches (incluyendo sin coches)
+select *
+from personas p
+left join coches c
+on p.id = c.id_dueño;
+
+-- 7. Personas sin coches registrados
+
+
+-- 8. Provincias con y sin representación de coches
+
+
+-- 9. Nivel de estudios de las personas sin coche
+
+
+-- 10. Personas jubiladas con sus vehículos
+
