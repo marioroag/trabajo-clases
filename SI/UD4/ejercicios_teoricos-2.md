@@ -12,7 +12,7 @@ TT1 = (1000B * 8b) / (120Mb/s * 10^6)
 TT2 = (1000B * 8b/B) / (120Mb/s * 10^6)
 TT3 = (150B * 8b/B) / (120Mb/s * 10^6)
 Tp = (15000m) / 2*10^8m/s =
-TACK =  (50B * 8b/B) / 120Mbps = 3,33 microsegundos
+TACK =  (80B * 8b/B) / 180Mbps = 3,33 microsegundos
 
 A) TT1
 
