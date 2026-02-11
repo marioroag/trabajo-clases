@@ -10,15 +10,16 @@ body {
     background-color:rgb(31, 30, 30);
 }
 
-h3, h2, h1 {
-}
-
 section {
     margin-inline: 20px;
 }
 
 h1 {
-    text-shadow: 1px 1px 5px #000000;
+    text-shadow: 1px 1px 1px #000000;
+}
+
+h2 {
+    margin-bottom: 20px;
 }
 
 .cabeza {
@@ -35,7 +36,7 @@ h1 {
     background-color: #e5e5f7;
     opacity: 0.8;
     background-size: 10px 10px;
-    background-image: repeating-linear-gradient(45deg, #444cf7 0, #444cf7 1px, #e5e5f7 0, #e5e5f7 50%);
+    background-image: repeating-linear-gradient(45deg, #878df9 0, #878df9 1px, #e5e5f7 0, #e5e5f7 50%);
 }
 
 .nav-menu ul {
@@ -70,54 +71,84 @@ h1 {
     max-width: 800px;
     margin: 50px auto;
 
-    text-shadow: 1px 1px 1px #000000;
+    font-weight: 600;
     color: rgb(0, 0, 0);
     border: 5px ridge gray;
 
+    /* Copiado de una pagina de fondos */
     background-color: #e5e5f7;
     opacity: 0.8;
-    background-image:  linear-gradient(#444cf7 3.2px, transparent 3.2px), linear-gradient(90deg, #444cf7 3.2px, transparent 3.2px), linear-gradient(#444cf7 1.6px, transparent 1.6px), linear-gradient(90deg, #444cf7 1.6px, #e5e5f7 1.6px);
+    background-image:  linear-gradient(#878df9 3.2px, transparent 3.2px), linear-gradient(90deg, #878df9 3.2px, transparent 3.2px), linear-gradient(#878df9 1.6px, transparent 1.6px), linear-gradient(90deg, #878df9 1.6px, #e5e5f7 1.6px);
     background-size: 80px 80px, 80px 80px, 16px 16px, 16px 16px;
     background-position: -3.2px -3.2px, -3.2px -3.2px, -1.6px -1.6px, -1.6px -1.6px;
 }
 
 .hero h2 {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 22px;
+    font-weight: 800;
 }
 
 .hero p {
     font-size: 14px;
 }
 
-.hero button {
+button {
     background-color: #7c82ec;
-    padding: 10px 100px;
+    padding: 1rem;
     border-radius: 8px;
-    margin-top: 20px;
+    margin-top: 1rem;
 
-    font-weight: 400;
+    font-weight: 600;
 
     transition: 
     transform 0.25s,
     background-color 0.25s;
 }
 
-.hero button:hover {
-    background-color: #444cf7;
+.hero button {
+    padding: 1rem 4rem;
+}
+
+button:hover {
+    background-color: #878df9;
 
     transform: scale(1.1);
-    font-weight: 600;
+    font-weight: 700;
 }
 
-.casos h1 {
+#casos {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap; 
+    justify-content: space-evenly;
+    margin-block: 40px;
 }
 
-.casos div {
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: space-between;
-    max-width: 250px;
+#casos h2 {
+    width: 100%;
 }
+
+.casos-individual {
+    display: flex;
+    flex-direction: column; 
+    width: 300px;
+    gap: 10px;
+}
+
+.casos-individual button {
+    height: 20px;
+}
+
+/* ## 4. Sección de recursos o casos reales (tarjetas)
+
+1. Añade una clase o id al contenedor de la sección.
+2. Añade una clase común a las tarjetas.
+3. Diseña la sección para que:
+    - Las tarjetas se distribuyan en una misma fila.
+    - Exista separación visual entre ellas.
+    - Se adapten a distintos tamaños de pantalla.
+4. En cada tarjeta:
+   - Aplica un diseño tipo tarjeta (fondo, borde, sombra).
+   - Estiliza la imagen con bordes redondeados usando un **selector de descendientes**.
+   - Estiliza el título usando un **selector de hijo directo**.
+5. Botón:
+   - Añade un efecto visual al pasar el ratón. */
