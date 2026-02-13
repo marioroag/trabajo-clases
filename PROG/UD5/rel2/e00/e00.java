@@ -1,4 +1,4 @@
-package PROG.UD5.rel2;
+package PROG.UD5.rel2.e00;
 
 //Crea una clase Estudiante con atributos nombre, edad y número de matrícula. 
 // Implementa los métodos get y set para cada atributo, así como el método toString()
