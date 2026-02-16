@@ -215,13 +215,88 @@ left join coches c
 on p.id = c.id_dueño;
 
 -- 7. Personas sin coches registrados
-
+select *
+from personas p
+left join coches c
+on c.marca is null;
 
 -- 8. Provincias con y sin representación de coches
+select provincia
+from personas p
+left join coches c
+on c.marca is not null
+group by provincia;
 
+select provincia
+from personas p
+where provincia not in
+(select provincia
+from personas p
+left join coches c
+on c.marca is not null
+group by provincia);
 
 -- 9. Nivel de estudios de las personas sin coche
-
+select nivel_estudios, count(nivel_estudios)
+from personas p
+left join coches c
+on c.marca is null
+group by nivel_estudios;
 
 -- 10. Personas jubiladas con sus vehículos
+select *
+from personas p
+left join coches c
+on c.marca is null
+where ocupacion = "Jubilado";
 
+-- Nivel 4: JOINS Complejos
+
+-- PADRES E HIJOS
+select id as hijo, padre
+from personas p
+where padre in (select padre from personas);
+
+-- 16. Padres e hijos y sus coches
+select p.id as hijo, p.padre, c.marca as coche_hijo, d.marca as coche_padre
+from personas p
+join coches c
+on p.id = c.id_dueño
+join coches d
+on p.padre = d.id_dueño
+where padre in (select padre from personas);
+
+-- 17. Parejas con algún hijo y sus coches
+select p.padre, p.madre, c.marca as coche_padre, d.marca as coche_madre
+from personas p
+left join coches c
+on p.padre = c.id_dueño
+left join coches d
+on p.madre = d.id_dueño
+where CONCAT(padre, '', madre) in (select CONCAT(padre, '', madre) from personas);
+
+-- PAREJAS
+select padre, madre
+from personas p
+where CONCAT(padre, '', madre) in (select CONCAT(padre, '', madre) from personas);
+
+-- 18. Personas de la misma familia con más de dos coches
+-- SIN TERMINAR !!!!
+-- FAMILIA ENTERA
+select id, padre, madre
+from personas p
+where CONCAT(padre, '', madre, '', id) in (select CONCAT(padre, '', madre, '', id) from personas);
+
+--
+select p.id, p.padre, p.madre
+from personas p
+join coches c
+on c.marca is not null
+where CONCAT(padre, '', madre, '', id) in (select CONCAT(padre, '', madre, '', id) from personas);
+
+select marca
+from coches
+where id_dueño in 
+(select id, padre, madre 
+from personas 
+where CONCAT(padre, '', madre, '', id) in (select CONCAT(padre, '', madre, '', id) from personas));
