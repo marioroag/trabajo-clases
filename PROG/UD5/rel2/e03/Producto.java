@@ -16,15 +16,19 @@ package PROG.UD5.rel2.e03;
 
 public class Producto {
     private String id, nombre, descripcion;
-    private int cantidadEnStock = -1;
-    private int precio = -1;
+    private int cantidadEnStock;
+    private double precio;
 
-    public Producto(String id, String nombre, String descripcion, int precio, int cantidadEnStock) {
-        this.id = id;
+    // Es static porque pertenece a la clase no al objeto
+    private static int numeroProductos = 0;
+
+    public Producto(String nombre, String descripcion, double precio, int cantidadEnStock) {
+        setID(String.valueOf(numeroProductos));
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.precio = precio;
-        this.cantidadEnStock = cantidadEnStock;
+        setPrecio(precio);
+        setCantidad(cantidadEnStock);
+        numeroProductos++;
     }
 
     public Producto() {
@@ -35,8 +39,9 @@ public class Producto {
         this.cantidadEnStock = 0;
     }
 
-    public void setID(String nuevoID) {
-        this.id = nuevoID;
+    // Privado porque solo se usa cuando se crea el objeto
+    private void setID(String nuevoID) {
+        this.id = "P-" + nuevoID;
     }
 
     public String getId() {
@@ -59,16 +64,28 @@ public class Producto {
         return descripcion;
     }
 
-    public void setPrecio(int nuevoPrecio) {
-        this.precio = nuevoPrecio;
+    public boolean setPrecio(double nuevoPrecio) {
+        boolean precioCorrecto = false;
+        if (nuevoPrecio >= 0) {
+            this.precio = nuevoPrecio;
+            precioCorrecto = true;
+        }
+
+        return precioCorrecto;
     }
 
-    public int getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setCantidad(int nuevoCantidad) {
-        this.cantidadEnStock = nuevoCantidad;
+    public boolean setCantidad(int nuevoCantidad) {
+        boolean cantidadCorrecto = false;
+        if (nuevoCantidad >= 0) {
+            this.cantidadEnStock = nuevoCantidad;
+            cantidadCorrecto = true;
+        }
+
+        return cantidadCorrecto;
     }
 
     public int getCantidad() {
@@ -77,7 +94,7 @@ public class Producto {
 
     @Override
     public String toString() {
-        return "Producto [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", cantidadEnStock="
-                + cantidadEnStock + ", precio=" + precio + "]";
+        return "[ " + nombre + ": " + descripcion + ", Unidades: "
+                + cantidadEnStock + ", Precio: " + precio + "€ ]";
     }
 }

@@ -1,4 +1,5 @@
 package PROG.UD5;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -166,11 +167,12 @@ public class faker {
 
             if (posicionVocalConTilde == -1) {
                 resultadoSinTildes += lectraActual;
-            }else{
+            } else {
                 resultadoSinTildes += vocalesSinTilde.get(posicionVocalConTilde);
             }
 
-            // resultadoSinTildes += posicionVocalConTilde == -1 ? lectraActual : vocalesSinTilde.get(posicionVocalConTilde);
+            // resultadoSinTildes += posicionVocalConTilde == -1 ? lectraActual :
+            // vocalesSinTilde.get(posicionVocalConTilde);
 
         }
 
@@ -179,19 +181,19 @@ public class faker {
 
     // public static String tildesCase(String cadena) {
 
-    //     String resultado = cadena;
-    //     resultado = resultado.replace('á', 'a');
-    //     resultado = resultado.replace('é', 'e');
-    //     resultado = resultado.replace('í', 'i');
-    //     resultado = resultado.replace('ó', 'o');
-    //     resultado = resultado.replace('ú', 'u');
-    //     resultado = resultado.replace('Á', 'A');
-    //     resultado = resultado.replace('É', 'E');
-    //     resultado = resultado.replace('Í', 'I');
-    //     resultado = resultado.replace('Ó', 'O');
-    //     resultado = resultado.replace('Ú', 'U');
+    // String resultado = cadena;
+    // resultado = resultado.replace('á', 'a');
+    // resultado = resultado.replace('é', 'e');
+    // resultado = resultado.replace('í', 'i');
+    // resultado = resultado.replace('ó', 'o');
+    // resultado = resultado.replace('ú', 'u');
+    // resultado = resultado.replace('Á', 'A');
+    // resultado = resultado.replace('É', 'E');
+    // resultado = resultado.replace('Í', 'I');
+    // resultado = resultado.replace('Ó', 'O');
+    // resultado = resultado.replace('Ú', 'U');
 
-    //     return resultado;
+    // return resultado;
     // }
 
     /**
@@ -209,7 +211,7 @@ public class faker {
         }
 
         return texto;
-        
+
     }
 
     /**
@@ -218,7 +220,7 @@ public class faker {
      * @return Texto Lorem Ipsum corto.
      */
     public static String loremCorto() {
-        int cantidadPalabras = entero(5, 10);
+        int cantidadPalabras = entero(1, 1);
         return lorem(cantidadPalabras);
     }
 
@@ -228,7 +230,7 @@ public class faker {
      * @return Texto Lorem Ipsum largo.
      */
     public static String loremLargo() {
-        int cantidadPalabras = entero(20, 50);
+        int cantidadPalabras = entero(5, 7);
         return lorem(cantidadPalabras);
     }
 
