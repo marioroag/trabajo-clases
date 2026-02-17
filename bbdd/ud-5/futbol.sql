@@ -106,4 +106,4 @@ from equipos c
 right join jugadores p
 ON c.id_equipo = p.id_equipo
 group by c.nombre
-order by porcentaje_gastado desc;
+order by porcentaje_gastado;
