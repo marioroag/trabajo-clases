@@ -116,9 +116,6 @@ public class e03 {
     public static void main(String[] args) {
         final int CANTIDAD_PRODUCTOS = 50;
 
-        Producto champu = new Producto("Champu", "Olor a menta", 3.49, 10);
-        Producto champu2 = new Producto("Champu 2", "Olor a vainilla", 5.99, 20);
-
         Supermercado Mercadona = new Supermercado();
 
         Producto productoAleatorio = new Producto();
