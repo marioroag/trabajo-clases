@@ -16,21 +16,27 @@ validar(){
     fi
 }
 
-# 12. Función es_primo
+# Función es_primo
 # Crea una función que compruebe si un número es primo. Debe mostrar un mensaje indicando si es primo o no.
 # Uso: es_primo 17
 # Salida esperada: 17 es primo
 
-# SIN TERMINAR !!!!!
-
 es_primo(){
     validar 1 $# || return 1
-    
-    if [[ $1 % 1 -eq 0 && $1 % $1 -eq 0 ]]; then
-        echo "$1 es primo"
-    else
+
+    if [ "$1" -le 1 ]; then
         echo "$1 no es primo"
+        return
     fi
+
+    for (( i=2; i<$1; i++ )); do
+        if [ $(($1 % i)) -eq 0 ]; then
+            echo "$1 no es primo"
+            return
+        fi
+    done
+
+    echo "$1 es primo"
 }
 
-es_primo 7
+es_primo 17

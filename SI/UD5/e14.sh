@@ -16,3 +16,13 @@ validar(){
     fi
 }
 
+# Función fibonacci
+# Crea una función que devuelva el n-ésimo número de la serie de Fibonacci. La serie comienza: 0, 1, 1, 2, 3, 5, 8, 13...
+# Uso: fibonacci 7
+# Salida esperada: 13
+
+fibonacci(){
+
+}
+
+fibonacci 7
