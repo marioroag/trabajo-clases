@@ -16,7 +16,7 @@ validar(){
     fi
 }
 
-# 8. Función modulo
+# Función modulo
 # Crea una función que obtenga el resto de la división entre dos números.
 # Uso: modulo 17 5
 # Salida esperada: 2

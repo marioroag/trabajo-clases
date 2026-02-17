@@ -16,7 +16,7 @@ validar(){
     fi
 }
 
-# 9. Función verificar_par
+# Función verificar_par
 # Crea una función que compruebe si un número es par. Debe mostrar un mensaje indicando si es par o impar.
 # Uso: verificar_par 8
 # Salida esperada: 8 es par

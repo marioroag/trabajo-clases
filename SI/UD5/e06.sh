@@ -16,7 +16,7 @@ validar(){
     fi
 }
 
-# 4. Función multiplicar
+# Función multiplicar
 # Crea una función que multiplique dos números pasados como argumentos.
 # Uso: multiplicar 7 8
 # Salida esperada: 56

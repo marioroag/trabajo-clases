@@ -16,7 +16,7 @@ validar(){
     fi
 }
 
-# 5. Función potencia
+# Función potencia
 # Crea una función que eleve un número a una potencia. El primer argumento es la base y el segundo el exponente.
 # Uso: potencia 2 5
 # Salida esperada: 32

@@ -16,7 +16,7 @@ validar(){
     fi
 }
 
-# 7. Función volumen_cubo
+# Función volumen_cubo
 # Crea una función que calcule el volumen de un cubo recibiendo el lado como argumento. Formula: V = lado³
 # Uso: volumen_cubo 4
 # Salida esperada: 64

@@ -16,7 +16,7 @@ validar(){
     fi
 }
 
-# 10. Función mayor_de_tres
+# Función mayor_de_tres
 # Crea una función que reciba tres números como argumentos y devuelva el mayor de ellos.
 # Uso: mayor_de_tres 15 8 22
 # Salida esperada: 22

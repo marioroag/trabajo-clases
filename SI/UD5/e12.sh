@@ -16,7 +16,7 @@ validar(){
     fi
 }
 
-# 11. Función factorial
+# Función factorial
 # Crea una función que calcule el factorial de un número. El factorial de n es el producto de todos los números desde 1 hasta n.
 # Uso: factorial 5
 # Salida esperada: 120
