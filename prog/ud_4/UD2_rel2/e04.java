@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Ejercicio4 {
+public class e04 {
 
     public static boolean aniadirSinDuplicados(String posibleDuplicado, ArrayList<String> array) {
         boolean duplicadosEncontrado = false;

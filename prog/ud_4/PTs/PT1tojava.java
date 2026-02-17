@@ -1,7 +1,7 @@
 package prog.ud_4.pts;
 import java.util.Scanner;
 
-public class PT1tojava {
+public class pt1tojava {
     public static void main(String[] args) {
 
         // Crear objeto Scanner

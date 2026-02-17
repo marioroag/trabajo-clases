@@ -3,7 +3,7 @@ package prog.ud_4.pts;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class PT2tojava {
+public class pt2tojava {
     public static void main(String[] args) {
         // Constantes
         final String DIENTE = "D", DIENTESANO = "DS", DIENTEDANIADO = "DD";
