@@ -11,10 +11,10 @@ public class main {
     public static void main(String[] args) {
         String matriculaABuscar;
         Scanner input = new Scanner(System.in);
-        estudiante buscado;
-        estudiante estudiante1 = new estudiante("Carlota", 5, "STEM0067");
-        estudiante estudiante2 = new estudiante("Miguel", 25);
-        estudiante estudiante3 = new estudiante("Raul", "STE0068");
+        Estudiante buscado;
+        Estudiante estudiante1 = new Estudiante("Carlota", 5, "STEM0067");
+        Estudiante estudiante2 = new Estudiante("Miguel", 25);
+        Estudiante estudiante3 = new Estudiante("Raul", "STE0068");
 
         Universidad uni = new Universidad();
         uni.agregarEstudiante(estudiante1);
@@ -35,10 +35,10 @@ public class main {
         final int CANTIDAD_ALUMNOS = 100;
 
         Universidad laRioja = new Universidad();
-        estudiante aleatorio = new estudiante();
+        Estudiante aleatorio = new Estudiante();
 
         for (int i = 0; i < CANTIDAD_ALUMNOS; i++) {
-            aleatorio = new estudiante(faker.nombre(), faker.edad(), "STEM" + i);
+            aleatorio = new Estudiante(faker.nombre(), faker.edad(), "STEM" + i);
             laRioja.agregarEstudiante(aleatorio);
         }
 
