@@ -66,20 +66,44 @@ INSERT INTO jugadores (id_equipo, nombre, apellidos, fecha_nacimiento, nacionali
 -- EJERCICIOS DE JOIN
 
 -- 1. LEFT JOIN - Todos los equipos con sus jugadores (si existen)
-SELECT nombre
-FROM equipos
-LEFT JOIN jugadores ON equipos.id = jugadores.id;
+SELECT c.nombre, p.nombre
+from equipos c
+left join jugadores p
+ON c.id_equipo = p.id_equipo;
 
 -- 2. RIGHT JOIN - Todos los jugadores con datos de su equipo
-
-
+SELECT c.nombre, p.*
+from equipos c
+right join jugadores p
+ON c.id_equipo = p.id_equipo;
 
 -- 4. Salario promedio por equipo
-
+SELECT avg(salario_anual), c.nombre
+from equipos c
+right join jugadores p
+ON c.id_equipo = p.id_equipo
+group by c.nombre;
 
 -- 5. Equipos sin jugadores registrados
+select equipo
+from (SELECT c.nombre as equipo, count(c.nombre) as num_jugadores
+from equipos c
+right join jugadores p
+ON c.id_equipo = p.id_equipo
+group by c.nombre) p
+where num_jugadores = 0;
 
 -- 6. Jugadores por posición en cada equipo
-
+select p.nombre as nombre_jug, p.numero_camiseta as numero_camiseta, c.nombre as nombre_equ
+from equipos c
+left join jugadores p
+ON c.id_equipo = p.id_equipo
+order by c.nombre DESC, p.numero_camiseta;
 
 -- 7. Comparativa de presupuestos vs gasto en jugadores
+SELECT floor(avg(presupuesto_anual)) as presupuesto, floor(avg(salario_anual)) as dinero_gastado, round((avg(salario_anual) / avg(presupuesto_anual) * 100), 2) as porcentaje_gastado, c.nombre
+from equipos c
+right join jugadores p
+ON c.id_equipo = p.id_equipo
+group by c.nombre
+order by porcentaje_gastado desc;
