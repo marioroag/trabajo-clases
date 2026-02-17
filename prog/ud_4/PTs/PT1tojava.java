@@ -1,4 +1,4 @@
-package prog.ud_4.PTs;
+package prog.ud_4.pts;
 import java.util.Scanner;
 
 public class PT1tojava {

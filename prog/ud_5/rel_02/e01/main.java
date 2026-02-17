@@ -1,4 +1,4 @@
-package prog.ud_5.rel2.e01;
+package prog.ud_5.rel_02.e01;
 
 import java.util.Scanner;
 

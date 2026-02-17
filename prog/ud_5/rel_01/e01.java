@@ -1,4 +1,4 @@
-package prog.ud_5.rel1;
+package prog.ud_5.rel_01;
 
 public class e01 {
     /*

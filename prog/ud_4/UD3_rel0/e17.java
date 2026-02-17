@@ -1,4 +1,4 @@
-package prog.ud_4.UD3_rel0;
+package prog.ud_4.ud3_rel0;
 
 public class e17 {
     public static String revertirCadena(String cadenaTexto) {

@@ -1,4 +1,4 @@
-package prog.ud_5.rel2.e04;
+package prog.ud_5.rel_02.e04;
 
 public class Cancion {
     /*

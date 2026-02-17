@@ -1,28 +1,6 @@
-package prog.ud_5.rel2.e00;
+package prog.ud_5.rel_02.e01;
 
-//Crea una clase Estudiante con atributos nombre, edad y número de matrícula. 
-// Implementa los métodos get y set para cada atributo, así como el método toString()
-
-public class e00 {
-
-    public static void main(String[] args) {
-
-        Estudiante estudiante1 = new Estudiante("Carlota", 5, "STEM0067");
-        estudiante1.setNombre("María");
-        estudiante1.setEdad(-15);
-        // System.out.println(estudiante1.getNombre());
-        // System.out.println(estudiante1.getEdad());
-        // System.out.println(estudiante1.getNumeroDeMatricula());
-        Estudiante estudiante2 = new Estudiante("Miguel", 25);
-        Estudiante estudiante3 = new Estudiante("Raul", "STE0068");
-        System.out.println(estudiante1);
-        System.out.println(estudiante2);
-        System.out.println(estudiante3);
-    }
-}
-
-class Estudiante {
-
+public class Estudiante {
     private String nombre;
     private int edad;
     private String numeroDeMatricula;
@@ -31,6 +9,12 @@ class Estudiante {
         this.nombre = nombre;
         setEdad(edad);
         setNumeroDeMatricula(numeroDeMatricula);
+    }
+
+    public Estudiante() {
+        this.nombre = null;
+        this.edad = 0;
+        this.numeroDeMatricula = null;
     }
 
     public Estudiante(String nombre, int edad) {
@@ -73,19 +57,22 @@ class Estudiante {
     public void setNumeroDeMatricula(String numeroDeMatricula) {
         if (numeroDeMatricula.startsWith("STEM")) {
             this.numeroDeMatricula = numeroDeMatricula;
+        } else {
+            this.numeroDeMatricula = "MATRICULA PENDIENTE";
+
         }
     }
 
     @Override
     public String toString() {
-        String estudianteSring = "Estudiante [nombre=" + nombre + ", edad=" + edad + ", numeroDeMatricula="
+        String estudianteString = "Estudiante [nombre=" + nombre + ", edad=" + getEdad() + ", numeroDeMatricula="
                 + numeroDeMatricula
                 + "]";
         if (edad < 18) {
-            estudianteSring = "Estudiante menor de edad. Información restringida" +
+            estudianteString = "Estudiante menor de edad. Información restringida" +
                     "\nFacilitamos numero de matricula: " + getNumeroDeMatricula();
         }
-        return estudianteSring;
+        return estudianteString;
     }
 
 }

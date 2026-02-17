@@ -1,4 +1,4 @@
-package prog.ud_4.UD2_rel2;
+package prog.ud_4.ud2_rel2;
 
 import java.util.ArrayList;
 import java.util.Arrays;

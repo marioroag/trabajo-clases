@@ -1,4 +1,4 @@
-package prog.ud_5.rel2.e03;
+package prog.ud_5.rel_02.e03;
 
 /*
  * Ejercicio 3: Supermercado y Productos

@@ -1,4 +1,4 @@
-package prog.ud_5.rel1;
+package prog.ud_5.rel_01;
 
 public class e05 {
     // Ejercicio 5: Clase Termómetro. Crea una clase Termómetro con un atributo
