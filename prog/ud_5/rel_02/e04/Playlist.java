@@ -16,10 +16,10 @@ public class Playlist {
     @Override
     public String toString() {
         String playlistMostrar = "";
-        for (Cancion cancion : playlist) {
-            for (int i = 1; i < playlist.size(); i++) {
-            }
-        }
+        // for (Cancion cancion : playlist) {
+        // for (int i = 1; i < playlist.size(); i++) {
+        // }
+        // }
 
         return playlistMostrar;
     }

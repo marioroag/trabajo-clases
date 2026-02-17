@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 import prog.ud_5.faker;
-import prog.ud_5.rel_02.e01.Universidad;
 
 public class e03 {
     /*
