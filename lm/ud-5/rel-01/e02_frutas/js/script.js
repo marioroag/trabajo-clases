@@ -10,7 +10,8 @@ for (const elemento of elementosLista) {
 boton.addEventListener("click", function() {
     for (const elemento of elementosLista) {
         elemento.style.backgroundColor = "lightgreen"
-        const emoji = document.createTextNode(" ✅")
-        elemento.appendChild(emoji)
+        if (!elemento.textContent.includes("✅")) {
+            elemento.textContent += "✅"
+        }
     }
 })

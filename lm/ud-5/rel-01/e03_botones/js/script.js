@@ -1,9 +1,8 @@
-const primerBoton = document.querySelector(".boton")
-const todosLosBotones = document.querySelectorAll(".boton")
+const todosLosBotones = document.getElementsByTagName("button")
 const botonCambiar = document.getElementById("cambiarEstilo")
 
 // Cambio primer boton
-primerBoton.style.backgroundColor = "lightgreen"
+document.querySelector(".boton").style.backgroundColor = "lightgreen"
 
 // Cambio todos los colores
 botonCambiar.addEventListener("click", function() {
