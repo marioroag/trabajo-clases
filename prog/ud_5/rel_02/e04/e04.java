@@ -17,7 +17,7 @@ public class e04 {
 
     public static void main(String[] args) {
 
-        Cancion asdsad = new Cancion("flaco", "xd", 4.23);
+        Cancion asdsad = new Cancion("nombre cancion", "hola123", 4.23);
         System.out.println(asdsad);
     }
 
