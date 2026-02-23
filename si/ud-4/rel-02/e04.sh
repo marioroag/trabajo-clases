@@ -23,3 +23,9 @@ validar(){
 # Uso: cambiar_permisos 644 archivo.txt
 # Salida esperada: Permisos de 'archivo.txt' cambiados a 644
 # Error si formato inválido o fichero no existe.
+
+cambiar_permisos() {
+
+}
+
+cambiar_permisos 644 archivo.txt

@@ -23,3 +23,9 @@ validar(){
 # Uso: obtener_propietario archivo.txt
 # Salida esperada: archivo.txt: propietario=juan grupo=staff
 # Validaciones: comprobar existencia del fichero.
+
+obtener_propietario() {
+
+}
+
+obtener_propietario archivo.txt

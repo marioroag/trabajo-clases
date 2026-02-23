@@ -22,3 +22,9 @@ validar(){
 
 # Uso: verificar_conectividad 8.8.8.8
 # Salida esperada: 8.8.8.8 responde (latencia: 24 ms) o: 8.8.8.8 no responde
+
+verificar_conectividad() {
+
+}
+
+verificar_conectividad 8.8.8.8

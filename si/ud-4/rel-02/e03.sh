@@ -23,3 +23,9 @@ validar(){
 # Uso: buscar_por_extension /ruta txt (por defecto lista; opcional -c para contar)
 # Salida esperada (conteo): 12 o (lista): /ruta/a/archivo1.txt (una por línea)
 # Validaciones: comprobar que el directorio existe.
+
+buscar_por_extension() {
+
+}
+
+buscar_por_extension /ruta txt

@@ -23,3 +23,9 @@ validar(){
 # Uso: puerto_abierto ejemplo.com 80
 # Salida esperada: 80 abierto en ejemplo.com o: 80 cerrado en ejemplo.com
 # Validaciones: comprobar que nc o /dev/tcp están disponibles; manejar tiempo de espera razonable
+
+puerto_abierto() {
+
+}
+
+puerto_abierto ejemplo.com 80

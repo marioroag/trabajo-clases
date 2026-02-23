@@ -24,3 +24,9 @@ validar(){
 # Salida esperada: Backup creado: /ruta/archivo.txt.bak-20260217_123456
 # Error si el fichero no existe.
 # Implementación: usar cp -- y date +%Y%m%d_%H%M%S.
+
+respaldo() {
+
+}
+
+respaldo archivo.txt

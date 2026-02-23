@@ -22,3 +22,9 @@ validar(){
 
 # Uso: tamaño_directorio /var/log
 # Salida esperada: 4096 (bits)
+
+tamanio_directorio() {
+
+}
+
+tamaño_directorio /var/log

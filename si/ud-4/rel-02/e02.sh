@@ -24,5 +24,8 @@ validar(){
 # Salida esperada: lista de rutas (una por línea) o No se encontraron archivos > 50 MB
 # Nota: convertir MB a bytes con $(( size_mb * 1024 * 1024 )) si es necesario.
 
+buscar_archivos_grandes() {
 
+}
 
+buscar_archivos_grandes /ruta 50

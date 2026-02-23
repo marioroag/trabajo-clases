@@ -23,3 +23,9 @@ validar(){
 # Uso: crear_directorio /ruta/al/directorio
 # Salida esperada: Directorio '/tmp/prueba' creado o Directorio '/tmp/prueba' ya existe
 # Validaciones: comprobar número de argumentos y permisos de escritura en la ruta padre.
+
+crear_directorio() {
+
+}
+
+crear_directorio /ruta/al/directorio
