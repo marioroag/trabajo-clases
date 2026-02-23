@@ -5,22 +5,24 @@ import java.util.Arrays;
 
 public class Amarre {
     // [ Atributos ]
+    private static int numeroAmarre;
     private int numero;
     private double longitudMaxima;
     private boolean ocupado;
-    public String tipoAmarre;
-    public double precioDia;
+    // Cambio a variables privadas
+    private String tipoAmarre;
+    private double precioDia;
 
     // Tipos de amarre
-    ArrayList<String> tiposValidos = new ArrayList(Arrays.asList("Normal", "Premium", "Megayate"));
+    ArrayList<String> tiposValidos = new ArrayList<>(Arrays.asList("normal", "premium", "megayate"));
 
     // [ Constructor ]
     // IMPORTANTE, NO USAR SETTERS EN PUBLICOS, CAMBIAR ESTO <-------------
-    public Amarre(int numero, double longitudMaxima, double precioDia, boolean ocupado, String tipoAmarre,
-            ArrayList<String> tiposValidos) {
-        setNumero(numero);
+    public Amarre(double longitudMaxima, String tipoAmarre) {
+        asignarAmarre();
         setLongitudMaxima(longitudMaxima);
-        setOcupado(ocupado);
+        // Un nuevo amarre siempre empezará libre
+        setOcupado(false);
         setTipoAmarre(tipoAmarre);
 
         calcularPrecioDia();
@@ -43,6 +45,11 @@ public class Amarre {
         return exito;
     }
 
+    public void asignarAmarre() {
+        this.numero = numeroAmarre;
+        numeroAmarre++;
+    }
+
     public double getLongitudMaxima() {
         return longitudMaxima;
     }
@@ -53,7 +60,12 @@ public class Amarre {
 
         if (longitudMaxima >= 4.0) {
             this.longitudMaxima = longitudMaxima;
+            calcularPrecioDia();
             exito = true;
+        } else {
+            // Valores por defecto al fallar el mínimo requerido
+            this.longitudMaxima = -1;
+            this.precioDia = -1;
         }
 
         return exito;
@@ -75,8 +87,10 @@ public class Amarre {
     public boolean setTipoAmarre(String tipoAmarre) {
         boolean exito = false;
 
-        if (tiposValidos.contains(tipoAmarre)) {
+        if (tiposValidos.contains(tipoAmarre.toLowerCase())) {
             this.tipoAmarre = tipoAmarre;
+            // Recalcula el precio diario al cambiar de tipo
+            calcularPrecioDia();
             exito = true;
         }
         return exito;
@@ -86,8 +100,10 @@ public class Amarre {
         return precioDia;
     }
 
+    // [ Metodos ]
     // Calcula el precio del día
-    public void calcularPrecioDia() {
+    // Es privado porque solo se debe llamar desde el constructor
+    public double calcularPrecioDia() {
         if (tipoAmarre.equals(tiposValidos.get(0))) { // Normal
             precioDia = 25 + (1.5 * longitudMaxima);
         } else if (tipoAmarre.equals(tiposValidos.get(1))) { // Premium
@@ -98,7 +114,16 @@ public class Amarre {
             E01.imprimirMensaje("Tipo de amarre no tiene formula de precio de día todavía");
         }
 
-        this.precioDia = precioDia;
+        return precioDia;
     }
 
+    @Override
+    public String toString() {
+        String mostrarOcupado = "Ocupado";
+        if (!ocupado) {
+            mostrarOcupado = "Libre";
+        }
+        return "Amarre Nº" + numero + " | Max. Longitud: " + longitudMaxima + "m | " + mostrarOcupado
+                + " | Tipo de amarre: " + tipoAmarre + " | Costo diario: " + precioDia;
+    }
 }

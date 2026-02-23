@@ -5,23 +5,39 @@ import java.util.Arrays;
 
 public class Embarcacion {
     // [ Atributos ]
+    private static int numeroEmbarcaciones;
+
     private String matricula;
     private String nombre;
     private double eslora;
     private String tipo;
     private String propietario;
     private int anioFabricacion;
-    public double valorEstimado;
+    private double valorEstimado;
 
     // [ Tipos de embarcacion ]
-    ArrayList<String> tiposValidos = new ArrayList(
-            Arrays.asList("Velero", "Lancha", "Yate", "Catamarán", "Moto de agua"));
+    private final static ArrayList<String> TIPOSVALIDOS = new ArrayList<>(
+            Arrays.asList("velero", "lancha", "yate", "catamarán", "moto de agua"));
 
     // [ Constructor ]
-    // IMPORTANTE, NO USAR SETTERS EN PUBLICOS, CAMBIAR ESTO <-------------
     public Embarcacion(String matricula, String nombre, double eslora, String tipo, String propietario,
-            int anioFabricacion, double valorEstimado, ArrayList<String> tiposValidos) {
+            int anioFabricacion, double valorEstimado) {
+        numeroEmbarcaciones++;
+
         setMatricula(matricula);
+        setNombre(nombre);
+        setEslora(eslora);
+        setTipo(tipo);
+        setPropietario(propietario);
+        setAnioFabricacion(anioFabricacion);
+        setValorEstimado(valorEstimado);
+    }
+
+    public Embarcacion(String nombre, double eslora, String tipo, String propietario,
+            int anioFabricacion, double valorEstimado) {
+        numeroEmbarcaciones++;
+
+        setMatricula();
         setNombre(nombre);
         setEslora(eslora);
         setTipo(tipo);
@@ -39,12 +55,16 @@ public class Embarcacion {
     public boolean setMatricula(String matricula) {
         boolean exito = false;
 
-        if (!matricula.isBlank() || matricula == null) {
+        if (!matricula.isBlank() && matricula != null) {
             this.matricula = matricula;
             exito = true;
         }
 
         return exito;
+    }
+
+    public void setMatricula() {
+        this.matricula = Integer.toString(numeroEmbarcaciones);
     }
 
     public String getNombre() {
@@ -80,7 +100,7 @@ public class Embarcacion {
     public boolean setTipo(String tipo) {
         boolean exito = false;
 
-        if (tiposValidos.contains(tipo)) {
+        if (TIPOSVALIDOS.contains(tipo.toLowerCase())) {
             this.tipo = tipo;
             exito = true;
         }
@@ -125,4 +145,9 @@ public class Embarcacion {
         return exito;
     }
 
+    @Override
+    public String toString() {
+        return nombre + " | " + tipo + " | Propietario: " + propietario + " | " + matricula + " | Eslora: " + eslora
+                + " | Fabricado en " + anioFabricacion + " | Valor est. " + valorEstimado;
+    }
 }
