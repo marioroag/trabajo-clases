@@ -83,6 +83,9 @@ public class E01 {
                 Arrays.asList("Salir", "Registrar embarcacion", "Mostrar amarres", "Gestionar amarres",
                         "Buscar embarcacion (Por matrícula)", "Ver ingresos diarios"));
 
+        ArrayList<String> opcionesAmarre = new ArrayList<>(
+                Arrays.asList("Atrás", "Dar de alta", "Asignar amarre", "Liberar amarre"));
+
         Amarre amarre1 = new Amarre(10, "Normal");
         Amarre amarre2 = new Amarre(20, "Premium");
         Amarre amarre3 = new Amarre(15, "Normal");
@@ -117,10 +120,24 @@ public class E01 {
                 imprimirMensaje("[ Amarres Ocupados ]\n" + puerto1.mostrarAmarresOcupados());
 
             } else if (opcionMenu == 3) { // Dar de alta, asignar y liberar amarres
+                opcionMenu = leerOpcionMenu(scanner, opcionesAmarre);
+
+                if (opcionMenu == 0) { // arreglar que saca del programa
+                    System.out.println("0");
+                } else if (opcionMenu == 1) {
+                    System.out.println("1");
+                } else if (opcionMenu == 2) {
+                    System.out.println("2");
+
+                } else if (opcionMenu == 3) {
+                    System.out.println("3");
+
+                }
 
             } else if (opcionMenu == 4) { // Buscar embarcación por matricula
                 // El "" + está ahi porque imprimirMensaje no deja imprimir solo la embarcacion
-                imprimirMensaje("" + puerto1.buscarEmbarcacion(leerTexto(scanner, "Matricula de la embarcacion: ")));
+                imprimirMensaje(
+                        "" + puerto1.buscarEmbarcacionEnPuerto(leerTexto(scanner, "Matricula de la embarcacion: ")));
 
             } else if (opcionMenu == 5) { // Ver ingresos diarios actuales y máximos
                 imprimirMensaje("[ Ingresos Actuales ]\n" + puerto1.calcularIngresosDiariosActuales());

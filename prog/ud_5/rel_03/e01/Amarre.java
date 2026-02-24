@@ -20,12 +20,13 @@ public class Amarre {
     // IMPORTANTE, NO USAR SETTERS EN PUBLICOS, CAMBIAR ESTO <-------------
     public Amarre(double longitudMaxima, String tipoAmarre) {
         asignarAmarre();
+        setTipoAmarre(tipoAmarre);
         setLongitudMaxima(longitudMaxima);
         // Un nuevo amarre siempre empezará libre
-        setOcupado(false);
-        setTipoAmarre(tipoAmarre);
+        this.ocupado = false;
 
-        calcularPrecioDia();
+        // No hace falta calcular el precio del dia en el constructor porque ya se hace
+        // en setLongitudMaxima
     }
 
     // [ Getters y setters ]
@@ -104,14 +105,16 @@ public class Amarre {
     // Calcula el precio del día
     // Es privado porque solo se debe llamar desde el constructor
     public double calcularPrecioDia() {
-        if (tipoAmarre.equals(tiposValidos.get(0))) { // Normal
-            precioDia = 25 + (1.5 * longitudMaxima);
-        } else if (tipoAmarre.equals(tiposValidos.get(1))) { // Premium
-            precioDia = 60 + (2.2 * longitudMaxima);
-        } else if (tipoAmarre.equals(tiposValidos.get(2))) { // Megayate
-            precioDia = 120 + (3.5 * longitudMaxima);
-        } else {
-            E01.imprimirMensaje("Tipo de amarre no tiene formula de precio de día todavía");
+        if (tipoAmarre != null && longitudMaxima != 0.0) {
+            if (tipoAmarre.equals(tiposValidos.get(0))) { // Normal
+                precioDia = 25 + (1.5 * longitudMaxima);
+            } else if (tipoAmarre.equals(tiposValidos.get(1))) { // Premium
+                precioDia = 60 + (2.2 * longitudMaxima);
+            } else if (tipoAmarre.equals(tiposValidos.get(2))) { // Megayate
+                precioDia = 120 + (3.5 * longitudMaxima);
+            } else {
+                E01.imprimirMensaje("Tipo de amarre no tiene formula de precio de día todavía");
+            }
         }
 
         return precioDia;

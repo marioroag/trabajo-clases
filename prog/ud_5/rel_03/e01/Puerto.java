@@ -18,12 +18,17 @@ public class Puerto {
             ArrayList<Amarre> amarres,
             ArrayList<Embarcacion> embarcaciones) {
 
-        this.nombre = nombre;
+        setNombre(nombre);
         this.ubicacion = ubicacion;
-        this.capacidadMaxima = capacidadMaxima;
         this.telefonoContacto = telefonoContacto;
-        this.amarres = amarres;
-        this.embarcaciones = embarcaciones;
+        setAmarres(amarres);
+        setEmbarcaciones(embarcaciones);
+        setCapacidadMaxima(capacidadMaxima);
+    }
+
+    // Constructor de creacion de un puerto vacío (this() usa el constructor arriba)
+    public Puerto(String nombre, String ubicacion, int capacidadMaxima, String telefonoContacto) {
+        this(nombre, ubicacion, capacidadMaxima, telefonoContacto, new ArrayList<>(), new ArrayList<>());
     }
 
     // [ Metodos ]
@@ -32,8 +37,15 @@ public class Puerto {
      * 
      * @param embarcacion
      */
-    public void registrarEmbarcacion(Embarcacion embarcacion) {
-        this.embarcaciones.add(embarcacion);
+    public boolean registrarEmbarcacion(Embarcacion embarcacion) {
+        boolean exito = false;
+        if (!embarcaciones.contains(embarcacion)) {
+            matriculasAmarradas.add("vacio");
+            this.embarcaciones.add(embarcacion);
+            exito = true;
+        }
+
+        return exito;
     }
 
     /**
@@ -42,7 +54,7 @@ public class Puerto {
      * @param amarre
      */
     public void altaAmarre(Amarre amarre) {
-        if (matriculasAmarradas.size() < capacidadMaxima) {
+        if (amarres.size() < capacidadMaxima && !amarres.contains(amarre)) {
             this.amarres.add(amarre);
         } else {
             E01.imprimirMensaje("No se pudo agregar el amarre (Puerto alacanzó su capacidad máxima)");
@@ -98,7 +110,7 @@ public class Puerto {
      * @param matricula matricula a buscar
      * @return embarcacion encontrada
      */
-    public Embarcacion buscarEmbarcacion(String matricula) {
+    public Embarcacion buscarEmbarcacionEnPuerto(String matricula) {
         Embarcacion embarcacionEncontrada = null;
         boolean encontrada = false;
 
@@ -147,8 +159,31 @@ public class Puerto {
         this.nombre = nombre;
     }
 
+    public void setAmarres(ArrayList<Amarre> amarres) {
+        if (capacidadMaxima != 0.0) {
+            if (amarres.size() <= capacidadMaxima) {
+                this.amarres = amarres;
+                // Pone al día el array de matriculas amarradas con tantas posiciones como con
+                // amarres hay
+                for (int i = 0; i < amarres.size(); i++) {
+                    matriculasAmarradas.set(i, "vacio");
+                }
+            }
+        } else {
+            this.amarres = amarres;
+        }
+    }
+
+    public void setEmbarcaciones(ArrayList<Embarcacion> embarcaciones) {
+        this.embarcaciones = embarcaciones;
+    }
+
     public void setCapacidadMaxima(int capacidadMaxima) {
-        this.capacidadMaxima = capacidadMaxima;
+        if (amarres != null) {
+            if (amarres.size() <= capacidadMaxima) {
+                this.capacidadMaxima = capacidadMaxima;
+            }
+        }
     }
 
     public String getNombre() {
