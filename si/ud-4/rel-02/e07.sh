@@ -24,6 +24,7 @@ validar(){
 # Salida esperada: 4096 (bits)
 
 tamanio_directorio() {
+    validar 1 $# || return 1
 
 }
 

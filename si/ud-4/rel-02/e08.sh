@@ -25,6 +25,7 @@ validar(){
 # Validaciones: comprobar que nc o /dev/tcp están disponibles; manejar tiempo de espera razonable
 
 puerto_abierto() {
+    validar 2 $# || return 1
 
 }
 

@@ -25,6 +25,7 @@ validar(){
 # Validaciones: comprobar que el directorio existe.
 
 buscar_por_extension() {
+    validar 2 $# || return 1
 
 }
 

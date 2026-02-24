@@ -25,6 +25,7 @@ validar(){
 # Error si formato inválido o fichero no existe.
 
 cambiar_permisos() {
+    validar 2 $# || return 1
 
 }
 

@@ -24,6 +24,7 @@ validar(){
 # Salida esperada: 8.8.8.8 responde (latencia: 24 ms) o: 8.8.8.8 no responde
 
 verificar_conectividad() {
+    validar 1 $# || return 1
 
 }
 

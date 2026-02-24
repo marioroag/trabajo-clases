@@ -25,6 +25,7 @@ validar(){
 # Validaciones: comprobar existencia del fichero.
 
 obtener_propietario() {
+    validar 1 $# || return 1
 
 }
 

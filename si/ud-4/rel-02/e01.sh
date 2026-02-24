@@ -25,6 +25,7 @@ validar(){
 # Validaciones: comprobar número de argumentos y permisos de escritura en la ruta padre.
 
 crear_directorio() {
+    validar 1 $# || return 1
 
 }
 

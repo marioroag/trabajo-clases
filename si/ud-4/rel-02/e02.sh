@@ -25,6 +25,7 @@ validar(){
 # Nota: convertir MB a bytes con $(( size_mb * 1024 * 1024 )) si es necesario.
 
 buscar_archivos_grandes() {
+    validar 2 $# || return 1
 
 }
 
