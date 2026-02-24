@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import prog.ud_5.faker;
+import prog.ud_5.Faker;
 
 public class e03 {
     /*
@@ -119,8 +119,8 @@ public class e03 {
 
         Producto productoAleatorio = new Producto();
         for (int i = 0; i < CANTIDAD_PRODUCTOS; i++) {
-            productoAleatorio = new Producto(faker.loremCorto(), faker.loremLargo(), faker.precio(0, 30),
-                    faker.entero(0, 99));
+            productoAleatorio = new Producto(Faker.loremCorto(), Faker.loremLargo(), Faker.precio(0, 30),
+                    Faker.entero(0, 99));
             Mercadona.agregarProducto(productoAleatorio);
         }
 

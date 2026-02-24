@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import prog.ud_5.faker;
 import prog.ud_5.rel_03.Faker;
 
 public class E01 {
@@ -113,7 +112,7 @@ public class E01 {
 
         for (int i = 0; i < 50; i++) {
             embarcacion1 = new Embarcacion(Faker.matriculaEmbarcacion(), Faker.eslora(), Faker.tipoEmbarcacion(),
-                    faker.nombre(), Faker.anioFabricacionEmbarcacion(), Faker.longitudMaximaAmarre());
+                    Faker.nombre(), Faker.anioFabricacionEmbarcacion(), Faker.longitudMaximaAmarre());
             puerto1.registrarEmbarcacion(embarcacion1);
         }
 

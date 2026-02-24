@@ -3,7 +3,7 @@ package prog.ud_5;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class faker {
+public class Faker {
     // Arrays con datos de ejemplo
     private static final String[] nombres = {
             "Juan", "Pedro", "María", "Ana", "Luis", "Sofía", "Carlos", "Laura", "Fernando", "Elena",

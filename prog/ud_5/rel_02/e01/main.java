@@ -2,7 +2,7 @@ package prog.ud_5.rel_02.e01;
 
 import java.util.Scanner;
 
-import prog.ud_5.faker;
+import prog.ud_5.Faker;
 
 // Crea una clase Estudiante con atributos nombre, edad y número de matrícula. 
 // Implementa los métodos get y set para cada atributo, así como el método toString()
@@ -38,7 +38,7 @@ public class main {
         Estudiante aleatorio = new Estudiante();
 
         for (int i = 0; i < CANTIDAD_ALUMNOS; i++) {
-            aleatorio = new Estudiante(faker.nombre(), faker.edad(), "STEM" + i);
+            aleatorio = new Estudiante(Faker.nombre(), Faker.edad(), "STEM" + i);
             laRioja.agregarEstudiante(aleatorio);
         }
 
