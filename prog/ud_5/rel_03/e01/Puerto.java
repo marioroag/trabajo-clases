@@ -11,7 +11,7 @@ public class Puerto {
 
     private ArrayList<Amarre> amarres;
     private ArrayList<Embarcacion> embarcaciones;
-    private ArrayList<String> matriculasAmarradas;
+    private ArrayList<String> matriculasAmarradas = new ArrayList<>();
 
     // [ Constructor ]
     public Puerto(String nombre, String ubicacion, int capacidadMaxima, String telefonoContacto,
@@ -62,13 +62,29 @@ public class Puerto {
     }
 
     /**
-     * Vincula una matricula con un amarre
+     * Vincula una matricula con un amarre usando un solo array colocando matricula,
+     * numeroAmarre de forma sucesiva
      * 
      * @param matricula
      * @param numeroAmarre
      */
     public void asignarAmarre(String matricula, int numeroAmarre) {
-        matriculasAmarradas.add(matricula);
+        if (buscarEmbarcacionEnPuerto(matricula) != null && numeroAmarre >= 0 && numeroAmarre <= amarres.size()) {
+            matriculasAmarradas.add(matricula);
+            matriculasAmarradas.add(Integer.toString(numeroAmarre));
+            amarres.get(numeroAmarre).setOcupado(true);
+            System.out.println(matriculasAmarradas);
+        }
+    }
+
+    public void liberarAmarre(int numeroAmarre) {
+        int indiceAmarre = matriculasAmarradas.indexOf(Integer.toString(numeroAmarre));
+        if (indiceAmarre != -1) { // indexOf devuelve -1 si no encuentra el index
+            matriculasAmarradas.remove(indiceAmarre);
+            matriculasAmarradas.remove(indiceAmarre - 1);
+            amarres.get(numeroAmarre).setOcupado(false);
+            System.out.println(matriculasAmarradas);
+        }
     }
 
     /**
@@ -86,6 +102,8 @@ public class Puerto {
 
         return amarresLibres;
     }
+
+    
 
     /**
      * Muestra los amarres ocupados
@@ -122,6 +140,17 @@ public class Puerto {
         }
 
         return embarcacionEncontrada;
+    }
+
+    public String buscarEmbarcacion(String matricula) {
+        String mensaje = "La embarcación no está amarrada";
+
+        if (matriculasAmarradas.contains(matricula)) {
+            String amarreDeEmbarcacion = matriculasAmarradas.get(matriculasAmarradas.indexOf(matricula) + 1);
+            mensaje = "La embarcacion está amarrada en el amarre Nº" + amarreDeEmbarcacion;
+        }
+
+        return mensaje;
     }
 
     /**

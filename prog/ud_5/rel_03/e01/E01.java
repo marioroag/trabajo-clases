@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import prog.ud_5.faker;
+import prog.ud_5.rel_03.Faker;
+
 public class E01 {
     public static void imprimirMensaje(String mensaje) {
         System.out.println(mensaje);
@@ -94,11 +97,25 @@ public class E01 {
         Embarcacion embarcacion2 = new Embarcacion("002", "embarcacion2", 0, "Velero", "Felipe", 2001, 2000);
         Embarcacion embarcacion3 = new Embarcacion("003", "embarcacion3", 0, "Moto de agua", "Fernando", 1950, 1000);
 
+        Embarcacion nuevaEmbarcacion;
+        Amarre nuevoAmarre;
+
         ArrayList<Amarre> amarresTotal = new ArrayList<>(Arrays.asList(amarre1, amarre2, amarre3));
         ArrayList<Embarcacion> embarcacionesTotal = new ArrayList<>(
                 Arrays.asList(embarcacion1, embarcacion2, embarcacion3));
 
-        Puerto puerto1 = new Puerto("puerto1", "Puerto de la Cruz", 10, "123123123", amarresTotal, embarcacionesTotal);
+        Puerto puerto1 = new Puerto("puerto1", "Puerto de la Cruz", 100, "123123123", amarresTotal, embarcacionesTotal);
+
+        for (int i = 0; i < 50; i++) {
+            amarre1 = new Amarre(Faker.longitudMaximaAmarre(), Faker.tipoAmarre());
+            puerto1.altaAmarre(amarre1);
+        }
+
+        for (int i = 0; i < 50; i++) {
+            embarcacion1 = new Embarcacion(Faker.matriculaEmbarcacion(), Faker.eslora(), Faker.tipoEmbarcacion(),
+                    faker.nombre(), Faker.anioFabricacionEmbarcacion(), Faker.longitudMaximaAmarre());
+            puerto1.registrarEmbarcacion(embarcacion1);
+        }
 
         do {
             opcionMenu = leerOpcionMenu(scanner, opcionesMenu);
@@ -107,7 +124,7 @@ public class E01 {
                 imprimirMensaje("Saliendo del programa...");
 
             } else if (opcionMenu == 1) { // Registrar embarcacion
-                Embarcacion nuevaEmbarcacion = new Embarcacion(leerTexto(scanner, "Matricula: "),
+                nuevaEmbarcacion = new Embarcacion(leerTexto(scanner, "Matricula: "),
                         leerTexto(scanner, "Nombre: "),
                         leerInt(scanner, "Eslora: "), leerTexto(scanner, "Tipo: "), leerTexto(scanner, "Propietario: "),
                         leerInt(scanner, "Año de fabricacion: "), leerInt(scanner, "Valor Estimado: "));
@@ -120,28 +137,34 @@ public class E01 {
                 imprimirMensaje("[ Amarres Ocupados ]\n" + puerto1.mostrarAmarresOcupados());
 
             } else if (opcionMenu == 3) { // Dar de alta, asignar y liberar amarres
-                opcionMenu = leerOpcionMenu(scanner, opcionesAmarre);
+                imprimirMensaje("[ Amarres Libres ]\n" + puerto1.mostrarAmarresLibres());
+                imprimirMensaje("[ Amarres Ocupados ]\n" + puerto1.mostrarAmarresOcupados());
 
+                opcionMenu = leerOpcionMenu(scanner, opcionesAmarre);
                 if (opcionMenu == 0) { // arreglar que saca del programa
                     System.out.println("0");
-                } else if (opcionMenu == 1) {
-                    System.out.println("1");
-                } else if (opcionMenu == 2) {
-                    System.out.println("2");
+                } else if (opcionMenu == 1) { // Dar de alta
+                    nuevoAmarre = new Amarre(leerInt(scanner, "Longitud: "), leerTexto(scanner, "Tipo de amarre: "));
+                    puerto1.altaAmarre(nuevoAmarre);
+                    System.out.println(nuevoAmarre + " ha sido dado de alta con éxito");
 
-                } else if (opcionMenu == 3) {
-                    System.out.println("3");
+                } else if (opcionMenu == 2) { // Asignar amarre a embarcacion
+                    puerto1.asignarAmarre(leerTexto(scanner, "Matricula de embarcacion: "),
+                            leerInt(scanner, "Nº Amarre: "));
+
+                } else if (opcionMenu == 3) { // Liberar amarre
+                    puerto1.liberarAmarre(leerInt(scanner, "Nº Amarre a liberar: "));
 
                 }
 
             } else if (opcionMenu == 4) { // Buscar embarcación por matricula
                 // El "" + está ahi porque imprimirMensaje no deja imprimir solo la embarcacion
                 imprimirMensaje(
-                        "" + puerto1.buscarEmbarcacionEnPuerto(leerTexto(scanner, "Matricula de la embarcacion: ")));
+                        "" + puerto1.buscarEmbarcacion(leerTexto(scanner, "Matricula de la embarcacion: ")));
 
             } else if (opcionMenu == 5) { // Ver ingresos diarios actuales y máximos
                 imprimirMensaje("[ Ingresos Actuales ]\n" + puerto1.calcularIngresosDiariosActuales());
-                imprimirMensaje("\n[ Ingresos Potenciales ]\n" + puerto1.calcularIngresosDiariosMaximos());
+                imprimirMensaje("\n[ Ingresos Potenciales Máximos ]\n" + puerto1.calcularIngresosDiariosMaximos());
             }
 
         } while (opcionMenu != 0);

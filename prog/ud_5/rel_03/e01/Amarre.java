@@ -17,7 +17,6 @@ public class Amarre {
     ArrayList<String> tiposValidos = new ArrayList<>(Arrays.asList("normal", "premium", "megayate"));
 
     // [ Constructor ]
-    // IMPORTANTE, NO USAR SETTERS EN PUBLICOS, CAMBIAR ESTO <-------------
     public Amarre(double longitudMaxima, String tipoAmarre) {
         asignarAmarre();
         setTipoAmarre(tipoAmarre);
@@ -89,7 +88,7 @@ public class Amarre {
         boolean exito = false;
 
         if (tiposValidos.contains(tipoAmarre.toLowerCase())) {
-            this.tipoAmarre = tipoAmarre;
+            this.tipoAmarre = tipoAmarre.toLowerCase();
             // Recalcula el precio diario al cambiar de tipo
             calcularPrecioDia();
             exito = true;
@@ -107,11 +106,11 @@ public class Amarre {
     public double calcularPrecioDia() {
         if (tipoAmarre != null && longitudMaxima != 0.0) {
             if (tipoAmarre.equals(tiposValidos.get(0))) { // Normal
-                precioDia = 25 + (1.5 * longitudMaxima);
+                this.precioDia = 25 + (1.5 * longitudMaxima);
             } else if (tipoAmarre.equals(tiposValidos.get(1))) { // Premium
-                precioDia = 60 + (2.2 * longitudMaxima);
+                this.precioDia = 60 + (2.2 * longitudMaxima);
             } else if (tipoAmarre.equals(tiposValidos.get(2))) { // Megayate
-                precioDia = 120 + (3.5 * longitudMaxima);
+                this.precioDia = 120 + (3.5 * longitudMaxima);
             } else {
                 E01.imprimirMensaje("Tipo de amarre no tiene formula de precio de día todavía");
             }
