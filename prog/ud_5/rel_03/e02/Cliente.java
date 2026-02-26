@@ -1,5 +1,7 @@
 package prog.ud_5.rel_03.e02;
 
+import java.util.ArrayList;
+
 public class Cliente {
     private int id;
     private String nombre;
@@ -43,7 +45,6 @@ public class Cliente {
         return dni;
     }
 
-    // TODO: Restringir que no se repitan
     public boolean setDni(String dni) {
         boolean exito = false;
         if (!dni.isBlank() && dni != null) {
@@ -92,6 +93,12 @@ public class Cliente {
         }
 
         return exito;
+    }
+
+    @Override
+    public String toString() {
+        return nombre + "\nID: " + id + " DNI: " + dni + " | Direccion" + direccion + "\nContacto: Tlf. "
+                + telefono + " | E-mail: " + email + "\n";
     }
 
 }
