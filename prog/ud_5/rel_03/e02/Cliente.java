@@ -1,7 +1,5 @@
 package prog.ud_5.rel_03.e02;
 
-import java.util.ArrayList;
-
 public class Cliente {
     private int id;
     private String nombre;

@@ -3,8 +3,6 @@ package prog.ud_5.rel_03.e02;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import prog.ud_5.rel_03.Faker;
-
 public class E02 {
     public static void main(String[] args) {
         Cliente cliente1 = new Cliente(10, "Juan", "12345N", "Granada", "979797979", "hola@gmail.com");
