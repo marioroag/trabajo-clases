@@ -2,7 +2,7 @@ const lista = document.getElementById("lista");
 const aniadir = document.getElementById("btnAniadir");
 const borrar = document.getElementById("btnBorrar");
 const editar = document.getElementById("btnEditar");
-let ultimoElemento = lista.lastElementChild;
+// No declaro ultimoElemento fuera de las funciones porque cada vez que se ejecute tiene que rescatar el ultimo elemento actual asi que seria inutil
 
 function aniadirElemento() {
     let nuevoElemento = document.createElement("LI")
@@ -13,8 +13,7 @@ function aniadirElemento() {
 }
 
 function borrarElemento() {
-    ultimoElemento = lista.lastElementChild
-    console.log(ultimoElemento);
+    let ultimoElemento = lista.lastElementChild
     ultimoElemento.remove();
 }
 
