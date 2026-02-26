@@ -97,6 +97,7 @@ INSERT INTO personas (id,nombre,apellido,sexo,fecha_nacimiento,provincia,municip
  (1136,'Miguel','Vega','H','1975-09-20','Málaga','Málaga','Universitarios',45000,'Casado','Alto','Médico',1104,1105),
  (1137,'Ana','López','M','2002-07-18','Cádiz','Cádiz','Secundarios',6000,'Soltera','Medio','Estudiante',NULL,NULL),
  (1138,'José','Pérez','H','1980-11-30','Córdoba','Córdoba','Primarios',18000,'Casado','Medio','Agricultor',1096,1097),
+ (1145,'Juan','Pérez','H','1980-11-30','Córdoba','Córdoba','Primarios',18000,'Casado','Medio','Agricultor',1096,1097),
  (1139,'María','Torres','M','1995-02-25','Almería','El Ejido','Secundarios',20000,'Soltera','Medio','Comerciante',NULL,1093),
  (1140,'Carlos','Herrera','H','1983-12-12','Jaén','Úbeda','Primarios',28000,'Casado','Alto','Policía',1106,1113),
  (1141,'Sofía','Ruano','M','1998-04-04','Sevilla','Dos Hermanas','Primarios',15000,'Soltera','Bajo','Panadero',NULL,NULL),
@@ -283,10 +284,12 @@ where CONCAT(padre, '', madre) in (select CONCAT(padre, '', madre) from personas
 -- 18. Personas de la misma familia con más de dos coches
 -- SIN TERMINAR !!!!
 -- FAMILIA ENTERA
-select id, padre, madre
+select p.padre, p.madre, p.id
 from personas p
 where CONCAT(padre, '', madre, '', id) in (select CONCAT(padre, '', madre, '', id) from personas);
 
+select id from personas group by CONCAT(padre, "", madre)
+where CONCAT(padre, '', madre, '', id) in (select CONCAT(padre, '', madre, '', id) from personas);
 --
 select p.id, p.padre, p.madre
 from personas p
