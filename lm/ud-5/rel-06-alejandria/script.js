@@ -18,7 +18,9 @@ function buscadorLibros () {
         }
     }
 }
-
-function aniadirFavoritos () {
-    
+for (const element of listaLibros) {
+    element.addEventListener("click", aniadirFavoritos(element))
+}
+function aniadirFavoritos (element) {
+    element.textContent="asdasda"
 }
