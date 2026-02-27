@@ -19,7 +19,7 @@ public class Gestoria {
     private ArrayList<Tramite> tramites = new ArrayList<>();
     private ArrayList<Expediente> expedientes = new ArrayList<>();
 
-    // []
+    // [ Constructores ]
     public Gestoria(String nombre, String direccion, String telefono, String horario, ArrayList<Cliente> clientes,
             ArrayList<Tramite> tramites, ArrayList<Expediente> expedientes) {
         this.nombre = nombre;
