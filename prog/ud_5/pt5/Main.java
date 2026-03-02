@@ -155,6 +155,8 @@ public class Main {
          */
 
         // [ Variables ]
+        Scanner scanner = new Scanner(System.in);
+
         int opcionMenu;
 
         ArrayList<String> opcionesMenu = new ArrayList<>(
@@ -165,13 +167,17 @@ public class Main {
         // [ Creación del Zoológico ]
         Animal animal1 = new Animal("Leon", 10, 9200);
         Animal animal2 = new Animal("Foca", 25, 3240);
-        Animal animal3 = new Animal("Pinguino", 20, 10);
-        Animal animal4 = new Animal("Leopardo", 7, 2000);
+        Animal animal3 = new Animal("Pinguino", 20, 1200);
+        Animal animal4 = new Animal("Leopardo", 7, 2600);
+        Animal animal5 = new Animal("ABF234", "Tigre", 12, 6000);
+        Animal animal6 = new Animal("Tiburon", 3, 8200);
+        Animal animal7 = new Animal("FD4963", "Oso", 15, 7400);
 
-        ArrayList<Animal> animales = new ArrayList<>(Arrays.asList(animal1, animal2, animal3, animal4));
+        ArrayList<Animal> animales = new ArrayList<>(
+                Arrays.asList(animal1, animal2, animal3, animal4, animal5, animal6, animal7));
         Zoologico zooStem = new Zoologico(animales);
 
-        Scanner scanner = new Scanner(System.in);
+        // Faker
 
         // [ Menú de gestión ]
         do {

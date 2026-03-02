@@ -4,15 +4,15 @@ public class Animal {
     // [ Variables ]
     private static int numeroAnimales;
 
-    private String nombre;
     private String codigo;
+    private String nombre;
     private int cantidad;
     private double precio;
 
     // [ Constructor ]
     public Animal(String nombre, int cantidad, double precio) {
         setNombre(nombre);
-        setCodigo(nombre);
+        setCodigo();
 
         // Setteo solo a -1 en el constructor para indicar que es un valor erroneo
         // No se hace en el setter para si se va a poner un valor erroneo despues de
@@ -23,12 +23,17 @@ public class Animal {
             this.cantidad = -1;
         }
 
-        if (precio > 0) {
+        if (precio >= 0) {
             setPrecio(precio);
 
         } else {
             this.precio = -1;
         }
+    }
+
+    public Animal(String codigo, String nombre, int cantidad, double precio) {
+        this(nombre, cantidad, precio);
+        setCodigo(codigo);
     }
 
     // [ Getter y Setters ]
@@ -38,7 +43,7 @@ public class Animal {
 
     public boolean setNombre(String nombre) {
         boolean exito = false;
-        if (!nombre.isBlank() && nombre != null) {
+        if (nombre != null && !nombre.isBlank()) {
             this.nombre = nombre;
             exito = true;
         }
@@ -50,9 +55,13 @@ public class Animal {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo() {
         this.codigo = "Z-" + numeroAnimales;
         numeroAnimales++;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public int getCantidad() {
