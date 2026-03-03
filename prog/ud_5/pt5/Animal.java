@@ -1,6 +1,7 @@
 package prog.ud_5.pt5;
 
 public class Animal {
+
     // [ Variables ]
     private static int numeroAnimales;
 
@@ -17,7 +18,7 @@ public class Animal {
         // Setteo solo a -1 en el constructor para indicar que es un valor erroneo
         // No se hace en el setter para si se va a poner un valor erroneo despues de
         // crear el animal directamente no se cambie en vez de poner un numero negativo
-        if (cantidad > 0) {
+        if (cantidad >= 0) {
             setCantidad(cantidad);
         } else {
             this.cantidad = -1;
@@ -41,6 +42,14 @@ public class Animal {
         return nombre;
     }
 
+    /**
+     * Solo permite el nombre si no esta vacio ni es nulo
+     * 
+     * En caso contrario el nombre se queda como null para saber que es erroneo
+     * 
+     * @param nombre
+     * @return
+     */
     public boolean setNombre(String nombre) {
         boolean exito = false;
         if (nombre != null && !nombre.isBlank()) {
@@ -55,6 +64,10 @@ public class Animal {
         return codigo;
     }
 
+    /**
+     * Si no recibe un código en el constructor genera uno propio segun el numero de
+     * objetos diferentes
+     */
     public void setCodigo() {
         this.codigo = "Z-" + numeroAnimales;
         numeroAnimales++;
@@ -68,6 +81,13 @@ public class Animal {
         return cantidad;
     }
 
+    /**
+     * Solo cambia la cantidad si es un número positivo (no se pueden tener animales
+     * negativos)
+     * 
+     * @param cantidad
+     * @return Booleano de exito
+     */
     public boolean setCantidad(int cantidad) {
         boolean exito = false;
 
@@ -83,6 +103,12 @@ public class Animal {
         return precio;
     }
 
+    /**
+     * Solo cambia el precio si es un número positivo
+     * 
+     * @param precio
+     * @return Booleano de exito
+     */
     public boolean setPrecio(double precio) {
         boolean exito = false;
 
@@ -97,7 +123,6 @@ public class Animal {
     // [ toString ]
     @Override
     public String toString() {
-        // Código: A1B2C3 | Nombre: León | Cantidad: 3 | Precio: 25.00 €
         return "Código: " + codigo + " | Nombre: " + nombre + " | Cantidad: " + cantidad + " | Precio: " + precio
                 + " €";
     }

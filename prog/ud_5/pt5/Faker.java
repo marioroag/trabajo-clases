@@ -1,4 +1,4 @@
-package UD5.Relacion3;
+package prog.ud_5.pt5;
 
 public class Faker {
 

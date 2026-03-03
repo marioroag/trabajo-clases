@@ -16,6 +16,7 @@ public class Zoologico {
     }
 
     public Zoologico() {
+        this.animales = new ArrayList<>();
     }
 
     // [ Getter y Setters ]
