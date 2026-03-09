@@ -28,23 +28,11 @@ function quitarSeleccionATodos() {
   2) Recorrerlas
   3) A cada una, quitarle la clase "seleccionado"
   */
-}
 
-function actualizarPanel(jugador) {
-  /*
-  PSEUDOCÓDIGO:
-  SI jugador existe:
-    1) Leer el nombre desde el DOM (h3.nombre dentro de la tarjeta)
-    2) Leer dorsal, posición y goles desde jugador.dataset
-        - dorsal: jugador.dataset.dorsal
-        - posicion: jugador.dataset.posicion
-        - goles: jugador.dataset.goles
-    3) Pi (#dorsal)" (o solo nombre, como prefieras)
-        - detallePosicion: posicion
-        - detalleGoles: goles
-  SI NO existe jugador:
-    4) Poner "—" en los 3 campos del panel
-  */
+  const tarjetas = document.getElementsByClassName("jugador")
+  for (const tarjeta of tarjetas) {
+    tarjeta.classList.remove("seleccionado")
+  }
 }
 
 function seleccionarJugador(jugador) {
@@ -56,6 +44,48 @@ function seleccionarJugador(jugador) {
   4) Guardarlo en la variable global jugadorSeleccionado
   5) Llamar a actualizarPanel(jugadorSeleccionado)
   */
+
+  // TODO: Esto da error
+  if (jugador) {
+    quitarSeleccionATodos()
+    jugador.classList.add("seleccionado")
+    jugadorSeleccionado = jugador
+    actualizarPanel(jugador)
+  } else {
+    actualizarPanel(null)
+  }
+}
+
+function actualizarPanel(jugador) {
+  /*
+  PSEUDOCÓDIGO:
+  SI jugador existe:
+    1) Leer el nombre desde el DOM (h3.nombre dentro de la tarjeta)
+    2) Leer dorsal, posición y goles desde jugador.dataset
+        - dorsal: jugador.dataset.dorsal
+        - posicion: jugador.dataset.posicion
+        - goles: jugador.dataset.goles
+    3) poner (#dorsal)" (o solo nombre, como prefieras)
+        - detallePosicion: posicion
+        - detalleGoles: goles
+  SI NO existe jugador:
+    4) Poner "—" en los 3 campos del panel
+  */
+  
+  if (jugador) {
+    // Info jugador
+    const nombreJugador = jugador.querySelector("h3").textContent
+    const dorsalJugador = jugador.dataset.dorsal
+    const posicionJugador = jugador.dataset.posicion
+    const golesJugador = jugador.dataset.goles
+
+    // Actualizar de panel
+    detalleNombre.textContent = nombreJugador + " (#" + dorsalJugador + ")"
+    detallePosicion.textContent = posicionJugador
+    detalleGoles.textContent = golesJugador
+  } else {
+    actualizarPanel(null);
+  }
 }
 
 function engancharClickTarjeta(tarjeta) {
@@ -197,10 +227,16 @@ formNuevoJugador.addEventListener("submit", function (event) {
 // ====== INICIO ======
 engancharClicksJugadoresExistentes();
 
+
 // Selección inicial del primer jugador (si existe)
 const primerJugador = document.querySelector(".jugador");
+actualizarPanel(primerJugador)
 if (primerJugador) {
-  seleccionarJugador(primerJugador);
-} else {
-  actualizarPanel(null);
-}
+    seleccionarJugador(primerJugador);
+  } else {
+    actualizarPanel(null);
+  }
+
+let cartasJugador = document.getElementsByClassName(".jugador")
+
+// cartasJugador.addEventListener("click", seleccionarJugador())
