@@ -62,33 +62,33 @@ INSERT INTO declaraciones (id_contribuyente, anio_fiscal, tipo_declaracion, base
 -- EJERCICIOS DE JOIN
 
 -- 1. LEFT JOIN - Todos los contribuyentes con sus declaraciones (si existen)
--- SELECT c.nombre, c.apellidos, d.anio_fiscal, d.tipo_declaracion, d.estado 
--- FROM contribuyentes c
--- LEFT JOIN declaraciones d ON c.id_contribuyente = d.id_contribuyente
--- ORDER BY c.id_contribuyente;
+SELECT c.nombre, c.apellidos, d.anio_fiscal, d.tipo_declaracion, d.estado 
+FROM contribuyentes c
+LEFT JOIN declaraciones d ON c.id_contribuyente = d.id_contribuyente
+ORDER BY c.id_contribuyente;
 
 -- 2. RIGHT JOIN - Todas las declaraciones con los datos del contribuyente
--- SELECT c.nombre, c.apellidos, d.anio_fiscal, d.base_imponible, d.estado
--- FROM contribuyentes c
--- RIGHT JOIN declaraciones d ON c.id_contribuyente = d.id_contribuyente
--- ORDER BY d.id_declaracion;
+SELECT c.nombre, c.apellidos, d.anio_fiscal, d.base_imponible, d.estado
+FROM contribuyentes c
+RIGHT JOIN declaraciones d ON c.id_contribuyente = d.id_contribuyente
+ORDER BY d.id_declaracion;
 
 -- 4. Contar declaraciones por contribuyente
--- SELECT c.id_contribuyente, c.nombre, COUNT(d.id_declaracion) as total_declaraciones
--- FROM contribuyentes c
--- LEFT JOIN declaraciones d ON c.id_contribuyente = d.id_contribuyente
--- GROUP BY c.id_contribuyente, c.nombre
--- ORDER BY total_declaraciones DESC;
+SELECT c.id_contribuyente, c.nombre, COUNT(d.id_declaracion) as total_declaraciones
+FROM contribuyentes c
+LEFT JOIN declaraciones d ON c.id_contribuyente = d.id_contribuyente
+GROUP BY c.id_contribuyente, c.nombre
+ORDER BY total_declaraciones DESC;
 
 -- 5. Obtener contribuyentes sin declaraciones
--- SELECT c.* FROM contribuyentes c
--- LEFT JOIN declaraciones d ON c.id_contribuyente = d.id_contribuyente
--- WHERE d.id_declaracion IS NULL;
+SELECT c.* FROM contribuyentes c
+LEFT JOIN declaraciones d ON c.id_contribuyente = d.id_contribuyente
+WHERE d.id_declaracion IS NULL;
 
 -- 6. Diferencias a pagar o devolver por contribuyente
--- SELECT c.nombre, c.apellidos, d.anio_fiscal, d.impuesto_debido, d.impuesto_pagado, 
---        (d.impuesto_debido - d.impuesto_pagado) as diferencia
--- FROM contribuyentes c
--- RIGHT JOIN declaraciones d ON c.id_contribuyente = d.id_contribuyente
--- WHERE (d.impuesto_debido - d.impuesto_pagado) != 0
--- ORDER BY diferencia DESC;
+SELECT c.nombre, c.apellidos, d.anio_fiscal, d.impuesto_debido, d.impuesto_pagado, 
+        (d.impuesto_debido - d.impuesto_pagado) as diferencia
+FROM contribuyentes c
+RIGHT JOIN declaraciones d ON c.id_contribuyente = d.id_contribuyente
+WHERE (d.impuesto_debido - d.impuesto_pagado) != 0
+ORDER BY diferencia DESC;

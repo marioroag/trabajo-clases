@@ -144,30 +144,30 @@ INSERT INTO seguidores (id_seguidor, id_seguido, fecha_seguimiento, estado) VALU
 -- EJERCICIOS DE JOIN
 
 -- 1. LEFT JOIN - Todos los usuarios con sus publicaciones (si existen)
--- SELECT u.nombre_usuario, u.nombre_completo, COUNT(p.id_publicacion) as total_publicaciones,
---        SUM(p.numero_likes) as total_likes
--- FROM usuarios u
--- LEFT JOIN publicaciones p ON u.id_usuario = p.id_usuario
--- WHERE u.estado = 'Activa'
--- GROUP BY u.id_usuario, u.nombre_usuario, u.nombre_completo
--- ORDER BY total_publicaciones DESC;
+SELECT u.nombre_usuario, u.nombre_completo, COUNT(p.id_publicacion) as total_publicaciones,
+        SUM(p.numero_likes) as total_likes
+FROM usuarios u
+LEFT JOIN publicaciones p ON u.id_usuario = p.id_usuario
+WHERE u.estado = 'Activa'
+GROUP BY u.id_usuario, u.nombre_usuario, u.nombre_completo
+ORDER BY total_publicaciones DESC;
 
 -- 2. RIGHT JOIN - Todas las publicaciones con datos del usuario
--- SELECT u.nombre_usuario, u.cuenta_verificada, p.descripcion, p.numero_likes, p.fecha_creacion
--- FROM usuarios u
--- RIGHT JOIN publicaciones p ON u.id_usuario = p.id_usuario
--- ORDER BY p.fecha_creacion DESC;
+SELECT u.nombre_usuario, u.cuenta_verificada, p.descripcion, p.numero_likes, p.fecha_creacion
+FROM usuarios u
+RIGHT JOIN publicaciones p ON u.id_usuario = p.id_usuario
+ORDER BY p.fecha_creacion DESC;
 
 -- 3. FULL OUTER JOIN - Todos los registros de ambas tablas
--- SELECT u.nombre_usuario, u.nombre_completo,
---        p.id_publicacion, p.descripcion
--- FROM usuarios u
--- LEFT JOIN publicaciones p ON u.id_usuario = p.id_usuario
--- UNION
--- SELECT u.nombre_usuario, u.nombre_completo,
---        p.id_publicacion, p.descripcion
--- FROM usuarios u
--- RIGHT JOIN publicaciones p ON u.id_usuario = p.id_usuario;
+SELECT u.nombre_usuario, u.nombre_completo,
+        p.id_publicacion, p.descripcion
+FROM usuarios u
+LEFT JOIN publicaciones p ON u.id_usuario = p.id_usuario
+UNION
+SELECT u.nombre_usuario, u.nombre_completo,
+        p.id_publicacion, p.descripcion
+FROM usuarios u
+RIGHT JOIN publicaciones p ON u.id_usuario = p.id_usuario;
 
 -- 4. Usuarios sin publicaciones
 SELECT u.* FROM usuarios u
@@ -175,81 +175,81 @@ LEFT JOIN publicaciones p ON u.id_usuario = p.id_usuario
 WHERE p.id_publicacion is null;
 
 -- 5. Publicaciones sin usuario asociado (datos orfanos)
--- SELECT p.* FROM usuarios u
--- RIGHT JOIN publicaciones p ON u.id_usuario = p.id_usuario
--- WHERE u.id_usuario IS NULL;
+SELECT p.* FROM usuarios u
+RIGHT JOIN publicaciones p ON u.id_usuario = p.id_usuario
+WHERE u.id_usuario IS NULL;
 
 -- 6. Publicaciones más populares con datos del creador
--- SELECT u.nombre_usuario, u.cuenta_verificada, p.descripcion, 
---        p.numero_likes, p.numero_comentarios, 
---        (p.numero_likes + p.numero_comentarios + p.numero_compartidas) as engagement_total
--- FROM usuarios u
--- RIGHT JOIN publicaciones p ON u.id_usuario = p.id_usuario
--- WHERE p.estado = 'Publicada'
--- ORDER BY engagement_total DESC
--- LIMIT 10;
+SELECT u.nombre_usuario, u.cuenta_verificada, p.descripcion, 
+        p.numero_likes, p.numero_comentarios, 
+        (p.numero_likes + p.numero_comentarios + p.numero_compartidas) as engagement_total
+FROM usuarios u
+RIGHT JOIN publicaciones p ON u.id_usuario = p.id_usuario
+WHERE p.estado = 'Publicada'
+ORDER BY engagement_total DESC
+LIMIT 10;
 
 -- 7. Usuarios activos y su actividad en publicaciones
--- SELECT u.nombre_usuario, u.estado, COUNT(p.id_publicacion) as num_publicaciones,
---        AVG(p.numero_likes) as promedio_likes, 
---        YEAR(MAX(p.fecha_creacion)) as ultimo_año_publicación
--- FROM usuarios u
--- LEFT JOIN publicaciones p ON u.id_usuario = p.id_usuario
--- GROUP BY u.id_usuario, u.nombre_usuario, u.estado
--- HAVING u.estado = 'Activa'
--- ORDER BY num_publicaciones DESC;
+SELECT u.nombre_usuario, u.estado, COUNT(p.id_publicacion) as num_publicaciones,
+        AVG(p.numero_likes) as promedio_likes, 
+        YEAR(MAX(p.fecha_creacion)) as ultimo_año_publicación
+FROM usuarios u
+LEFT JOIN publicaciones p ON u.id_usuario = p.id_usuario
+GROUP BY u.id_usuario, u.nombre_usuario, u.estado
+HAVING u.estado = 'Activa'
+ORDER BY num_publicaciones DESC;
 
 -- EJERCICIOS CON TABLA DE SEGUIDORES
 
 -- 9. LEFT JOIN - Usuarios y sus seguidores
--- SELECT u.nombre_usuario, u.cuenta_verificada, COUNT(s.id_seguidor) as total_seguidores
--- FROM usuarios u
--- LEFT JOIN seguidores s ON u.id_usuario = s.id_seguido AND s.estado = 'Activo'
--- GROUP BY u.id_usuario, u.nombre_usuario, u.cuenta_verificada
--- ORDER BY total_seguidores DESC;
+SELECT u.nombre_usuario, u.cuenta_verificada, COUNT(s.id_seguidor) as total_seguidores
+FROM usuarios u
+LEFT JOIN seguidores s ON u.id_usuario = s.id_seguido AND s.estado = 'Activo'
+GROUP BY u.id_usuario, u.nombre_usuario, u.cuenta_verificada
+ORDER BY total_seguidores DESC;
 
 -- 10. RIGHT JOIN - Quién sigue a cada usuario (todos los seguimientos activos)
--- SELECT u.nombre_usuario, seg.nombre_usuario as seguidor, s.fecha_seguimiento
--- FROM usuarios u
--- RIGHT JOIN seguidores s ON u.id_usuario = s.id_seguido
--- LEFT JOIN usuarios seg ON s.id_seguidor = seg.id_usuario
--- WHERE s.estado = 'Activo'
--- ORDER BY u.nombre_usuario;
+SELECT u.nombre_usuario, seg.nombre_usuario as seguidor, s.fecha_seguimiento
+FROM usuarios u
+RIGHT JOIN seguidores s ON u.id_usuario = s.id_seguido
+LEFT JOIN usuarios seg ON s.id_seguidor = seg.id_usuario
+WHERE s.estado = 'Activo'
+ORDER BY u.nombre_usuario;
 
 -- 12. Usuarios sin seguidores (LEFT JOIN)
--- SELECT u.nombre_usuario, u.nombre_completo, COUNT(s.id_seguidor) as seguidores
--- FROM usuarios u
--- LEFT JOIN seguidores s ON u.id_usuario = s.id_seguido
--- GROUP BY u.id_usuario, u.nombre_usuario, u.nombre_completo
--- HAVING seguidores = 0;
+SELECT u.nombre_usuario, u.nombre_completo, COUNT(s.id_seguidor) as seguidores
+FROM usuarios u
+LEFT JOIN seguidores s ON u.id_usuario = s.id_seguido
+GROUP BY u.id_usuario, u.nombre_usuario, u.nombre_completo
+HAVING seguidores = 0;
 
 -- 13. Top influencers (usuarios más seguidos)
--- SELECT u.nombre_usuario, u.cuenta_verificada, COUNT(s.id_seguidor) as total_seguidores,
---        (SELECT COUNT(*) FROM publicaciones WHERE id_usuario = u.id_usuario AND estado = 'Publicada') as total_publicaciones
--- FROM usuarios u
--- LEFT JOIN seguidores s ON u.id_usuario = s.id_seguido AND s.estado = 'Activo'
--- GROUP BY u.id_usuario, u.nombre_usuario, u.cuenta_verificada
--- ORDER BY total_seguidores DESC;
+SELECT u.nombre_usuario, u.cuenta_verificada, COUNT(s.id_seguidor) as total_seguidores,
+        (SELECT COUNT(*) FROM publicaciones WHERE id_usuario = u.id_usuario AND estado = 'Publicada') as total_publicaciones
+FROM usuarios u
+LEFT JOIN seguidores s ON u.id_usuario = s.id_seguido AND s.estado = 'Activo'
+GROUP BY u.id_usuario, u.nombre_usuario, u.cuenta_verificada
+ORDER BY total_seguidores DESC;
 
 -- 14. Matriz de seguimientos bidireccionales (mutua)
--- SELECT u1.nombre_usuario, u2.nombre_usuario as sigue_a_otro, 'Mutuo' as tipo_relacion
--- FROM usuarios u1
--- LEFT JOIN seguidores s1 ON u1.id_usuario = s1.id_seguidor AND s1.estado = 'Activo'
--- LEFT JOIN usuarios u2 ON s1.id_seguido = u2.id_usuario
--- LEFT JOIN seguidores s2 ON u2.id_usuario = s2.id_seguidor AND u1.id_usuario = s2.id_seguido AND s2.estado = 'Activo'
--- WHERE s2.id_seguidor IS NOT NULL
--- ORDER BY u1.nombre_usuario;
+SELECT u1.nombre_usuario, u2.nombre_usuario as sigue_a_otro, 'Mutuo' as tipo_relacion
+FROM usuarios u1
+LEFT JOIN seguidores s1 ON u1.id_usuario = s1.id_seguidor AND s1.estado = 'Activo'
+LEFT JOIN usuarios u2 ON s1.id_seguido = u2.id_usuario
+LEFT JOIN seguidores s2 ON u2.id_usuario = s2.id_seguidor AND u1.id_usuario = s2.id_seguido AND s2.estado = 'Activo'
+WHERE s2.id_seguidor IS NOT NULL
+ORDER BY u1.nombre_usuario;
 
 --select id_seguidor, id_seguido from seguidores s where (id_seguidor,id_seguido) in (select id_seguido,id_seguidor from seguidores ) and (id_seguidor,id_seguido) in (select id_seguidor,id_seguido from seguidores );
 
 -- 15. Estadísticas completas de usuario (publicaciones + seguidores + seguidos)
--- SELECT u.nombre_usuario, u.cuenta_verificada, 
---        COUNT(DISTINCT p.id_publicacion) as publicaciones,
---        COUNT(DISTINCT s1.id_seguidor) as seguidores,
---        COUNT(DISTINCT s2.id_seguido) as seguidos
--- FROM usuarios u
--- LEFT JOIN publicaciones p ON u.id_usuario = p.id_usuario AND p.estado = 'Publicada'
--- LEFT JOIN seguidores s1 ON u.id_usuario = s1.id_seguido AND s1.estado = 'Activo'
--- LEFT JOIN seguidores s2 ON u.id_usuario = s2.id_seguidor AND s2.estado = 'Activo'
--- GROUP BY u.id_usuario, u.nombre_usuario, u.cuenta_verificada
--- ORDER BY seguidores DESC;
+SELECT u.nombre_usuario, u.cuenta_verificada, 
+        COUNT(DISTINCT p.id_publicacion) as publicaciones,
+        COUNT(DISTINCT s1.id_seguidor) as seguidores,
+        COUNT(DISTINCT s2.id_seguido) as seguidos
+FROM usuarios u
+LEFT JOIN publicaciones p ON u.id_usuario = p.id_usuario AND p.estado = 'Publicada'
+LEFT JOIN seguidores s1 ON u.id_usuario = s1.id_seguido AND s1.estado = 'Activo'
+LEFT JOIN seguidores s2 ON u.id_usuario = s2.id_seguidor AND s2.estado = 'Activo'
+GROUP BY u.id_usuario, u.nombre_usuario, u.cuenta_verificada
+ORDER BY seguidores DESC;
