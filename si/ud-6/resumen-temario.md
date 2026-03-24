@@ -1,5 +1,5 @@
 
-# Chuleta examen HTTP + `curl` + `jq` + `json-server`
+# Resumen examen HTTP + `curl` + `jq` + `json-server`
 
 ## 1. Ideas clave
 

@@ -1,22 +1,12 @@
-Ejercicios peticiones http
-
-1. Crea una base de datos en json con 2 personas, que tenga como datos sus coches. Ahora sí podemos apuntar una persona y sus coches, y no id dueño en cada coche. Fijate en profes y asignaturas.
-2. Enciende un servidor usando json-server que aloje esta base de datos.
-3. Realiza una peticion GET para ver todas las personas
-4. Realiza una petición GET para ver a la segunda persona que aparece en la base de datos.
-5. Añade una nueva persona
-6. Modifica la edad a la tercera persona.
-7. Muestra todas las personas de más de 30 años
-8. Muestra todos los coches de una persona. solo los coches
-
 ⸻
 
 
 # 🧪 Ejercicios HTTP + curl + jq resueltos
 
 ---
+## 1. Crea una base de datos en json con 2 personas, que tenga como datos sus coches. Ahora sí podemos apuntar una persona y sus coches, y no id dueño en cada coche. Fijate en profes y asignaturas.
 
-## 🔹 1. Crear base de datos (`db.json`)
+## Crear base de datos (`db.json`)
 
 ```json
 {
@@ -44,7 +34,7 @@ Ejercicios peticiones http
 
 ⸻
 
-🔹 2. Encender servidor
+🔹 2. Enciende un servidor usando json-server que aloje esta base de datos.
 
 json-server --watch db.json
 
@@ -55,21 +45,24 @@ http://localhost:3000/personas
 
 ⸻
 
-🔹 3. GET → ver todas las personas
+🔹 3. Realiza una peticion GET para ver todas las personas
+
 
 curl http://localhost:3000/personas
 
 
 ⸻
 
-🔹 4. GET → ver la segunda persona
+🔹 4. Realiza una petición GET para ver a la segunda persona que aparece en la base de datos.
+
 
 curl http://localhost:3000/personas/2
 
 
 ⸻
 
-🔹 5. POST → añadir nueva persona
+🔹 5. Añade una nueva persona
+
 
 curl -X POST http://localhost:3000/personas \
 -H "Content-Type: application/json" \
@@ -84,7 +77,8 @@ curl -X POST http://localhost:3000/personas \
 
 ⸻
 
-🔹 6. PATCH → modificar edad de la tercera persona
+🔹 6. Modifica la edad a la tercera persona.
+
 
 curl -X PATCH http://localhost:3000/personas/3 \
 -H "Content-Type: application/json" \
@@ -93,7 +87,8 @@ curl -X PATCH http://localhost:3000/personas/3 \
 
 ⸻
 
-🔹 7. Mostrar personas de más de 30 años
+🔹 7. Muestra todas las personas de más de 30 años
+
 
 curl -s http://localhost:3000/personas | jq '.[] | select(.edad > 30)'
 
@@ -104,7 +99,8 @@ curl -s http://localhost:3000/personas | jq -r '.[] | select(.edad > 30) | .nomb
 
 ⸻
 
-🔹 8. Mostrar todos los coches de una persona
+🔹 8. Muestra todos los coches de una persona. solo los coches
+
 
 Ejemplo: persona 1
 
