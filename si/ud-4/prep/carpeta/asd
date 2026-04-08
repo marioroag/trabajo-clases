@@ -1,0 +1,28 @@
+mario@MacBook-de-Mario prep-pt5 % ./script.sh
+10
+asdasd_copy_3.txt
+mario@MacBook-de-Mario prep-pt5 % ./script.sh
+10
+asdasd_copy.txt
+mario@MacBook-de-Mario prep-pt5 % ./script.sh
+10
+Tamaño máximo encontrado: 739 bytes
+Archivos más grandes:
+asdasd_copy_2.txt
+rm: carpeta/Tamaño: No such file or directory
+Tamaño eliminado
+rm: carpeta/máximo: No such file or directory
+máximo eliminado
+rm: carpeta/encontrado:: No such file or directory
+encontrado: eliminado
+rm: carpeta/739: No such file or directory
+739 eliminado
+rm: carpeta/bytes: No such file or directory
+bytes eliminado
+rm: carpeta/Archivos: No such file or directory
+Archivos eliminado
+rm: carpeta/más: No such file or directory
+más eliminado
+rm: carpeta/grandes:: No such file or directory
+grandes: eliminado
+asdasd_copy_2.txt eliminado

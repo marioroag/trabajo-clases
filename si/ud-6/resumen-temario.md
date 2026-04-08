@@ -686,3 +686,29 @@ Si dudas:
 2. si es array, usa `[]`
 3. si quieres filtrar, usa `select()`
 4. si quieres varios campos, usa `{campo1, campo2}`
+
+#!/bin/bash
+
+url=$1
+
+while true; do
+  # Obtenemos las cabeceras (-I) y en silencio (-s)
+  headers=$(curl -s -I "$url")
+
+  # Extraemos el código de estado
+  status=$(echo "$headers" | head -n 1 | awk '{print $2}')
+
+  # Si es redirección (3xx)
+  if [[ $status =~ ^3 ]]; then
+    # Extraemos la nueva URL (Location)
+    new_url=$(echo "$headers" | grep -i "^Location:" | awk '{print $2}' | tr -d '\r')
+
+    echo "Redirige a: $new_url"
+
+    url=$new_url
+  else
+    # Si no hay redirección, hemos llegado al final
+    echo "URL final: $url"
+    break
+  fi
+done
