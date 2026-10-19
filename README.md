@@ -1,1 +1,1 @@
-**Repositorio del curso escolar 2025/2026 en STEMGranada**
+**Repositorio del curso escolar 2025/2026 en STEMGranada y 2026/2028 en EscuelaArteGranada**
