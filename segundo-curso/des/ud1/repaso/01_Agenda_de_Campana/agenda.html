@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><meta charset="UTF-8"><title>Agenda electoral ficticia</title></head>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Agenda electoral ficticia</title>
+</head>
+
 <body>
     <h1>Agenda electoral 2026 (simulación)</h1>
     <p>Datos inventados con partidos reales. No son actos oficiales.</p>
@@ -13,9 +18,30 @@
             <option value="Málaga">Málaga</option>
         </select>
         <!-- TODO: selector partido: Todos, PSOE, PP, Vox, Sumar, Podemos -->
+        <fieldset>
+            <legend>Partido:</legend>
+            <label class="opcion"><input type="radio" name="partido" value="todos" checked> Todos</label>
+            <label class="opcion"><input type="radio" name="partido" value="psoe"> PSOE</label>
+            <label class="opcion"><input type="radio" name="partido" value="PP"> PP</label>
+            <label class="opcion"><input type="radio" name="partido" value="vox"> Vox</label>
+            <label class="opcion"><input type="radio" name="partido" value="sumar"> Sumar</label>
+            <label class="opcion"><input type="radio" name="partido" value="podemos"> Podemos</label>
+        </fieldset>
         <!-- TODO: selector tipo: Todos, Mitin, Debate, Encuentro -->
+        <fieldset>
+            <legend>Tipo:</legend>
+            <label class="opcion"><input type="radio" name="tipo" value="todos" checked> Todos</label>
+            <label class="opcion"><input type="radio" name="tipo" value="mitin"> Mitin</label>
+            <label class="opcion"><input type="radio" name="tipo" value="debate"> Debate</label>
+            <label class="opcion"><input type="radio" name="tipo" value="encuentro"> Encuentro</label>
+        </fieldset>
         <!-- TODO: límite numérico: name="limite", entre 1 y 10, valor inicial 5 -->
+        <div class="campo">
+            <label for="limite">Límite</label>
+            <input type="number" id="limite" name="limite" min="1" max="10" step="1" value="5">
+        </div>
         <button type="submit">Consultar agenda</button>
     </form>
 </body>
+
 </html>
