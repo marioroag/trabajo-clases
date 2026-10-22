@@ -1,0 +1,53 @@
+:root {
+    /* Colores Principales y de Acento */
+    --color-salmon: hsl(7, 99%, 70%);
+    --color-amarillo: hsl(51, 100%, 49%);
+    
+    /* Textos y Secciones */
+    --color-texto-diseno: hsl(167, 40%, 24%);
+    --color-texto-fotografia: hsl(198, 62%, 26%);
+    --color-pie-pagina: hsl(168, 34%, 41%);
+    
+    /* Tonos Neutros */
+    --color-neutro-azul-muy-oscuro: hsl(212, 27%, 19%);
+    --color-neutro-grisaceo-muy-oscuro: hsl(213, 9%, 39%);
+    --color-neutro-grisaceo-oscuro: hsl(232, 10%, 55%);
+    --color-neutro-grisaceo: hsl(210, 4%, 67%);
+    --color-blanco: hsl(0, 0%, 100%);
+}
+
+body {
+    font-family: "Barlow", serif;
+    font-weight: 600;
+    font-size: 18px;
+    background-color: var(--color-blanco);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Fraunces", serif;
+    font-weight: 900;
+}
+
+#header {
+    background: url("../LandingPage/images/desktop/image-header.jpg") no-repeat center center / cover;
+    min-width: 100%;
+    min-height: 100vh;
+}
+#hero {
+    margin-top: 200px;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--color-blanco);
+
+    h1 {
+        font-size: 4.5rem;
+    }
+
+    #flecha-hero {
+        margin-top: 80px;
+    }
+}
+
+nav.navbar {
+    background-color: transparent;
+}
