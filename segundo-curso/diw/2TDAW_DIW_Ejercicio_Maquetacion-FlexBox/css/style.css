@@ -1,20 +1,21 @@
-:root{
-    --negro:black;
-    --blanco:white;
-    --crimson:crimson;
+:root {
+    --negro: black;
+    --blanco: white;
+    --crimson: crimson;
     --morado: #3742fa;
     --grisOscuro: #222;
     --grisClaro: #667;
+    --grisMasClaro: rgb(170, 170, 182);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: all .5s;
 }
 
-body,html {
+body,
+html {
     font-family: "Roboto", sans-serif;
     font-size: 14px;
 }
@@ -28,18 +29,18 @@ a {
 }
 
 /* HEADER */
-header#header{
+header#header {
     max-width: 80%;
     margin: auto;
-    
+
     padding: 50px 0;
-    
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    nav.menu{
-        a{
+    nav.menu {
+        a {
             font-size: 18px;
             font-weight: bold;
             color: var(--negro);
@@ -49,11 +50,11 @@ header#header{
             margin: 0 5px;
             border-left: solid 3px;
 
-            &:first-child{
+            &:first-child {
                 border: none;
             }
-    
-            &:hover{
+
+            &:hover {
                 color: var(--morado);
                 border-color: var(--negro)
             }
@@ -63,28 +64,28 @@ header#header{
 }
 
 /* BANNER */
-section#banner{
+section#banner {
     width: 100%;
     min-height: 100vh;
-    
+
     background: url(../img/fondo.jpg) center center no-repeat;
     background-size: cover;
-    
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+
     color: var(--blanco);
     text-align: center;
-    
-    h1{
+
+    h1 {
         font-size: 4rem;
         margin-bottom: 8px;
         text-transform: uppercase;
     }
 
-    p{
+    p {
         margin: 8px 0 50px;
         max-width: 80%;
 
@@ -92,7 +93,7 @@ section#banner{
         font-weight: 400;
     }
 
-    a{
+    a {
         padding: 18px 70px;
         background-color: var(--morado);
 
@@ -101,9 +102,129 @@ section#banner{
         font-weight: 700;
         text-transform: uppercase;
 
-        &:hover{
+        &:hover {
             background-color: var(--crimson);
-            transform:scale(1.1)
+            transform: scale(1.1)
         }
+    }
+}
+
+/* SERVICIOS */
+#servicios {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border-bottom: 1px solid var(--grisMasClaro);
+
+    .arriba {
+        text-align: center;
+        padding-bottom: 5rem;
+
+        h2 {
+            font-size: 2rem;
+            color: var(--morado);
+            padding-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+            max-width: 70%;
+            margin-inline: auto;
+            color: var(--grisClaro);
+        }
+    }
+
+    .abajo {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        gap: 8rem;
+
+
+        article {
+            max-width: 15%;
+            line-height: 20px;
+
+            .cabecera {
+                display: flex;
+                flex-direction: row;
+                align-items: end;
+                margin-bottom: 1rem;
+
+                h3 {
+                    color: var(--grisClaro);
+                }
+
+                p {
+                    color: var(--grisClaro);
+                    font-size: 1.2rem;
+                }
+
+                img {
+                    margin-right: 1rem;
+                }
+            }
+        }
+    }
+}
+
+/* GALERÍA */
+#galeria {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-height: 70vh;
+    margin-bottom: 10rem;
+
+    text-align: center;
+
+    h2 {
+        margin-block: 8rem;
+
+        font-size: 2rem;
+        color: var(--morado);
+    }
+
+    #fotos {
+        display: flex;
+        flex-direction: row;
+
+        gap: 2rem;
+
+        p:first-of-type {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--grisClaro);
+
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        p {
+            font-weight: 500;
+            color: var(--grisMasClaro);
+        }
+    }
+}
+
+/* FOOTER */
+
+#footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 3rem;
+
+    background-color: var(--negro);
+    min-height: 40vh;
+
+    a {
+        text-decoration: none;
+        color: var(--blanco);
     }
 }
