@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+}
+
+/* HEADER */
+header#header {
+    max-width: 70%;
+    height: 10vh;
+    margin: auto;
+
+    padding: 50px 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    nav.menu {
+        #login {
+            margin-left: 2rem;
+            padding: 1rem 4rem;
+            border-radius: 2rem;
+            color: white;
+            background-color: cadetblue;
+        }
+
+        a {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--negro);
+            text-transform: uppercase;
+
+            margin-right: 2rem;
+
+            text-decoration: none;
+
+            &:hover {
+                color: cadetblue;
+            }
+        }
+    }
+}
+
+/* BANNER */
+#banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 70vh;
+
+    color: aliceblue;
+
+    background: url(../img/fondo.jpg) center center no-repeat;
+    background-size: cover;
+
+    h1 {
+        font-size: 8rem;
+        text-transform: uppercase;
+    }
+
+    p {
+        margin-bottom: 2rem;
+        font-size: 2rem;
+    }
+
+    a {
+        text-transform: uppercase;
+        text-decoration: none;
+
+        color: white;
+
+        border: 1px solid white;
+        border-radius: 2rem;
+
+        padding: 1rem 2rem;
+    }
+}
+
+/* INTRO */
+#intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 45vh;
+
+    img {
+        margin-bottom: 3rem;
+    }
+
+    p {
+        max-width: 50%;
+
+        text-align: center;
+        line-height: 2rem;
+        font-weight: 400;
+        color: rgb(68, 68, 68);
+        font-size: 1.2rem;
+    }
+}
+
+/* SERVICIOS */
+#servicios {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    background-color: cadetblue;
+
+    min-height: 60vh;
+
+    #items-servicios {
+        display: flex;
+        flex-direction: row;
+
+        margin-top: 4rem;
+
+        gap: 5rem;
+
+        article {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            font-weight: 300;
+
+            .icono {
+                padding: 2rem;
+                border: 2px solid white;
+                border-radius: 50%;
+                margin-bottom: 1rem;
+            }
+
+            h3 {
+                font-weight: 300;
+                margin-bottom: 3px;
+            }
+        }
+    }
+
+    h2 {
+        font-size: 4rem;
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+}
+
+/* SECCION A */
+#seccion-a {
+    min-height: 60vh;
+    padding-top: 15rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    img {
+        height: 450px;
+        width: auto;
+    }
+
+    article {
+        max-width: 25%;
+
+        h3 {
+            font-size: 1.5rem;
+            word-spacing: 0.2rem;
+            text-transform: uppercase;
+
+            margin-bottom: 2rem;
+        }
+
+        p {
+            border-top: 1px solid rgb(208, 206, 206);
+            padding-top: 2rem;
+
+            margin-bottom: 3rem;
+
+            line-height: 1.75rem;
+        }
+
+        a {
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2rem;
+
+            color: white;
+            background-color: cadetblue;
+        }
+    }
+}
+
+/* FOOTER */
+footer#footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    background-color: rgb(70, 70, 70);
+    height: 15vh;
+
+    p {
+        color: gray;
+    }
+
+    div#socials {
+        display: flex;
+        gap: 1rem;
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            height: 50px;
+            width: 50px;
+            border: 1px solid rgb(187, 186, 186);
+            border-radius: 50%;
+
+            img {
+                height: 15px;
+                width: auto;
+            }
+        }
+    }
+}
