@@ -1,0 +1,40 @@
+h1,h2,h3,h4,h5 {
+    font-family: "Fraunces", serif;
+}
+
+body {
+    font-family: "Barlow", sans-serif;
+    font-size: 15px;
+}
+
+header#header {
+    width: 100vw;
+    min-height: 100vh;
+
+    background: url('../images/desktop/image-header.jpg') no-repeat center center / cover;
+
+    #hero {
+        min-height: 70vh;
+        align-content: center;
+
+        h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            letter-spacing: 1rem;
+            color: white;
+
+            margin-bottom: 7rem;
+        }
+    }
+}
+
+#cuadricula {
+    img {
+        width: 100%;
+        background-color: crimson;
+    }
+
+    .row > div {
+        min-height: 100%;
+    }
+}
