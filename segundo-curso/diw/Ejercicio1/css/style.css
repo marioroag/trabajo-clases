@@ -13,7 +13,7 @@ html {
 /* HEADER */
 header#header {
     max-width: 70%;
-    height: 10vh;
+    max-height: 10vh;
     margin: auto;
 
     padding: 50px 0;
@@ -22,13 +22,31 @@ header#header {
     justify-content: space-between;
     align-items: center;
 
+    @media screen and (width<1010px) {
+        flex-direction: column;
+        max-height: 20vh;
+        max-width: 90vw;
+        text-align: center;
+        img {
+            margin-bottom: 1rem;
+        }
+
+    }
+
     nav.menu {
-        #login {
+        
+        min-width: 70%;
+        a:last-child {
             margin-left: 2rem;
             padding: 1rem 4rem;
             border-radius: 2rem;
             color: white;
             background-color: cadetblue;
+
+            @media screen and (width<960px){
+            margin-left: 0;
+            padding: 1rem 0;
+        }
         }
 
         a {
@@ -45,6 +63,8 @@ header#header {
                 color: cadetblue;
             }
         }
+
+        
     }
 }
 
@@ -93,6 +113,14 @@ header#header {
     justify-content: center;
 
     min-height: 45vh;
+
+    @media screen and (width<768px) {
+        
+    }
+
+    @media (max-width: 767px) {
+        flex-direction: row;
+    }
 
     img {
         margin-bottom: 3rem;
