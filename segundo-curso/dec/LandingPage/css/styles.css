@@ -1,0 +1,250 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Fraunces", serif;
+}
+
+body {
+    font-family: "Barlow", sans-serif;
+    font-size: 15px;
+}
+
+header {
+    height: 100vh;
+    background: url('../images/desktop/image-header.jpg') no-repeat center center / cover;
+
+    #hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            margin-top: 8rem;
+
+            font-weight: 900;
+            font-size: 4rem;
+            letter-spacing: 1rem;
+            text-transform: uppercase;
+            margin-bottom: 10rem;
+        }
+    }
+
+    .nav-pills {
+        background-color: transparent;
+        gap: 1.5rem;
+    }
+
+    .nav-link {
+        color: white;
+
+        &:last-child {
+            padding: 8px 20px;
+            text-transform: uppercase;
+            font-weight: 700;
+
+            color: black;
+            background-color: white;
+        }
+    }
+
+
+    @media screen and (width < 768px) {
+        height: 80vh;
+
+        #hero h1 {
+            text-align: center;
+            font-size: 3.5rem;
+
+            margin-bottom: 3rem;
+        }
+    }
+}
+
+main {
+    section#features {
+        margin-block-end: 0;
+
+        div#stand-out,
+        div#transform {
+            align-content: center;
+            padding: 100px 170px;
+
+            background-color: white;
+            color: black;
+
+            h2 {
+                font-size: 3rem;
+                font-weight: 700;
+                margin-bottom: 2rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+
+            a {
+                text-decoration: none;
+                color: black;
+                font-weight: 900;
+                font-family: "Fraunces", serif;
+                text-transform: uppercase;
+            }
+
+            @media screen and (width<768px) {
+                text-align: center;
+                padding: 100px 50px;
+
+                p {
+                    font-size: 1.2rem;
+                    color: grey;
+
+                    font-weight: 500;
+                }
+
+                a {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+
+        img {
+            width: 100%;
+            max-height: 650px;
+        }
+
+        div#graphic {
+            background: url('../images/desktop/image-graphic-design.jpg') no-repeat center center / cover;
+
+        }
+
+        div#photography {
+            background: url('../images/desktop/image-photography.jpg') no-repeat center center / cover;
+        }
+
+        div#graphic,
+        div#photography {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: end;
+
+            min-height: 650px;
+            padding-bottom: 3rem;
+
+            color: black;
+
+            h2 {
+                font-size: 2rem;
+                font-weight: 700;
+                margin-bottom: 2rem;
+            }
+
+            p {
+                max-width: 500px;
+                text-align: center;
+
+                font-size: 1.15rem;
+
+            }
+
+            @media screen and (width < 768px) {
+                min-height: 80vh;
+            }
+        }
+    }
+
+    section#trust {
+        background-color: white;
+        color: black;
+
+        min-height: 80vh;
+
+        h2 {
+            padding-top: 10rem;
+            padding-bottom: 5rem;
+
+            color: gray;
+
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        #testimonials {
+            text-align: center;
+            max-width: 80%;
+
+            div {
+                margin-bottom: 4rem;
+            }
+
+            img {
+                height: 80px;
+                border-radius: 50%;
+            }
+
+            p:first-of-type {
+                margin: 3rem 1rem;
+
+                font-size: 1.15rem;
+            }
+
+            p:nth-of-type(2) {
+                font-weight: 900;
+            }
+
+            p:last-child {
+                font-size: 0.9rem;
+                font-weight: 700;
+                color: rgb(163, 163, 163);
+            }
+        }
+    }
+
+    section#decor {
+        img {
+            height: auto;
+            width: 100%;
+        }
+    }
+
+}
+
+footer#footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgb(84, 209, 186);
+
+    padding: 3.5rem;
+
+    #more {
+        margin-top: 2rem;
+
+        a {
+            text-decoration: none;
+            color: rgb(44, 108, 96);
+            font-weight: 500;
+            margin-inline: 2rem;
+
+        }
+    }
+
+    #socials {
+        margin-top: 4rem;
+
+        a {
+            text-decoration: none;
+            color: rgb(44, 108, 96);
+            margin-inline: 1rem;
+        }
+    }
+}
