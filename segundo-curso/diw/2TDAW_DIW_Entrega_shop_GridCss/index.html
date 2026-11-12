@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            padding: 1rem;
+        }
+
+        header {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+
+            p {
+                font-size: 1.5rem;
+            }
+
+            #menu {
+                display: flex;
+                gap: 20px;
+            }
+        }
+
+        main {
+            #title {
+                h1 {
+                    font-size: 4rem;
+                    font-weight: 400;
+                }
+
+                span {
+                    font-size: 10px;
+                    font-weight: 400;
+
+                    margin-left: 5px;
+                }
+            }
+
+            #search {
+                display: flex;
+                justify-content: space-between;
+                
+                p:nth-child(1n)::after {
+                    display: block;
+                    content: "";
+                    height: 1px;
+                    width: 40px;
+                    background-color: black;
+                    margin-top: 3px;
+                }
+
+                div {
+                    display: flex;
+                    
+
+                    p {
+                        color: rgb(177, 177, 177);
+                    }
+
+                    a {
+                        margin-block: 16px;
+                        margin-left: 6px;
+                    }
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p>barlovento</p>
+        <div id="menu">
+            <a>Products</a>
+            <a>Bestsellers</a>
+            <a>About us</a>
+            <a>Cart (0)</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="title">
+            <h1>All products<span>(19)</span></h1>
+        </section>
+
+        <section id="search">
+            <p>Filters</p>
+            <div>
+                <p>Sort by: </p>
+                <a>Default</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
